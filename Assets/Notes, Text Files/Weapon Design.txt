@@ -1,7 +1,8 @@
 Weapons
 Currently thinking about 3 tiers of weapons, with 3-4 weapons each.
+Description Format: Magazine capacity. Fire Rate. Reload time. Damage. Hitscan/projectile
 
-Small Arms: Weapons that can be carried by a real-life human. Primaries you use in COD, Battlefield, can buy at the gun store
+Small Arms: Weapons that can be carried by a real-life human. Primaries you use in COD, Battlefield, can buy at the gun store. Example: M4A1 Carbine
 
 Rifle: 30 rounds/mag. 750 rounds/minute (2.5/sec). 3 second reload. 25 damage per hit. Hitscan.
 Shotgun: 5 round capacity. 1 shot/second. ~1.5 second reload per shell, can stop reloading before full. 
@@ -9,13 +10,14 @@ Shoots 11 pellets in a random spread cone, one pellet always dead center, 8 dama
 Submachine gun: 40 rounds/mag. 1800 rounds/minute (6/sec). 4 second reload. 15 damage per hit. Hitscan.
 
 
-Big Arms: Weapons that are used by the military. Not necessarily man-portable, but they exist or could exist
+Big Arms: Weapons that are used by the military. Not necessarily man-portable, but they exist or could exist. Example: RPG-7
 
 Rocket launcher
 Railgun (piercing)
 
 
-Boss Arms
+Boss Arms: Weapons that are absurd and fantastical. Should look aesthetically modern/sci-fi Example: BFG-9000 (DOOM)
+
 Half-life 2 smg secondary fire (sphere of death)
 Absurd minigun (Doom 2016 chaingun alt-fire, 3/4 spinning barrels)
 
