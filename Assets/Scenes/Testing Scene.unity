@@ -519,6 +519,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f148bc236679d8e42a6cef4448c0812b, type: 3}
+--- !u!1 &1052154790 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5278417506400923961, guid: b0e392bb9b6e57f429c876a519aacead, type: 3}
+  m_PrefabInstance: {fileID: 466576502070715199}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1092203933
 GameObject:
   m_ObjectHideFlags: 0
@@ -923,6 +928,10 @@ PrefabInstance:
       propertyPath: ammoText
       value: 
       objectReference: {fileID: 172347825}
+    - target: {fileID: 8440594190538622818, guid: b0e392bb9b6e57f429c876a519aacead, type: 3}
+      propertyPath: firePoint
+      value: 
+      objectReference: {fileID: 1052154790}
     - target: {fileID: 8440594190538622818, guid: b0e392bb9b6e57f429c876a519aacead, type: 3}
       propertyPath: reloadTime
       value: 3500
