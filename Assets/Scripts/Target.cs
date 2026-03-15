@@ -20,6 +20,7 @@ public class Target : MonoBehaviour
     {
         if(collision.gameObject.tag == "Projectile")
         {
+            Debug.Log("Health: " + health);
             int damage = collision.gameObject.GetComponent<int>();
             health -= damage;
 
