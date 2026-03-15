@@ -6,6 +6,7 @@ using UnityEngine.InputSystem;
 public class Projectile : MonoBehaviour
 {
     public float velocity;
+    //Not necessary now, maybe not in future
     public float deceleration;
     public int damage;
 
@@ -23,12 +24,14 @@ public class Projectile : MonoBehaviour
         return damage;
     }
 
-    // Update is called once per frame
+    public void OnCollisionEnter()
+    {
+        Destroy(gameObject);
+    }
+
+
     void Update()
     {
-        Vector3 moveDirection = new Vector3(0, 0, velocity);
-        t.position += moveDirection;
-        if(velocity > 0)
-            velocity -= deceleration;
+
     }
 }
