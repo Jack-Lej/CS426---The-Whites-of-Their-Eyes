@@ -25,6 +25,9 @@ public class CustomBullet : MonoBehaviour
     public float maxLifetime;
     public bool explodeOnTouch = true;
 
+    // Check Explosion
+    private bool hasExploded = false;
+
     int collisions;
     PhysicsMaterial physics_mat;
 
@@ -45,9 +48,15 @@ public class CustomBullet : MonoBehaviour
 
     private void Explode()
     {
-        Debug.Log("BOOM!");
+        // if (hasExploded) return; // Prevent multiple explosions
         //Instantiate explosion
-        if (explosion != null) Instantiate(explosion, transform.position, Quaternion.identity);
+        if (explosion != null && !hasExploded)
+        {
+            // prevent multiple explosion VFX from spawning
+            Instantiate(explosion, transform.position, Quaternion.identity);
+        } 
+
+        hasExploded = true;
 
         //Check for enemies 
         Collider[] enemies = Physics.OverlapSphere(transform.position, explosionRange, whatIsEnemies);
