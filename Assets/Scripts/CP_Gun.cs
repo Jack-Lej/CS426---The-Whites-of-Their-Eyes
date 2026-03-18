@@ -5,6 +5,14 @@ using UnityEngine.InputSystem;
 public class CP_Gun : Gun
 {
     private bool shooting;
+    // TODO
+    // private RotateAroundObj rotateScript; // implment rotation within CP_Gun instead of using a separate script
+    protected override void Awake()
+    {
+        base.Awake();
+        // rotateScript = GetComponent<RotateAroundObj>();
+        // rotateScript.PivotObj
+    }
 
     // Modified Shoot function without camera needed
     protected void Shoot()
@@ -74,5 +82,7 @@ public class CP_Gun : Gun
             shooting = false;
         }
     }
+
+
 
 }

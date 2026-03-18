@@ -4,7 +4,7 @@ using UnityEngine;
 // This is used to delte VFX of the bullet collision to simulate a short, small explosion
 public class VFX_timeout : MonoBehaviour
 {
-    public float duration = 1f;
+    public float duration = 1.5f;
 
     void Start()
     {
