@@ -15,8 +15,20 @@ public class RotateAroundObj : MonoBehaviour
         get { return isFacingTarget; }
     }
 
+    public GameObject TargetObj
+    {
+        get { return targetObj; }
+        set { targetObj = value; }
+    }
+
+    public float RotationSpeed
+    {
+        get { return rotationSpeed; }
+        set { rotationSpeed = value; }
+    }
+
     // Update is called once per frame
-    void Update()
+    internal void Update()
     {
         // Calculate direction from sourceObj's position, not transform's
         Vector3 targetDirection = targetObj.transform.position - sourceObj.transform.position;
@@ -25,9 +37,10 @@ public class RotateAroundObj : MonoBehaviour
         float angleToTarget = Vector3.SignedAngle(sourceObj.transform.forward, targetDirection, Vector3.up);
 
         // Stops rotation when sourceObj is facing the targetObj
-        if (angleToTarget == 0f)
+        if (Mathf.Abs(angleToTarget) <= 0.5f)
         {
             isFacingTarget = true;
+            Debug.Log("Facing target");
             return;
         }
         else

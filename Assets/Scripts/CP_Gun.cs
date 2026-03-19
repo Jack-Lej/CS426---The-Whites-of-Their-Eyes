@@ -5,13 +5,25 @@ using UnityEngine.InputSystem;
 public class CP_Gun : Gun
 {
     private bool shooting;
-    // TODO
-    // private RotateAroundObj rotateScript; // implment rotation within CP_Gun instead of using a separate script
+    [Header("Rotation")]
+    private RotateAroundObj rotateScript; // implment rotation within CP_Gun instead of attaching two scripts to the turret
+    public GameObject pivotObj; // The object to rotate around, used for the RotateAroundObj script
+    public GameObject targetObj; // The object to face towards, used for the RotateAroundObj script
+    public float rotationSpeed; // The speed at which the turret rotates, used for the RotateAroundObj script
     protected override void Awake()
     {
         base.Awake();
-        // rotateScript = GetComponent<RotateAroundObj>();
-        // rotateScript.PivotObj
+        // Set up the RotateAroundObj script with the appropriate references and values
+        rotateScript = GetComponent<RotateAroundObj>();
+        rotateScript.PivotObj = pivotObj;
+        rotateScript.TargetObj = targetObj;
+        rotateScript.RotationSpeed = rotationSpeed;
+        rotateScript.sourceObj = attackPoint.gameObject; // Set the sourceObj to the end of the gun barrel
+    }
+
+    override protected void Update()
+    {
+       rotateScript.Update(); // Call the Update function of the RotateAroundObj script to rotate the turret towards the target object
     }
 
     // Modified Shoot function without camera needed
@@ -60,7 +72,8 @@ public class CP_Gun : Gun
     // When a player is within the trigger collider, the turret keeps firing
     private void OnTriggerStay(Collider other)
     {   
-        if (other.CompareTag("Player"))
+        // Debug.Log("Is faceing target: " + rotateScript.IsFacingTarget);
+        if (rotateScript.IsFacingTarget && other.CompareTag("Player"))
         {
             shooting = true;
             if (readyToShoot && shooting && !reloading && bulletsLeft > 0)

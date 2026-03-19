@@ -474,9 +474,13 @@ PrefabInstance:
       propertyPath: m_Name
       value: RocketTurret_1_CP 1
       objectReference: {fileID: 0}
+    - target: {fileID: 4977582166275704896, guid: d4a113cb6e3e13b4295e9080761fcdf3, type: 3}
+      propertyPath: targetObj
+      value: 
+      objectReference: {fileID: 1406296699}
     - target: {fileID: 9117049063281708584, guid: d4a113cb6e3e13b4295e9080761fcdf3, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 6.0799074
+      value: 7.4940214
       objectReference: {fileID: 0}
     - target: {fileID: 9117049063281708584, guid: d4a113cb6e3e13b4295e9080761fcdf3, type: 3}
       propertyPath: m_LocalPosition.y
@@ -484,23 +488,23 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9117049063281708584, guid: d4a113cb6e3e13b4295e9080761fcdf3, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 17.47
+      value: 18.538893
       objectReference: {fileID: 0}
     - target: {fileID: 9117049063281708584, guid: d4a113cb6e3e13b4295e9080761fcdf3, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 1
+      value: 0.7427975
       objectReference: {fileID: 0}
     - target: {fileID: 9117049063281708584, guid: d4a113cb6e3e13b4295e9080761fcdf3, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 9117049063281708584, guid: d4a113cb6e3e13b4295e9080761fcdf3, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0
+      value: 0.6695162
       objectReference: {fileID: 0}
     - target: {fileID: 9117049063281708584, guid: d4a113cb6e3e13b4295e9080761fcdf3, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 9117049063281708584, guid: d4a113cb6e3e13b4295e9080761fcdf3, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -508,7 +512,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9117049063281708584, guid: d4a113cb6e3e13b4295e9080761fcdf3, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
+      value: 84.059
       objectReference: {fileID: 0}
     - target: {fileID: 9117049063281708584, guid: d4a113cb6e3e13b4295e9080761fcdf3, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
@@ -685,6 +689,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 415565828}
   - {fileID: 1215191858}
   - {fileID: 1178422066}
   - {fileID: 2046038804}
@@ -703,7 +708,6 @@ Transform:
   - {fileID: 906954857}
   - {fileID: 1001912985}
   - {fileID: 624872693}
-  - {fileID: 415565828}
   - {fileID: 809035281}
   - {fileID: 248039385}
   - {fileID: 746281943}
@@ -1405,6 +1409,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: MachineGunTurret_1_CP
       objectReference: {fileID: 0}
+    - target: {fileID: 4977582166275704896, guid: 0eede120640fd0a4ca0717a6893447bd, type: 3}
+      propertyPath: targetObj
+      value: 
+      objectReference: {fileID: 1406296699}
     - target: {fileID: 9117049063281708584, guid: 0eede120640fd0a4ca0717a6893447bd, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.16423792
