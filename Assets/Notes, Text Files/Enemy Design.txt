@@ -1,0 +1,10 @@
+To match the three tiers of weapons, we should have three tiers of enemies. It's fine if they're ripoffs of other games' enemies
+Description format: Name/description. Health. Weapons/damage. Nature (aggressive/neutral/timid)
+
+
+Boss-Tier 
+
+Major-Tier
+
+Minor-Tier
+Guys with Player's Small Arms weapons/equivalents: 200 health, weapons do same damage as player's (rifle, smg, shotgun)
