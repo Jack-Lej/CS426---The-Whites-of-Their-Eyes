@@ -4,12 +4,8 @@
 TagManager:
   serializedVersion: 3
   tags:
-<<<<<<< HEAD
-  - Enemy
-  - Bullet
-=======
   - Projectile
->>>>>>> master
+  - Shotgun Pellet
   layers:
   - Default
   - TransparentFX
@@ -17,7 +13,7 @@ TagManager:
   - 
   - Water
   - UI
-  - Enemies
+  - 
   - 
   - 
   - 
