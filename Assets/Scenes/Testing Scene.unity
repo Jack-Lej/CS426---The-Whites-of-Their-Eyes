@@ -519,10 +519,10 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f148bc236679d8e42a6cef4448c0812b, type: 3}
---- !u!1 &708407499 stripped
+--- !u!1 &947327492 stripped
 GameObject:
-  m_CorrespondingSourceObject: {fileID: 5278417506400923961, guid: b0e392bb9b6e57f429c876a519aacead, type: 3}
-  m_PrefabInstance: {fileID: 466576502070715199}
+  m_CorrespondingSourceObject: {fileID: 7465748865560835397, guid: 517b1f86209d9454b8bae3cc2006edb2, type: 3}
+  m_PrefabInstance: {fileID: 4245948713959554902}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &1092203933
 GameObject:
@@ -876,79 +876,6 @@ MonoBehaviour:
     m_VarianceClampScale: 0.9
     m_ContrastAdaptiveSharpening: 0
   m_Version: 2
---- !u!1001 &466576502070715199
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 1943519976431447204, guid: b0e392bb9b6e57f429c876a519aacead, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 3.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 1943519976431447204, guid: b0e392bb9b6e57f429c876a519aacead, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 1943519976431447204, guid: b0e392bb9b6e57f429c876a519aacead, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 3.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 1943519976431447204, guid: b0e392bb9b6e57f429c876a519aacead, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1943519976431447204, guid: b0e392bb9b6e57f429c876a519aacead, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1943519976431447204, guid: b0e392bb9b6e57f429c876a519aacead, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1943519976431447204, guid: b0e392bb9b6e57f429c876a519aacead, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1943519976431447204, guid: b0e392bb9b6e57f429c876a519aacead, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1943519976431447204, guid: b0e392bb9b6e57f429c876a519aacead, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1943519976431447204, guid: b0e392bb9b6e57f429c876a519aacead, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8440594190538622818, guid: b0e392bb9b6e57f429c876a519aacead, type: 3}
-      propertyPath: ammoText
-      value: 
-      objectReference: {fileID: 172347825}
-    - target: {fileID: 8440594190538622818, guid: b0e392bb9b6e57f429c876a519aacead, type: 3}
-      propertyPath: firePoint
-      value: 
-      objectReference: {fileID: 708407499}
-    - target: {fileID: 8440594190538622818, guid: b0e392bb9b6e57f429c876a519aacead, type: 3}
-      propertyPath: reloadTime
-      value: 3500
-      objectReference: {fileID: 0}
-    - target: {fileID: 8440594190538622818, guid: b0e392bb9b6e57f429c876a519aacead, type: 3}
-      propertyPath: weaponName
-      value: Test Gun
-      objectReference: {fileID: 0}
-    - target: {fileID: 8620483413673837701, guid: b0e392bb9b6e57f429c876a519aacead, type: 3}
-      propertyPath: m_Name
-      value: Weapon
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: b0e392bb9b6e57f429c876a519aacead, type: 3}
 --- !u!1001 &4245948713959554902
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -957,21 +884,45 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 4621641699532195472, guid: 517b1f86209d9454b8bae3cc2006edb2, type: 3}
+      propertyPath: ammoText
+      value: 
+      objectReference: {fileID: 172347825}
+    - target: {fileID: 4621641699532195472, guid: 517b1f86209d9454b8bae3cc2006edb2, type: 3}
+      propertyPath: firePoint
+      value: 
+      objectReference: {fileID: 947327492}
+    - target: {fileID: 4621641699532195472, guid: 517b1f86209d9454b8bae3cc2006edb2, type: 3}
+      propertyPath: ammoWeight
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4621641699532195472, guid: 517b1f86209d9454b8bae3cc2006edb2, type: 3}
+      propertyPath: reloadTime
+      value: 1200
+      objectReference: {fileID: 0}
+    - target: {fileID: 4621641699532195472, guid: 517b1f86209d9454b8bae3cc2006edb2, type: 3}
+      propertyPath: weaponName
+      value: Shotgun
+      objectReference: {fileID: 0}
+    - target: {fileID: 4621641699532195472, guid: 517b1f86209d9454b8bae3cc2006edb2, type: 3}
+      propertyPath: weaponWeight
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 8035691914405578683, guid: 517b1f86209d9454b8bae3cc2006edb2, type: 3}
       propertyPath: m_Name
       value: Shotgun
       objectReference: {fileID: 0}
     - target: {fileID: 9021301903011390967, guid: 517b1f86209d9454b8bae3cc2006edb2, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -2.41517
+      value: 3.5
       objectReference: {fileID: 0}
     - target: {fileID: 9021301903011390967, guid: 517b1f86209d9454b8bae3cc2006edb2, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0
+      value: 0.6
       objectReference: {fileID: 0}
     - target: {fileID: 9021301903011390967, guid: 517b1f86209d9454b8bae3cc2006edb2, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 6.91399
+      value: 3.5
       objectReference: {fileID: 0}
     - target: {fileID: 9021301903011390967, guid: 517b1f86209d9454b8bae3cc2006edb2, type: 3}
       propertyPath: m_LocalRotation.w
@@ -1014,7 +965,6 @@ SceneRoots:
   - {fileID: 137520015}
   - {fileID: 1273922815}
   - {fileID: 597355354}
-  - {fileID: 466576502070715199}
   - {fileID: 1092203937}
   - {fileID: 185872412}
   - {fileID: 4245948713959554902}
