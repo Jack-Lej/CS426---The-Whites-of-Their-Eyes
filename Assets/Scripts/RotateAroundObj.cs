@@ -40,7 +40,7 @@ public class RotateAroundObj : MonoBehaviour
         if (Mathf.Abs(angleToTarget) <= 0.5f)
         {
             isFacingTarget = true;
-            Debug.Log("Facing target");
+            // Debug.Log("Facing target");
             return;
         }
         else
