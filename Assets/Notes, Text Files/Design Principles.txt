@@ -1,2 +1,0 @@
-#1 The player can never gain resources at any time, they should only ever lose resources.
-#2 Each level's entrance is blocked by a weight-limit elevator. If the player is over weight, they must discard ammo, weapons, or health kits
