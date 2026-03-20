@@ -14,6 +14,9 @@ public class Shotgun : Weapon
     void Start()
     {
         interruptReload = false;
+        currAmmo = magazineSize;
+        reserveAmmo -= magazineSize;
+        ammoText.text = string.Concat(weaponName, " ammo: ", currAmmo.ToString(), "/", magazineSize.ToString(), "\nReserve Ammo: ", reserveAmmo.ToString());
     }
 
     //Over-ridden because the shotgun fires 10 pellets at once
@@ -72,9 +75,10 @@ public class Shotgun : Weapon
         }
         if(reloading && reloadEnd.CompareTo(DateTime.Now) <= 0)
         {
+            reloading = false;
             if(interruptReload)
             {
-                reloading = false;
+                
                 FireWeapon();
             }
             else
