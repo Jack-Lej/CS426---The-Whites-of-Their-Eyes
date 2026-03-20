@@ -26,10 +26,12 @@ public class Weapon : MonoBehaviour
     //Simple check for reloading; disable firing during reload
     protected bool reloading;
 
+    [SerializeField] protected int projectileVelocity;
+
 
     [SerializeField] protected GameObject projectile;
     [SerializeField] protected TMP_Text ammoText;
-    //Where projectiles spawn from
+    //Where projectiles spawn from on the weapon's model
     [SerializeField] protected GameObject firePoint;
 
     [SerializeField] protected string weaponName;
@@ -66,7 +68,7 @@ public class Weapon : MonoBehaviour
             lastShot = DateTime.Now;
             lastShotEnd = lastShot.AddMilliseconds(fireDelay);
             GameObject p = Instantiate(projectile, firePoint.transform.position, firePoint.transform.rotation);
-            p.GetComponent<Rigidbody>().AddForce(p.transform.forward * 100);
+            p.GetComponent<Rigidbody>().AddForce(p.transform.forward * projectileVelocity);
             ammoText.text = string.Concat(weaponName, " ammo: ", currAmmo.ToString(), "/", magazineSize.ToString(), "\n", "Reserve Ammo: ", reserveAmmo.ToString());
         }
     }

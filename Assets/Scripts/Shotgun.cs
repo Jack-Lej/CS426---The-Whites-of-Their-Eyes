@@ -37,7 +37,7 @@ public class Shotgun : Weapon
             lastShot = DateTime.Now;
             lastShotEnd = lastShot.AddMilliseconds(fireDelay);
             GameObject pCenter = Instantiate(projectile, firePoint.transform.position, firePoint.transform.rotation);
-            pCenter.GetComponent<Rigidbody>().AddForce(pCenter.transform.forward * 200);
+            pCenter.GetComponent<Rigidbody>().AddForce(pCenter.transform.forward * projectileVelocity);
             ammoText.text = string.Concat(weaponName, " ammo: ", currAmmo.ToString(), "/", magazineSize.ToString(), "\nReserve Ammo: ", reserveAmmo.ToString());
         }
     }
@@ -53,7 +53,7 @@ public class Shotgun : Weapon
             reloadEnd = reloadStart.AddMilliseconds(reloadTime);
             currAmmo++;
             reserveAmmo--;
-            ammoText.text = string.Concat(weaponName, " ammo: ", currAmmo.ToString(), "/", magazineSize.ToString(), "\nReserve Ammo:", reserveAmmo.ToString());
+            ammoText.text = string.Concat(weaponName, " ammo: ", currAmmo.ToString(), "/", magazineSize.ToString(), "\nReserve Ammo: ", reserveAmmo.ToString());
             
         }
         else
