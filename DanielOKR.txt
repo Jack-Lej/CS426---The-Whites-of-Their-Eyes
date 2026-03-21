@@ -1,0 +1,3 @@
+Create Prefabs for enemy turrets and projectiles -- Tues by 10pm (estimate 1 hr)
+Write scripts for turrets and projectiles -- Wed by 6pm (estimate 3 hrs)
+Write scripts for player tracking and turret roation -- Thurs by 10pm (estiamte 5 hrs)
