@@ -1638,6 +1638,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1931227507022522192, guid: 1a8d9082b8b13024fb25cc8ec8d55682, type: 3}
+      propertyPath: whatIsEnemies.m_Bits
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3096739852597059259, guid: 1a8d9082b8b13024fb25cc8ec8d55682, type: 3}
       propertyPath: m_Name
       value: Rocket_2

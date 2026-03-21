@@ -879,13 +879,14 @@ MonoBehaviour:
   reserveAmmo: 50
   reloadTime: 800
   fireDelay: 1000
-  projectileVelocity: 0
+  projectileVelocity: 200
   projectile: {fileID: 8106338980005277106, guid: f071bf02b8c261d4b8258146a1ae43d6, type: 3}
   ammoText: {fileID: 0}
   firePoint: {fileID: 0}
-  weaponName: 
-  weaponWeight: 0
-  ammoWeight: 0
+  weaponName: Shotgun
+  weaponWeight: 15
+  ammoWeight: 0.1
+  spread: 0.014
 --- !u!1 &8399655701193861514
 GameObject:
   m_ObjectHideFlags: 0
