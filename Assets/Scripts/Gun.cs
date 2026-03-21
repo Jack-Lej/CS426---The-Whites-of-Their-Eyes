@@ -63,14 +63,14 @@ public abstract class Gun : MonoBehaviour
         float y = Random.Range(-spread, spread);
 
         Vector3 directionWithSpread = directionWithoutSpread + new Vector3(x, y, 0);
-
+        // Rotates bullet so that it is facing the direction it is shooting
         Quaternion directionRotation = Quaternion.LookRotation(directionWithSpread.normalized);
         Quaternion offsetRotation = Quaternion.Euler(90, 0, 0);
         GameObject currentBullet = Instantiate(bullet, attackPoint.position, directionRotation * offsetRotation);
 
         currentBullet.GetComponent<Rigidbody>().AddForce(directionWithSpread.normalized * shootForce, ForceMode.Impulse);
         currentBullet.GetComponent<Rigidbody>().AddForce(shootCam.transform.up * upwardForce, ForceMode.Impulse);
-
+        // If there is a muzzle flash animation, instantiate it at the attack point
         if (muzzleFlash != null)
             Instantiate(muzzleFlash, attackPoint.position, Quaternion.identity);
 

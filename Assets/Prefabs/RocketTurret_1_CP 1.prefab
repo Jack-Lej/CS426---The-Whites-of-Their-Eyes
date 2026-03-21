@@ -785,7 +785,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 92bab320db77bf14483ce4c8d4c7dc04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CP_Gun
-  bullet: {fileID: 3096739852597059259, guid: 1a8d9082b8b13024fb25cc8ec8d55682, type: 3}
+  bullet: {fileID: 3096739852597059259, guid: 91bbaf4284c8c7541935e7cf6ebbf0f0, type: 3}
   shootForce: 30
   upwardForce: 0
   spread: 0

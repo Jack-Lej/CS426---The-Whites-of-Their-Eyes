@@ -22,7 +22,7 @@ public class PlayerGun : Gun
         shootAction.Enable();
         reloadAction.Enable();
     }
-
+    
     private void OnDestroy()
     {
         shootAction.Disable();
