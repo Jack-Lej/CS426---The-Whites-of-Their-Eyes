@@ -1,0 +1,5 @@
+* Researched CharacterController properties: 2 hours
+
+* Wrote basic control script w/8-directional movement: 4 hours
+
+* Found advanced control w/360 degree first person movement: 14 hours
