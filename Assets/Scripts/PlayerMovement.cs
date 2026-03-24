@@ -1,67 +1,64 @@
-using System.Collections;
-using System.Collections.Generic;
+// This first example shows how to move using Input System Package (New)
+
 using UnityEngine;
-// adding namespaces
-// because we are using the NetworkBehaviour class
-// NewtorkBehaviour class is a part of the Unity.Netcode namespace
-// extension of MonoBehaviour that has functions related to multiplayer
-public class PlayerMovement : MonoBehaviour
+using UnityEngine.InputSystem;
+
+public class Example : MonoBehaviour
 {
-    public float speed = 2f;
-    public float rotationSpeed = 90;
-    // create a list of colors
-    public List<Color> colors = new List<Color>();
+    private float playerSpeed = 5.0f;
+    private float jumpHeight = 1.5f;
+    private float gravityValue = -9.81f;
 
-    // getting the reference to the prefab
-    [SerializeField]
-    private GameObject spawnedPrefab;
-    // save the instantiated prefab
-    private GameObject instantiatedPrefab;
+    public CharacterController controller;
+    private Vector3 playerVelocity;
+    private bool groundedPlayer;
 
-    public GameObject cannon;
-    public GameObject bullet;
+    [Header("Input Actions")]
+    public InputActionReference moveAction;
+    public InputActionReference jumpAction;
 
-    Transform t;
-
-    // reference to the camera audio listener
-    [SerializeField] private AudioListener audioListener;
-    // reference to the camera
-    [SerializeField] private Camera playerCamera;
-
-
-    // Start is called before the first frame update
-    void Start()
+    private void OnEnable()
     {
-        t = GetComponent<Transform>();
+        moveAction.action.Enable();
+        jumpAction.action.Enable();
     }
-    // Update is called once per frame
+
+    private void OnDisable()
+    {
+        moveAction.action.Disable();
+        jumpAction.action.Disable();
+    }
+
     void Update()
     {
+        groundedPlayer = controller.isGrounded;
 
-        Vector3 moveDirection = new Vector3(0, 0, 0);
+        if (groundedPlayer)
+        {
+            // Slight downward velocity to keep grounded stable
+            if (playerVelocity.y < -2f)
+                playerVelocity.y = -2f;
+        }
 
-        if (Input.GetKey(KeyCode.W))
-        {
-            moveDirection.x = -1f;
-        }
-        if (Input.GetKey(KeyCode.S))
-        {
-            moveDirection.x = 1f;
-        }
-        if (Input.GetKey(KeyCode.A))
-        {
-            moveDirection.z = -1f;
-        }
-        if (Input.GetKey(KeyCode.D))
-        {
-            moveDirection.z = 1f;
-        }
-        transform.position += moveDirection * speed * Time.deltaTime;
+        // Read input
+        Vector2 input = moveAction.action.ReadValue<Vector2>();
+        Vector3 move = new Vector3(input.x, 0, input.y);
+        move = Vector3.ClampMagnitude(move, 1f);
 
-        if (Input.GetKey(KeyCode.Q))
-            t.rotation *= Quaternion.Euler(0, -rotationSpeed * Time.deltaTime, 0);
-        else if (Input.GetKey(KeyCode.E))
-            t.rotation *= Quaternion.Euler(0, rotationSpeed * Time.deltaTime, 0);
-    }        
-       
+        if (move != Vector3.zero)
+            transform.forward = move;
+
+        // Jump using WasPressedThisFrame()
+        if (groundedPlayer && jumpAction.action.WasPressedThisFrame())
+        {
+            playerVelocity.y = Mathf.Sqrt(jumpHeight * -2f * gravityValue);
+        }
+
+        // Apply gravity
+        playerVelocity.y += gravityValue * Time.deltaTime;
+
+        // Move
+        Vector3 finalMove = move * playerSpeed + Vector3.up * playerVelocity.y;
+        controller.Move(finalMove * Time.deltaTime);
+    }
 }
