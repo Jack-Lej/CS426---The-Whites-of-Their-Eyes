@@ -40,11 +40,16 @@ public class Weapon : MonoBehaviour
     //Weight per unit of ammo for the weapon
     [SerializeField] protected float ammoWeight;
 
+    [SerializeField] protected GameObject player;
+
     protected DateTime lastShot;
     protected DateTime lastShotEnd;
     protected DateTime reloadStart;
     protected DateTime reloadEnd;
-    
+
+    Transform t;
+    Vector3 sleepVector = new Vector3(0, 1000, 0);
+    Vector3 readyPosition = new Vector3(0.5, 0, 1);
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -54,7 +59,16 @@ public class Weapon : MonoBehaviour
         reloading = false;
         ammoText.text = string.Concat(weaponName, " ammo: ", currAmmo.ToString(), "/", magazineSize.ToString(), "\n", "Reserve Ammo: ", reserveAmmo.ToString());
     }
-
+    void SleepWeapon()
+    {
+        transform.position = sleepVector;
+    }
+    void WakeWeapon()
+    {
+        transform.position = player.position;
+        transform.position += readyPosition;
+        transform.rotation = player.rotation;
+    }
     void FireWeapon()
     {
         if(currAmmo <= 0)
@@ -101,9 +115,17 @@ public class Weapon : MonoBehaviour
         return (currAmmo+reserveAmmo)*ammoWeight + weaponWeight;
     }
 
+    public void RemoveAmmo(int amount)
+    {
+        reserveAmmo -= amount;
+        if(reserveAmmo < 0)
+            reserveAmmo = 0;
+    }
+
     // Update is called once per frame
     void Update()
     {
+        /*
         if(Input.GetButtonDown("Fire1"))
         {
             FireWeapon();
@@ -116,6 +138,6 @@ public class Weapon : MonoBehaviour
         {
             reloading = false;
             ammoText.text = string.Concat(weaponName, " ammo: ", currAmmo.ToString(), "/", magazineSize.ToString(), "\n", "Reserve Ammo: ", reserveAmmo.ToString());
-        }
+        } */
     }
 }

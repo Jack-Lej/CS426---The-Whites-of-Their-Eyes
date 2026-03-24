@@ -19,7 +19,7 @@ public class WeaponManager : MonoBehaviour
     [SerializeField] protected Weapon weapon8;
     [SerializeField] protected Weapon weapon9;
 
-    Weapon[] weaponArr = {weapon1, weapon2, weapon3, weapon4, weapon5, weapon6, weapon7, weapon8, weapon9};
+    Weapon[] weaponArr = {null, weapon1, weapon2, weapon3, weapon4, weapon5, weapon6, weapon7, weapon8, weapon9};
 
     //Weapon currently in use
     private Weapon activeWeapon;
@@ -31,7 +31,12 @@ public class WeaponManager : MonoBehaviour
     //newWeapon refers to the position
     private void switchWeapon(int newWeapon)
     {
-        
+        if(weaponArr[newWeapon] == activeWeapon || weaponArr[newWeapon] == null)
+            return;
+
+        activeWeapon.
+        activeWeapon = weaponArr[newWeapon];
+
     }
 
     //Each time a player wants to perform an action with their weapon (shoot, reload, switch), check that no other action is being performed/cooling down

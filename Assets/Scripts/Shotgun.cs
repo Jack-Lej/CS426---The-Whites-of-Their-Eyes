@@ -86,6 +86,7 @@ public class Shotgun : Weapon
     // Update is called once per frame
     void Update()
     {
+        /*
         if(Input.GetButtonDown("Fire1"))
         {
             FireWeapon();
@@ -106,6 +107,6 @@ public class Shotgun : Weapon
             {
                 ReloadWeapon();
             }
-        }
+        } */
     }
 }
