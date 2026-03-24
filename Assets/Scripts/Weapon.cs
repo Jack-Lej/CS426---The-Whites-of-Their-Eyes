@@ -9,35 +9,41 @@ public class Weapon : MonoBehaviour
 {
 
     //Amount of shots that can be fired before needing to reload
-    public int magazineSize;
+    [SerializeField] protected int magazineSize;
     //Ammo currently read to be used, ammo "in the magazine"
-    public int currAmmo;
+    [SerializeField] protected int currAmmo;
 
     //Amount of reserve ammo available for reloading, includes the ammo used to load the weapon on game start
     //Important: we need to decide if we keep the reserve ammo for weapons that reload all at once (magazine-based)
     //Ex: A rifle. 30 magazine size, 300 reserve ammo. Fires 3 shots, reloads. Do they lose 3 reserve ammo, or 30? I.e., do they "keep" the partially-emptied magazine and refill it, or discard it entirely
     //Maybe keep track of magazines?
-    public int reserveAmmo;
+    [SerializeField] protected int reserveAmmo;
     //Reload time in milliseconds
-    public double reloadTime;
+    [SerializeField] protected double reloadTime;
     //How long it takes (in milliseconds) between each shot when holding down the fire button
-    public double fireDelay;
+    [SerializeField] protected double fireDelay;
 
     //Simple check for reloading; disable firing during reload
-    bool reloading;
+    protected bool reloading;
+
+    [SerializeField] protected int projectileVelocity;
 
 
-    public GameObject projectile;
-    public TMP_Text ammoText;
-    //Where projectiles spawn from
-    public GameObject firePoint;
+    [SerializeField] protected GameObject projectile;
+    [SerializeField] protected TMP_Text ammoText;
+    //Where projectiles spawn from on the weapon's model
+    [SerializeField] protected GameObject firePoint;
 
-    public string weaponName;
+    [SerializeField] protected string weaponName;
+    //Weight of the weapon for the inventory system
+    [SerializeField] protected float weaponWeight;
+    //Weight per unit of ammo for the weapon
+    [SerializeField] protected float ammoWeight;
 
-    DateTime lastShot;
-    DateTime lastShotEnd;
-    DateTime reloadStart;
-    DateTime reloadEnd;
+    protected DateTime lastShot;
+    protected DateTime lastShotEnd;
+    protected DateTime reloadStart;
+    protected DateTime reloadEnd;
     
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -62,7 +68,7 @@ public class Weapon : MonoBehaviour
             lastShot = DateTime.Now;
             lastShotEnd = lastShot.AddMilliseconds(fireDelay);
             GameObject p = Instantiate(projectile, firePoint.transform.position, firePoint.transform.rotation);
-            p.GetComponent<Rigidbody>().AddForce(p.transform.forward * 100);
+            p.GetComponent<Rigidbody>().AddForce(p.transform.forward * projectileVelocity);
             ammoText.text = string.Concat(weaponName, " ammo: ", currAmmo.ToString(), "/", magazineSize.ToString(), "\n", "Reserve Ammo: ", reserveAmmo.ToString());
         }
     }
@@ -87,6 +93,12 @@ public class Weapon : MonoBehaviour
                 currAmmo = magazineSize;
             }
         }
+    }
+
+    //Returns the weight of the weapon and all its ammo
+    float GetWeaponWeight()
+    {
+        return (currAmmo+reserveAmmo)*ammoWeight + weaponWeight;
     }
 
     // Update is called once per frame
