@@ -28,7 +28,7 @@ public class Weapon : MonoBehaviour
 
     [SerializeField] protected int projectileVelocity;
 
-
+    [SerializeField] protected GameObject manager;
     [SerializeField] protected GameObject projectile;
     [SerializeField] protected TMP_Text ammoText;
     //Where projectiles spawn from on the weapon's model

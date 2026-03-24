@@ -17,6 +17,7 @@ public class Shotgun : Weapon
         currAmmo = magazineSize;
         reserveAmmo -= magazineSize;
         ammoText.text = string.Concat(weaponName, " ammo: ", currAmmo.ToString(), "/", magazineSize.ToString(), "\nReserve Ammo: ", reserveAmmo.ToString());
+        spread /= 360;
     }
 
     //Over-ridden because the shotgun fires 10 pellets at once
