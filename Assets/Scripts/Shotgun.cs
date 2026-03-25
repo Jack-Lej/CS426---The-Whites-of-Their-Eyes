@@ -16,17 +16,15 @@ public class Shotgun : Weapon
         interruptReload = false;
         currAmmo = magazineSize;
         reserveAmmo -= magazineSize;
-        ammoText.text = string.Concat(weaponName, " ammo: ", currAmmo.ToString(), "/", magazineSize.ToString(), "\nReserve Ammo: ", reserveAmmo.ToString());
         spread /= 360;
     }
 
-    //Over-ridden because the shotgun fires 10 pellets at once
-    void FireWeapon()
+    //Over-ridden because the shotgun fires 9 pellets at once
+    string FireWeapon()
     {
         if(currAmmo == 0)
         {
             //Play dry-fire "click" sfx
-            return;
         }
         if(reloading)
         {
@@ -58,13 +56,12 @@ public class Shotgun : Weapon
                 Vector3 rotat = new Vector3(0, UnityEngine.Random.Range(-spread, spread), UnityEngine.Random.Range(-spread, spread));
                 pRand.GetComponent<Rigidbody>().AddForce((pRand.transform.forward + rotat) * projectileVelocity);
             }
-
-            ammoText.text = string.Concat(weaponName, " ammo: ", currAmmo.ToString(), "/", magazineSize.ToString(), "\nReserve Ammo: ", reserveAmmo.ToString());
         }
+        return string.Concat(weaponName, " ammo: ", currAmmo.ToString(), "/", magazineSize.ToString(), "\nReserve Ammo: ", reserveAmmo.ToString());
     }
 
     //Since the shotgun is reloaded one shell at a time, the player can interrupt reloading to fire
-    void ReloadWeapon()
+    string ReloadWeapon()
     {
         if(reserveAmmo > 0 && currAmmo < magazineSize && !reloading)
         {
@@ -74,13 +71,13 @@ public class Shotgun : Weapon
             reloadEnd = reloadStart.AddMilliseconds(reloadTime);
             currAmmo++;
             reserveAmmo--;
-            ammoText.text = string.Concat(weaponName, " ammo: ", currAmmo.ToString(), "/", magazineSize.ToString(), "\nReserve Ammo: ", reserveAmmo.ToString());
             
         }
         else
         {
             reloading = false;
         }
+        return string.Concat(weaponName, " ammo: ", currAmmo.ToString(), "/", magazineSize.ToString(), "\nReserve Ammo: ", reserveAmmo.ToString());
     }
 
     // Update is called once per frame

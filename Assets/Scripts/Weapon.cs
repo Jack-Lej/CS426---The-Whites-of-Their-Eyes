@@ -19,9 +19,9 @@ public class Weapon : MonoBehaviour
     //Maybe keep track of magazines?
     [SerializeField] protected int reserveAmmo;
     //Reload time in milliseconds
-    [SerializeField] protected double reloadTime;
+    [SerializeField] protected int reloadTime;
     //How long it takes (in milliseconds) between each shot when holding down the fire button
-    [SerializeField] protected double fireDelay;
+    [SerializeField] protected int fireDelay;
 
     //Simple check for reloading; disable firing during reload
     protected bool reloading;
@@ -40,8 +40,6 @@ public class Weapon : MonoBehaviour
     //Weight per unit of ammo for the weapon
     [SerializeField] protected float ammoWeight;
 
-    [SerializeField] protected GameObject player;
-
     protected DateTime lastShot;
     protected DateTime lastShotEnd;
     protected DateTime reloadStart;
@@ -49,7 +47,7 @@ public class Weapon : MonoBehaviour
 
     Transform t;
     Vector3 sleepVector = new Vector3(0, 1000, 0);
-    Vector3 readyPosition = new Vector3(0.5, 0, 1);
+    Vector3 readyPosition = new Vector3(0.5f, 0, 1);
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -57,24 +55,23 @@ public class Weapon : MonoBehaviour
         currAmmo = magazineSize;
         reserveAmmo -= magazineSize;
         reloading = false;
-        ammoText.text = string.Concat(weaponName, " ammo: ", currAmmo.ToString(), "/", magazineSize.ToString(), "\n", "Reserve Ammo: ", reserveAmmo.ToString());
+        //ammoText.text = string.Concat(weaponName, " ammo: ", currAmmo.ToString(), "/", magazineSize.ToString(), "\n", "Reserve Ammo: ", reserveAmmo.ToString());
     }
-    void SleepWeapon()
+    public void SleepWeapon()
     {
         transform.position = sleepVector;
     }
-    void WakeWeapon()
+    public string WakeWeapon()
     {
-        transform.position = player.position;
-        transform.position += readyPosition;
-        transform.rotation = player.rotation;
+        transform.position = manager.transform.position;
+        transform.rotation = manager.transform.rotation;
+        return string.Concat(weaponName, " ammo: ", currAmmo.ToString(), "/", magazineSize.ToString(), "\n", "Reserve Ammo: ", reserveAmmo.ToString());
     }
-    void FireWeapon()
+    public string FireWeapon()
     {
         if(currAmmo <= 0)
         {
             //Play dry-fire "click" sfx
-            return;
         }
         if(currAmmo > 0 && !reloading && lastShotEnd.CompareTo(DateTime.Now) <= 0)
         {
@@ -83,18 +80,18 @@ public class Weapon : MonoBehaviour
             lastShotEnd = lastShot.AddMilliseconds(fireDelay);
             GameObject p = Instantiate(projectile, firePoint.transform.position, firePoint.transform.rotation);
             p.GetComponent<Rigidbody>().AddForce(p.transform.forward * projectileVelocity);
-            ammoText.text = string.Concat(weaponName, " ammo: ", currAmmo.ToString(), "/", magazineSize.ToString(), "\n", "Reserve Ammo: ", reserveAmmo.ToString());
         }
+        return string.Concat(weaponName, " ammo: ", currAmmo.ToString(), "/", magazineSize.ToString(), "\n", "Reserve Ammo: ", reserveAmmo.ToString());
     }
 
-    void ReloadWeapon()
+    public string ReloadWeapon()
     {
         if(reserveAmmo > 0 && currAmmo < magazineSize && !reloading)
         {
             reloading = true;
             reloadStart = DateTime.Now;
             reloadEnd = reloadStart.AddMilliseconds(reloadTime);
-            ammoText.text = "Reloading . . .";
+            
             //In case the reserve ammo is less than the magazine size
             if(reserveAmmo < magazineSize)
             {
@@ -106,7 +103,9 @@ public class Weapon : MonoBehaviour
                 reserveAmmo -= (magazineSize - currAmmo);
                 currAmmo = magazineSize;
             }
+            return "Reloading . . .";
         }
+        return string.Concat(weaponName, " ammo: ", currAmmo.ToString(), "/", magazineSize.ToString(), "\nReserve Ammo: ", reserveAmmo.ToString());
     }
 
     //Returns the weight of the weapon and all its ammo
@@ -114,6 +113,11 @@ public class Weapon : MonoBehaviour
     {
         return (currAmmo+reserveAmmo)*ammoWeight + weaponWeight;
     }
+
+    public int GetWeaponFireDelay()
+        {return fireDelay;}
+    public int GetReloadDelay()
+        {return reloadTime;}    
 
     public void RemoveAmmo(int amount)
     {
