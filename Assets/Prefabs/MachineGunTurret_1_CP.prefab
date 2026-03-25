@@ -293,7 +293,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 8db9d5a00132a4948b56ba7dbdf54ac3, type: 2}
+  - {fileID: 2100000, guid: 91e7e32e7dd655e47a23cb1868046edb, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -798,9 +798,7 @@ MonoBehaviour:
   muzzleFlash: {fileID: 0}
   ammoDisplay: {fileID: 0}
   attackPoint: {fileID: 5265377885149254413}
-  pivotObj: {fileID: 6211192764475263313}
-  targetObj: {fileID: 0}
-  rotationSpeed: 40
+  rotateScript: {fileID: -7729581219398979574}
 --- !u!114 &-7729581219398979574
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -808,7 +806,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2800673863142957170}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 433babf4de1256149b7966cec590db50, type: 3}
   m_Name: 
@@ -1276,7 +1274,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 8db9d5a00132a4948b56ba7dbdf54ac3, type: 2}
+  - {fileID: 2100000, guid: 91e7e32e7dd655e47a23cb1868046edb, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1388,7 +1386,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 8db9d5a00132a4948b56ba7dbdf54ac3, type: 2}
+  - {fileID: 2100000, guid: 91e7e32e7dd655e47a23cb1868046edb, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1500,7 +1498,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 8db9d5a00132a4948b56ba7dbdf54ac3, type: 2}
+  - {fileID: 2100000, guid: 91e7e32e7dd655e47a23cb1868046edb, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
