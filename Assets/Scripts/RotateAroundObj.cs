@@ -3,7 +3,8 @@ using UnityEngine;
 public class RotateAroundObj : MonoBehaviour
 {
     public float rotationSpeed;
-    public GameObject PivotObj; // The object to rotate around
+    public GameObject verticalPivot; // The object to rotate vertically
+    public GameObject PivotObj; // The object to rotate around horizontally
     // Rotates around until facing the target object
     public GameObject targetObj; // The object to face towards
     public GameObject sourceObj; // The object that is rotating, used for calculating the angle to the target object
@@ -32,30 +33,70 @@ public class RotateAroundObj : MonoBehaviour
     {
         // Calculate direction from sourceObj's position, not transform's
         Vector3 targetDirection = targetObj.transform.position - sourceObj.transform.position;
-        
-        // Use sourceObj's forward vector for the angle calculation
-        float angleToTarget = Vector3.SignedAngle(sourceObj.transform.forward, targetDirection, Vector3.up);
 
-        // Stops rotation when sourceObj is facing the targetObj
-        if (Mathf.Abs(angleToTarget) <= 0.5f)
+        float horizontalAngle = Vector3.SignedAngle(
+            sourceObj.transform.forward,
+            targetDirection,
+            Vector3.up
+        );
+
+        bool facingHorizontal = Mathf.Abs(horizontalAngle) <= 0.5f;
+
+        if (!facingHorizontal)
         {
-            isFacingTarget = true;
-            Debug.Log("Facing target");
-            return;
+            float hStep = Mathf.Min(rotationSpeed * Time.deltaTime, Mathf.Abs(horizontalAngle));
+            float hDirection = Mathf.Sign(horizontalAngle);
+            transform.RotateAround(PivotObj.transform.position, Vector3.up, hDirection * hStep);
+        }
+
+        // Vertical rotation (X axis, up/down)
+        if (verticalPivot != null)
+        {
+            // Flatten both vectors to get a pure vertical angle
+            Vector3 localTarget = verticalPivot.transform.InverseTransformDirection(targetDirection);
+            float verticalAngle = Mathf.Atan2(localTarget.y, localTarget.z) * Mathf.Rad2Deg;
+
+            bool facingVertical = Mathf.Abs(verticalAngle) <= 0.5f;
+
+            if (!facingVertical)
+            {
+                float vStep = Mathf.Min(rotationSpeed * Time.deltaTime, Mathf.Abs(verticalAngle));
+                float vDirection = Mathf.Sign(verticalAngle);
+                verticalPivot.transform.Rotate(Vector3.right, -vDirection * vStep, Space.Self);
+            }
+
+            isFacingTarget = facingHorizontal && facingVertical;
         }
         else
         {
-            isFacingTarget = false;
+            isFacingTarget = facingHorizontal;
+        }
+        
+        // Use sourceObj's forward vector for the angle calculation
+        // float angleToTarget = Vector3.SignedAngle(sourceObj.transform.forward, targetDirection, Vector3.up);
+
+        // Stops rotation when sourceObj is facing the targetObj
+        // if (Mathf.Abs(angleToTarget) <= 0.5f)
+        // {
+        //     isFacingTarget = true;
+        //     Debug.Log("Facing target");
+        //     return;
+        // }
+        
+
+        if(isFacingTarget)
+        {
+            Debug.Log("Facing target");
         }
 
-        float step = Mathf.Min(rotationSpeed * Time.deltaTime, Mathf.Abs(angleToTarget));
-        // Changes the direction of rotation based on the sign of the angle to the target
-        float direction = Mathf.Sign(angleToTarget);
+        // float step = Mathf.Min(rotationSpeed * Time.deltaTime, Mathf.Abs(angleToTarget));
+        // // Changes the direction of rotation based on the sign of the angle to the target
+        // float direction = Mathf.Sign(angleToTarget);
 
-        transform.RotateAround(
-            PivotObj.transform.position,
-            Vector3.up,
-            direction * step
-        );
+        // transform.RotateAround(
+        //     PivotObj.transform.position,
+        //     Vector3.up,
+        //     direction * step
+        // );
     }
 }

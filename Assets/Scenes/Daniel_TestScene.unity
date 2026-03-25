@@ -700,13 +700,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 330585543}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0.44403258, z: -0, w: 0.8960107}
-  m_LocalPosition: {x: -0.358, y: 1.637, z: 2.987}
+  m_LocalRotation: {x: 0.06422523, y: -0.89154446, z: 0.13380793, w: 0.42792422}
+  m_LocalPosition: {x: 21.028, y: 9.284, z: 31.617}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: -52.723, z: 0}
+  m_LocalEulerAnglesHint: {x: 17.071, y: -128.72, z: 0}
 --- !u!114 &330585547
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3874,71 +3874,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e799b4fcd47ba5f4682445bafdd5f498, type: 3}
---- !u!1001 &6819302059302208581
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 2800673863142957170, guid: da862f993a3999f4c8222622e804c285, type: 3}
-      propertyPath: m_Name
-      value: MachineGunTurret_1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5017509227359540577, guid: da862f993a3999f4c8222622e804c285, type: 3}
-      propertyPath: 'm_Materials.Array.data[0]'
-      value: 
-      objectReference: {fileID: 2100000, guid: 91e7e32e7dd655e47a23cb1868046edb, type: 2}
-    - target: {fileID: 8764594162163652521, guid: da862f993a3999f4c8222622e804c285, type: 3}
-      propertyPath: 'm_Materials.Array.data[0]'
-      value: 
-      objectReference: {fileID: 2100000, guid: 9fab2f89d92bd714097ed950f7e40933, type: 2}
-    - target: {fileID: 9117049063281708584, guid: da862f993a3999f4c8222622e804c285, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -3.651
-      objectReference: {fileID: 0}
-    - target: {fileID: 9117049063281708584, guid: da862f993a3999f4c8222622e804c285, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -0.612
-      objectReference: {fileID: 0}
-    - target: {fileID: 9117049063281708584, guid: da862f993a3999f4c8222622e804c285, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 18.283
-      objectReference: {fileID: 0}
-    - target: {fileID: 9117049063281708584, guid: da862f993a3999f4c8222622e804c285, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 9117049063281708584, guid: da862f993a3999f4c8222622e804c285, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 9117049063281708584, guid: da862f993a3999f4c8222622e804c285, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 9117049063281708584, guid: da862f993a3999f4c8222622e804c285, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 9117049063281708584, guid: da862f993a3999f4c8222622e804c285, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 9117049063281708584, guid: da862f993a3999f4c8222622e804c285, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 9117049063281708584, guid: da862f993a3999f4c8222622e804c285, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: da862f993a3999f4c8222622e804c285, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
@@ -3951,7 +3886,6 @@ SceneRoots:
   - {fileID: 355859645}
   - {fileID: 10024873}
   - {fileID: 1082885156154462040}
-  - {fileID: 6819302059302208581}
   - {fileID: 791489420}
   - {fileID: 843084831}
   - {fileID: 1106904584}
