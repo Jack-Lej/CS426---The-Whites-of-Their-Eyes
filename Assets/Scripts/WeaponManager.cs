@@ -10,7 +10,7 @@ using TMPro;
 public class WeaponManager : MonoBehaviour
 {
     //List of weapons the player has, assignable in Unity editor
-    [SerializeField] public static Weapon weapon1;
+    [SerializeField] public static GameObject weapon1;
     [SerializeField]  static Weapon weapon2;
     [SerializeField]  static Weapon weapon3;
     [SerializeField]  static Weapon weapon4;
