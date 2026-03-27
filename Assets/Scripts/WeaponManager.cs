@@ -10,19 +10,20 @@ using TMPro;
 public class WeaponManager : MonoBehaviour
 {
     //List of weapons the player has, assignable in Unity editor
-    [SerializeField] public static GameObject weapon1;
-    [SerializeField]  static Weapon weapon2;
-    [SerializeField]  static Weapon weapon3;
-    [SerializeField]  static Weapon weapon4;
-    [SerializeField]  static Weapon weapon5;
-    [SerializeField]  static Weapon weapon6;
-    [SerializeField]  static Weapon weapon7;
-    [SerializeField]  static Weapon weapon8;
-    [SerializeField]  static Weapon weapon9;
+    [SerializeField] Weapon weapon1;
+    [SerializeField] Weapon weapon2;
+    [SerializeField] Weapon weapon3;
+    [SerializeField] Weapon weapon4;
+    [SerializeField] Weapon weapon5;
+    [SerializeField] Weapon weapon6;
+    [SerializeField] Weapon weapon7;
+    [SerializeField] Weapon weapon8;
+    [SerializeField] Weapon weapon9;
 
     [SerializeField] protected TMP_Text weaponText;
+    [SerializeField] protected TMP_Text testText;
 
-    readonly Weapon[] weaponArr = {null, weapon1, weapon2, weapon3, weapon4, weapon5, weapon6, weapon7, weapon8, weapon9};
+    private Weapon[] weaponArr = new Weapon[10];
 
     //Weapon currently in use
     private Weapon activeWeapon;
@@ -31,7 +32,7 @@ public class WeaponManager : MonoBehaviour
     DateTime switchTimer;
     DateTime shootTimer;
 
-    //newWeapon refers to the position
+    //newWeapon refers to the position in the weapons array
     private void SwitchWeapon(int newWeapon)
     {
         if(weaponArr[newWeapon] == activeWeapon || weaponArr[newWeapon] == null)
@@ -61,6 +62,17 @@ public class WeaponManager : MonoBehaviour
         reloadTimer = DateTime.Now;
         switchTimer = DateTime.Now;
         shootTimer = DateTime.Now;
+        
+        weaponArr[0] = null;
+        weaponArr[1] = weapon1;
+        weaponArr[2] = weapon3;
+        weaponArr[3] = weapon3;
+        weaponArr[4] = weapon4;
+        weaponArr[5] = weapon5;
+        weaponArr[6] = weapon6;
+        weaponArr[7] = weapon7;
+        weaponArr[8] = weapon8;
+        weaponArr[9] = weapon9;
         activeWeapon = weapon1;
     }
 
@@ -69,20 +81,27 @@ public class WeaponManager : MonoBehaviour
     {
         if(ActionReady())
         {
+            weaponText.text = activeWeapon.GetWeaponText();
             if(Input.GetButtonDown("Fire1"))
             {
-                weaponText.text = activeWeapon.FireWeapon();
                 shootTimer = DateTime.Now.AddMilliseconds(activeWeapon.GetWeaponFireDelay());
+                weaponText.text = activeWeapon.FireWeapon();
             }
             else if(Input.GetButtonDown("Reload"))
             {
-                weaponText.text = activeWeapon.ReloadWeapon();
                 reloadTimer = DateTime.Now.AddMilliseconds(activeWeapon.GetReloadDelay());
+                weaponText.text = activeWeapon.ReloadWeapon();
             }
             else if(Input.GetButtonDown("Switch Weapon 1"))
+            {
+                testText.text = "Weapon 1 Switch";
                 SwitchWeapon(1);
+            }
             else if(Input.GetButtonDown("Switch Weapon 2"))
+            {
+                testText.text = "Weapon 2 Switch";
                 SwitchWeapon(2);
+            }
             else if(Input.GetButtonDown("Switch Weapon 3"))
                 SwitchWeapon(3);
             else if(Input.GetButtonDown("Switch Weapon 4"))

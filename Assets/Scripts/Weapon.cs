@@ -86,25 +86,23 @@ public class Weapon : MonoBehaviour
 
     public string ReloadWeapon()
     {
-        if(reserveAmmo > 0 && currAmmo < magazineSize && !reloading)
+        //Does the weapon need reloading, and can it be reloaded?
+        if(currAmmo < magazineSize && reserveAmmo > 0)
         {
-            reloading = true;
-            reloadStart = DateTime.Now;
-            reloadEnd = reloadStart.AddMilliseconds(reloadTime);
-            
-            //In case the reserve ammo is less than the magazine size
-            if(reserveAmmo < magazineSize)
-            {
-                currAmmo += reserveAmmo;
-                reserveAmmo = 0;
-            }
-            else
+            //Is there enough ammo to reload the entire capacity?
+            if(reserveAmmo > (magazineSize-currAmmo))
             {
                 reserveAmmo -= (magazineSize - currAmmo);
                 currAmmo = magazineSize;
             }
+            else
+            {
+                currAmmo += reserveAmmo;
+                reserveAmmo = 0;
+            }
             return "Reloading . . .";
         }
+        //Otherwise just return status as usual
         return string.Concat(weaponName, " ammo: ", currAmmo.ToString(), "/", magazineSize.ToString(), "\nReserve Ammo: ", reserveAmmo.ToString());
     }
 
@@ -112,6 +110,11 @@ public class Weapon : MonoBehaviour
     float GetWeaponWeight()
     {
         return (currAmmo+reserveAmmo)*ammoWeight + weaponWeight;
+    }
+
+    public string GetWeaponText()
+    {
+        return string.Concat(weaponName, " ammo: ", currAmmo.ToString(), "/", magazineSize.ToString(), "\nReserve Ammo: ", reserveAmmo.ToString());
     }
 
     public int GetWeaponFireDelay()

@@ -60,24 +60,12 @@ public class Shotgun : Weapon
         return string.Concat(weaponName, " ammo: ", currAmmo.ToString(), "/", magazineSize.ToString(), "\nReserve Ammo: ", reserveAmmo.ToString());
     }
 
-    //Since the shotgun is reloaded one shell at a time, the player can interrupt reloading to fire
-    string ReloadWeapon()
+
+    //Special reload delay depends on how many shells need to be reloaded
+    public int GetReloadDelay()
     {
-        if(reserveAmmo > 0 && currAmmo < magazineSize && !reloading)
-        {
-            reloading = true;
-            interruptReload = false;
-            reloadStart = DateTime.Now;
-            reloadEnd = reloadStart.AddMilliseconds(reloadTime);
-            currAmmo++;
-            reserveAmmo--;
-            
-        }
-        else
-        {
-            reloading = false;
-        }
-        return string.Concat(weaponName, " ammo: ", currAmmo.ToString(), "/", magazineSize.ToString(), "\nReserve Ammo: ", reserveAmmo.ToString());
+        Debug.Log(reloadTime*(magazineSize-currAmmo));
+        return reloadTime*(magazineSize-currAmmo);
     }
 
     // Update is called once per frame
