@@ -94,6 +94,7 @@ public class WeaponManager : MonoBehaviour
             }
             else if(Input.GetButtonDown("Switch Weapon 1"))
             {
+                //switchTimer = DateTime.Now.AddMilliseconds()
                 testText.text = "Weapon 1 Switch";
                 SwitchWeapon(1);
             }

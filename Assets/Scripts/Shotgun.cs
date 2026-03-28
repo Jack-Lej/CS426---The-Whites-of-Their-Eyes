@@ -7,34 +7,26 @@ using TMPro;
 
 public class Shotgun : Weapon
 {
-
+    //Spread (in degrees) of randomness for the pellets to move in
     [SerializeField] float spread;
-    bool interruptReload;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        interruptReload = false;
         currAmmo = magazineSize;
         reserveAmmo -= magazineSize;
         spread /= 360;
     }
 
     //Over-ridden because the shotgun fires 9 pellets at once
-    string FireWeapon()
+    public override string FireWeapon()
     {
         if(currAmmo == 0)
         {
             //Play dry-fire "click" sfx
         }
-        if(reloading)
-        {
-            interruptReload = true;
-        }
-        if(currAmmo > 0 && !reloading && lastShotEnd.CompareTo(DateTime.Now) <= 0)
+        else if(currAmmo > 0)
         {
             currAmmo--;
-            lastShot = DateTime.Now;
-            lastShotEnd = lastShot.AddMilliseconds(fireDelay);
             //Spawn the guaranteed center pellet
             Vector3 center = firePoint.transform.position;
 
@@ -49,7 +41,7 @@ public class Shotgun : Weapon
 
             
             //Spawn the random 8 pellets within a [spread * 360]-degree cone, and each slightly away from the center
-            //Vector3 rotation uses a 0-1 scale, so [spread] is a fraction of the actual degrees over 360
+            //Vector3 rotation uses a 0-1 scale, so [spread] is a fraction of the actual degrees (provided by the serialized field) over 360
             for(int i = 0; i < 8; i++)
             {
                 GameObject pRand = Instantiate(projectile, center+vecs[i], firePoint.transform.rotation);
@@ -62,36 +54,14 @@ public class Shotgun : Weapon
 
 
     //Special reload delay depends on how many shells need to be reloaded
-    public int GetReloadDelay()
+    public override int GetReloadDelay()
     {
-        Debug.Log(reloadTime*(magazineSize-currAmmo));
         return reloadTime*(magazineSize-currAmmo);
     }
 
     // Update is called once per frame
     void Update()
     {
-        /*
-        if(Input.GetButtonDown("Fire1"))
-        {
-            FireWeapon();
-        }
-        if(Input.GetButtonDown("Reload"))
-        {
-            ReloadWeapon();
-        }
-        if(reloading && reloadEnd.CompareTo(DateTime.Now) <= 0)
-        {
-            reloading = false;
-            if(interruptReload)
-            {
-                
-                FireWeapon();
-            }
-            else
-            {
-                ReloadWeapon();
-            }
-        } */
+        
     }
 }
