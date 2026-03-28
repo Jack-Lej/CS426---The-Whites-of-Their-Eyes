@@ -375,11 +375,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: -28}
---- !u!1 &387125727 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1403265905179235403, guid: a033d3c1bdc42e64ea69be1b8222b9e6, type: 3}
-  m_PrefabInstance: {fileID: 7886589707762436677}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &434397042
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1939,7 +1934,7 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 4070188267187773017, guid: a033d3c1bdc42e64ea69be1b8222b9e6, type: 3}
   m_PrefabInstance: {fileID: 7886589707762436677}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1204538127
+--- !u!114 &1204538133
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1948,17 +1943,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 1204538121}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 56cf900212b4798409b3b4500d241138, type: 3}
+  m_Script: {fileID: 11500000, guid: 3e544b64458974b4caba944840cd718d, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::PlayerMovement
-  speed: 4
-  rotationSpeed: 90
-  colors: []
-  spawnedPrefab: {fileID: 0}
-  cannon: {fileID: 0}
-  bullet: {fileID: 0}
-  audioListener: {fileID: 0}
-  playerCamera: {fileID: 0}
+  m_EditorClassIdentifier: Assembly-CSharp::Example
+  controller: {fileID: 0}
+  moveAction: {fileID: 0}
+  jumpAction: {fileID: 0}
 --- !u!1 &1350485413
 GameObject:
   m_ObjectHideFlags: 0
@@ -4198,7 +4188,7 @@ PrefabInstance:
     - target: {fileID: 3801481523460876190, guid: a033d3c1bdc42e64ea69be1b8222b9e6, type: 3}
       propertyPath: firePoint
       value: 
-      objectReference: {fileID: 387125727}
+      objectReference: {fileID: 0}
     - target: {fileID: 3801481523460876190, guid: a033d3c1bdc42e64ea69be1b8222b9e6, type: 3}
       propertyPath: ammoWeight
       value: 0.1
@@ -4227,6 +4217,10 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 5007949864453655083, guid: a033d3c1bdc42e64ea69be1b8222b9e6, type: 3}
+      propertyPath: ammoText
+      value: 
+      objectReference: {fileID: 1458808803}
     - target: {fileID: 8206985832675508986, guid: a033d3c1bdc42e64ea69be1b8222b9e6, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.5
@@ -4280,12 +4274,13 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: -6824085016222005525, guid: a033d3c1bdc42e64ea69be1b8222b9e6, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 4070188267187773017, guid: a033d3c1bdc42e64ea69be1b8222b9e6, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 1204538127}
+      addedObject: {fileID: 1204538133}
   m_SourcePrefab: {fileID: 100100000, guid: a033d3c1bdc42e64ea69be1b8222b9e6, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
