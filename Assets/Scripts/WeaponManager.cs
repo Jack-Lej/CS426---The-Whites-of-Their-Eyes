@@ -29,6 +29,7 @@ public class WeaponManager : MonoBehaviour
     private Weapon activeWeapon;
 
     DateTime reloadTimer;
+    bool switchAlarm;
     DateTime switchTimer;
     DateTime shootTimer;
 
@@ -36,6 +37,7 @@ public class WeaponManager : MonoBehaviour
     {
         reloadTimer = DateTime.Now;
         switchTimer = DateTime.Now;
+        switchAlarm = false;
         shootTimer = DateTime.Now;
         
         weaponArr[0] = null;
@@ -62,9 +64,9 @@ public class WeaponManager : MonoBehaviour
 
         activeWeapon.SleepWeapon();
         activeWeapon = weaponArr[newWeapon];
-        switchTimer = DateTime.Now;
-        switchTimer.AddMilliseconds(1500);
-        weaponText.text = activeWeapon.WakeWeapon();
+        switchTimer = DateTime.Now.AddMilliseconds(1500);
+        weaponText.text = "Switching to " + activeWeapon.GetWeaponName();
+        switchAlarm = true;
     }
 
     //Each time a player wants to perform an action with their weapon (shoot, reload, switch), check that no other action is being performed/cooling down
@@ -83,6 +85,11 @@ public class WeaponManager : MonoBehaviour
     {
         if(ActionReady())
         {
+            if(switchAlarm)
+            {
+                activeWeapon.WakeWeapon();
+                switchAlarm = false;
+            }
             weaponText.text = activeWeapon.GetWeaponText();
             if(Input.GetButtonDown("Fire1"))
             {

@@ -308,6 +308,7 @@ MonoBehaviour:
   reloadTime: 1000
   fireDelay: 1200
   projectileVelocity: 800
+  manager: {fileID: 0}
   projectile: {fileID: 617719506206176291, guid: f071bf02b8c261d4b8258146a1ae43d6, type: 3}
   ammoText: {fileID: 0}
   firePoint: {fileID: 3272699130666900268}
