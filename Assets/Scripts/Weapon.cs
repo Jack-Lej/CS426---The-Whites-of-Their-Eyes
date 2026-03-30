@@ -107,6 +107,9 @@ public class Weapon : MonoBehaviour
         return string.Concat(weaponName, " ammo: ", currAmmo.ToString(), "/", magazineSize.ToString(), "\nReserve Ammo: ", reserveAmmo.ToString());
     }
 
+    public string GetWeaponName()
+        {return weaponName;}
+
     public virtual int GetWeaponFireDelay()
         {return fireDelay;}
     public virtual int GetReloadDelay()
