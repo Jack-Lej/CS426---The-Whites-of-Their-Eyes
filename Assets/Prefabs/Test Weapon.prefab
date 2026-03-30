@@ -718,7 +718,7 @@ GameObject:
   - component: {fileID: 1943519976431447204}
   - component: {fileID: 8440594190538622818}
   m_Layer: 0
-  m_Name: Weapon
+  m_Name: Test Weapon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -732,7 +732,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8620483413673837701}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
+  m_LocalRotation: {x: 0, y: 0.99904823, z: 0, w: 0.0436195}
   m_LocalPosition: {x: 1.04089, y: 0, z: 11.18536}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -745,7 +745,7 @@ Transform:
   - {fileID: 4367131313716120425}
   - {fileID: 4056936751957913695}
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 175, z: 0}
 --- !u!114 &8440594190538622818
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -763,6 +763,8 @@ MonoBehaviour:
   reserveAmmo: 25
   reloadTime: 1600
   fireDelay: 600
+  projectileVelocity: 0
+  manager: {fileID: 0}
   projectile: {fileID: 8718020317698012777, guid: 5604a54be71a3574aa38f617f30162ba, type: 3}
   ammoText: {fileID: 0}
   firePoint: {fileID: 0}

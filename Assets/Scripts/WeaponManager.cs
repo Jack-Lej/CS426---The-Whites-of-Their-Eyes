@@ -51,6 +51,7 @@ public class WeaponManager : MonoBehaviour
         weaponArr[8] = weapon8;
         weaponArr[9] = weapon9;
         activeWeapon = weapon1;
+        activeWeapon.WakeWeapon();
     }
 
     //newWeapon refers to the position in the weapons array
