@@ -568,7 +568,7 @@ PrefabInstance:
     - target: {fileID: 4977582166275704896, guid: d4a113cb6e3e13b4295e9080761fcdf3, type: 3}
       propertyPath: targetObj
       value: 
-      objectReference: {fileID: 1406296699}
+      objectReference: {fileID: 0}
     - target: {fileID: 9117049063281708584, guid: d4a113cb6e3e13b4295e9080761fcdf3, type: 3}
       propertyPath: m_LocalPosition.x
       value: 7.4940214
@@ -780,7 +780,6 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 415565828}
   - {fileID: 1215191858}
   - {fileID: 1178422066}
   - {fileID: 2046038804}
@@ -939,11 +938,6 @@ MonoBehaviour:
 Transform:
   m_CorrespondingSourceObject: {fileID: 1149661161950127336, guid: 0df3ea6b579088e44bed4767283857e6, type: 3}
   m_PrefabInstance: {fileID: 1495452096}
-  m_PrefabAsset: {fileID: 0}
---- !u!4 &415565828 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 1149661161950127336, guid: 0df3ea6b579088e44bed4767283857e6, type: 3}
-  m_PrefabInstance: {fileID: 2008060304}
   m_PrefabAsset: {fileID: 0}
 --- !u!4 &424043044 stripped
 Transform:
@@ -1492,7 +1486,7 @@ PrefabInstance:
     - target: {fileID: -7729581219398979574, guid: 0eede120640fd0a4ca0717a6893447bd, type: 3}
       propertyPath: targetObj
       value: 
-      objectReference: {fileID: 1406296699}
+      objectReference: {fileID: 0}
     - target: {fileID: -7729581219398979574, guid: 0eede120640fd0a4ca0717a6893447bd, type: 3}
       propertyPath: fieldOfView
       value: 0.5
@@ -1520,7 +1514,7 @@ PrefabInstance:
     - target: {fileID: 4977582166275704896, guid: 0eede120640fd0a4ca0717a6893447bd, type: 3}
       propertyPath: targetObj
       value: 
-      objectReference: {fileID: 1406296699}
+      objectReference: {fileID: 0}
     - target: {fileID: 9117049063281708584, guid: 0eede120640fd0a4ca0717a6893447bd, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.16423792
@@ -1746,6 +1740,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1931227507022522192, guid: 1a8d9082b8b13024fb25cc8ec8d55682, type: 3}
+      propertyPath: whatIsEnemies.m_Bits
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3096739852597059259, guid: 1a8d9082b8b13024fb25cc8ec8d55682, type: 3}
       propertyPath: m_Name
       value: Rocket_2
@@ -2386,11 +2384,6 @@ Transform:
 Transform:
   m_CorrespondingSourceObject: {fileID: 1149661161950127336, guid: e799b4fcd47ba5f4682445bafdd5f498, type: 3}
   m_PrefabInstance: {fileID: 1924905770}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &1406296699 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 7615046453268262872, guid: 0df3ea6b579088e44bed4767283857e6, type: 3}
-  m_PrefabInstance: {fileID: 2008060304}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1407742383
 PrefabInstance:

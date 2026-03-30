@@ -1,0 +1,4 @@
+Weapon interface script: 2 hours, due by Tuesday
+Weapon interface functional: 2 hours, due by Wednesday
+Unique weapon: shotgun with multiple projectiles & segmented reloading: 4 hours, due by Friday 8pm
+3D Scene of Level 1 structure: 1 hour, due Friday 8pm

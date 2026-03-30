@@ -19,16 +19,15 @@ public class Weapon : MonoBehaviour
     //Maybe keep track of magazines?
     [SerializeField] protected int reserveAmmo;
     //Reload time in milliseconds
-    [SerializeField] protected double reloadTime;
+    [SerializeField] protected int reloadTime;
     //How long it takes (in milliseconds) between each shot when holding down the fire button
-    [SerializeField] protected double fireDelay;
+    [SerializeField] protected int fireDelay;
 
     //Simple check for reloading; disable firing during reload
-    protected bool reloading;
 
     [SerializeField] protected int projectileVelocity;
 
-
+    [SerializeField] protected GameObject manager;
     [SerializeField] protected GameObject projectile;
     [SerializeField] protected TMP_Text ammoText;
     //Where projectiles spawn from on the weapon's model
@@ -40,59 +39,61 @@ public class Weapon : MonoBehaviour
     //Weight per unit of ammo for the weapon
     [SerializeField] protected float ammoWeight;
 
-    protected DateTime lastShot;
-    protected DateTime lastShotEnd;
-    protected DateTime reloadStart;
-    protected DateTime reloadEnd;
-    
+    Transform t;
+    Vector3 sleepVector = new Vector3(0, 1000, 0);
+    Vector3 readyPosition = new Vector3(0.5f, 0, 1);
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         currAmmo = magazineSize;
         reserveAmmo -= magazineSize;
-        reloading = false;
-        ammoText.text = string.Concat(weaponName, " ammo: ", currAmmo.ToString(), "/", magazineSize.ToString(), "\n", "Reserve Ammo: ", reserveAmmo.ToString());
     }
-
-    void FireWeapon()
+    public void SleepWeapon()
+    {
+        transform.position = sleepVector;
+    }
+    public string WakeWeapon()
+    {
+        transform.position = manager.transform.position;
+        transform.rotation = manager.transform.rotation;
+        return string.Concat(weaponName, " ammo: ", currAmmo.ToString(), "/", magazineSize.ToString(), "\n", "Reserve Ammo: ", reserveAmmo.ToString());
+    }
+    public virtual string FireWeapon()
     {
         if(currAmmo <= 0)
         {
             //Play dry-fire "click" sfx
-            return;
         }
-        if(currAmmo > 0 && !reloading && lastShotEnd.CompareTo(DateTime.Now) <= 0)
+        if(currAmmo > 0)
         {
             currAmmo--;
-            lastShot = DateTime.Now;
-            lastShotEnd = lastShot.AddMilliseconds(fireDelay);
             GameObject p = Instantiate(projectile, firePoint.transform.position, firePoint.transform.rotation);
             p.GetComponent<Rigidbody>().AddForce(p.transform.forward * projectileVelocity);
-            ammoText.text = string.Concat(weaponName, " ammo: ", currAmmo.ToString(), "/", magazineSize.ToString(), "\n", "Reserve Ammo: ", reserveAmmo.ToString());
         }
+        return string.Concat(weaponName, " ammo: ", currAmmo.ToString(), "/", magazineSize.ToString(), "\n", "Reserve Ammo: ", reserveAmmo.ToString());
     }
 
-    void ReloadWeapon()
+    public virtual string ReloadWeapon()
     {
-        if(reserveAmmo > 0 && currAmmo < magazineSize && !reloading)
+        //Does the weapon need reloading, and can it be reloaded?
+        if(currAmmo < magazineSize && reserveAmmo > 0)
         {
-            reloading = true;
-            reloadStart = DateTime.Now;
-            reloadEnd = reloadStart.AddMilliseconds(reloadTime);
-            ammoText.text = "Reloading . . .";
-            //In case the reserve ammo is less than the magazine size
-            if(reserveAmmo < magazineSize)
-            {
-                currAmmo += reserveAmmo;
-                reserveAmmo = 0;
-            }
-            else
+            //Is there enough ammo to reload the entire capacity?
+            if(reserveAmmo > (magazineSize-currAmmo))
             {
                 reserveAmmo -= (magazineSize - currAmmo);
                 currAmmo = magazineSize;
             }
+            else
+            {
+                currAmmo += reserveAmmo;
+                reserveAmmo = 0;
+            }
+            return "Reloading . . .";
         }
+        //Otherwise just return status as usual
+        return string.Concat(weaponName, " ammo: ", currAmmo.ToString(), "/", magazineSize.ToString(), "\nReserve Ammo: ", reserveAmmo.ToString());
     }
 
     //Returns the weight of the weapon and all its ammo
@@ -101,9 +102,27 @@ public class Weapon : MonoBehaviour
         return (currAmmo+reserveAmmo)*ammoWeight + weaponWeight;
     }
 
+    public string GetWeaponText()
+    {
+        return string.Concat(weaponName, " ammo: ", currAmmo.ToString(), "/", magazineSize.ToString(), "\nReserve Ammo: ", reserveAmmo.ToString());
+    }
+
+    public virtual int GetWeaponFireDelay()
+        {return fireDelay;}
+    public virtual int GetReloadDelay()
+        {return reloadTime;}   
+
+    public void RemoveAmmo(int amount)
+    {
+        reserveAmmo -= amount;
+        if(reserveAmmo < 0)
+            reserveAmmo = 0;
+    }
+
     // Update is called once per frame
     void Update()
     {
+        /*
         if(Input.GetButtonDown("Fire1"))
         {
             FireWeapon();
@@ -116,6 +135,6 @@ public class Weapon : MonoBehaviour
         {
             reloading = false;
             ammoText.text = string.Concat(weaponName, " ammo: ", currAmmo.ToString(), "/", magazineSize.ToString(), "\n", "Reserve Ammo: ", reserveAmmo.ToString());
-        }
+        } */
     }
 }
