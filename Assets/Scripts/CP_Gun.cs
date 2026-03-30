@@ -4,21 +4,32 @@ using UnityEngine.InputSystem;
 // Computer player class for the gun class
 public class CP_Gun : Gun
 {
-    private bool shooting;
+    protected bool shooting;
     [Header("Rotation")]
-    private RotateAroundObj rotateScript; // implment rotation within CP_Gun instead of attaching two scripts to the turret
-    public GameObject pivotObj; // The object to rotate around, used for the RotateAroundObj script
-    public GameObject targetObj; // The object to face towards, used for the RotateAroundObj script
-    public float rotationSpeed; // The speed at which the turret rotates, used for the RotateAroundObj script
+    public RotateAroundObj rotateScript; // implment rotation within CP_Gun instead of attaching two scripts to the turret
+
     protected override void Awake()
     {
         base.Awake();
         // Set up the RotateAroundObj script with the appropriate references and values
-        rotateScript = GetComponent<RotateAroundObj>();
-        rotateScript.PivotObj = pivotObj;
-        rotateScript.TargetObj = targetObj;
-        rotateScript.RotationSpeed = rotationSpeed;
-        rotateScript.sourceObj = attackPoint.gameObject; // Set the sourceObj to the end of the gun barrel
+        if(rotateScript != null)
+        {
+            rotateScript = GetComponent<RotateAroundObj>();
+        }
+    }
+    
+    protected void managefiring()
+    {
+        shooting = true;
+        if (readyToShoot && shooting && !reloading && bulletsLeft > 0)
+        {
+            bulletsShot = 0;
+            Shoot();
+        }
+        if(readyToShoot && shooting && !reloading && bulletsLeft <= 0)
+        {
+            Reload();
+        }
     }
 
     override protected void Update()
@@ -70,22 +81,23 @@ public class CP_Gun : Gun
             Invoke("Shoot", timeBetweenShots);
     }
     // When a player is within the trigger collider, the turret keeps firing
-    private void OnTriggerStay(Collider other)
+    protected void OnTriggerStay(Collider other)
     {   
         // Debug.Log("Is faceing target: " + rotateScript.IsFacingTarget);
-        if (rotateScript.IsFacingTarget && other.CompareTag("Player"))
+        if(rotateScript == null)
         {
-            shooting = true;
-            if (readyToShoot && shooting && !reloading && bulletsLeft > 0)
+            if (other.CompareTag("Player"))
             {
-                bulletsShot = 0;
-                Shoot();
+                managefiring();
             }
-            if(readyToShoot && shooting && !reloading && bulletsLeft <= 0)
+        } else
+        {
+            if (rotateScript.IsFacingTarget && other.CompareTag("Player"))
             {
-                Reload();
+                managefiring();
             }
         }
+        
     }
     // stops firing when player is no longer within the trigger collider
     private void OnTriggerExit(Collider other)
