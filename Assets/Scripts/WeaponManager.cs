@@ -32,11 +32,33 @@ public class WeaponManager : MonoBehaviour
     DateTime switchTimer;
     DateTime shootTimer;
 
+    void Start()
+    {
+        reloadTimer = DateTime.Now;
+        switchTimer = DateTime.Now;
+        shootTimer = DateTime.Now;
+        
+        weaponArr[0] = null;
+        weaponArr[1] = weapon1;
+        weaponArr[2] = weapon2;
+        weaponArr[3] = weapon3;
+        weaponArr[4] = weapon4;
+        weaponArr[5] = weapon5;
+        weaponArr[6] = weapon6;
+        weaponArr[7] = weapon7;
+        weaponArr[8] = weapon8;
+        weaponArr[9] = weapon9;
+        activeWeapon = weapon1;
+    }
+
     //newWeapon refers to the position in the weapons array
     private void SwitchWeapon(int newWeapon)
     {
         if(weaponArr[newWeapon] == activeWeapon || weaponArr[newWeapon] == null)
+        {
+            testText.text = "Weapon switch the same or null";
             return;
+        }
 
         activeWeapon.SleepWeapon();
         activeWeapon = weaponArr[newWeapon];
@@ -54,27 +76,7 @@ public class WeaponManager : MonoBehaviour
         }
         return false;
     }
-
-
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        reloadTimer = DateTime.Now;
-        switchTimer = DateTime.Now;
-        shootTimer = DateTime.Now;
-        
-        weaponArr[0] = null;
-        weaponArr[1] = weapon1;
-        weaponArr[2] = weapon3;
-        weaponArr[3] = weapon3;
-        weaponArr[4] = weapon4;
-        weaponArr[5] = weapon5;
-        weaponArr[6] = weapon6;
-        weaponArr[7] = weapon7;
-        weaponArr[8] = weapon8;
-        weaponArr[9] = weapon9;
-        activeWeapon = weapon1;
-    }
+    
 
     // Update is called once per frame
     void Update()
