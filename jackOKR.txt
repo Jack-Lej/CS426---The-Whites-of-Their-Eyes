@@ -14,4 +14,4 @@ Implement weight & weight management system
 Finish Rifle weapon design
 ---------------------------------------------
 UPDATES:
-3-30: Implemented Rifle weapon, added weapon swapping system. Weapons must now finish their actions (fire, reload, switch) before any other action can be taken with them.
+3-30: Implemented Rifle weapon, added weapon swapping system. Weapons must now finish their actions (fire, reload, switch) before any other action can be taken with them. Need to allow weapons to fire continuously by holding fire button, even non-automatic weapons.
