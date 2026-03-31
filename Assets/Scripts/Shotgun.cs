@@ -35,9 +35,9 @@ public class Shotgun : Weapon
             
             //Position vectors for each of the 8 "random" pellets
             //If they all spawned on the same point, they would clip together & explode all over the place
-            Vector3[] vecs = {new Vector3(0, -0.05f, -0.05f), new Vector3(0, -0.05f, 0), new Vector3(0, -0.05f, 0.05f),
-            new Vector3(0, 0, -0.05f), new Vector3(0, 0, 0.05f),
-            new Vector3(0, 0.05f, -0.05f), new Vector3(0, 0.05f, 0), new Vector3(0, 0.05f, 0.05f)};
+            Vector3[] vecs = {new Vector3(0, -0.04f, -0.04f), new Vector3(0, -0.04f, 0), new Vector3(0, -0.04f, 0.04f),
+            new Vector3(0, 0, -0.04f), new Vector3(0, 0, 0.04f),
+            new Vector3(0, 0.04f, -0.04f), new Vector3(0, 0.04f, 0), new Vector3(0, 0.04f, 0.04f)};
 
             
             //Spawn the random 8 pellets within a [spread * 360]-degree cone, and each slightly away from the center
@@ -45,7 +45,7 @@ public class Shotgun : Weapon
             for(int i = 0; i < 8; i++)
             {
                 GameObject pRand = Instantiate(projectile, center+vecs[i], firePoint.transform.rotation);
-                Vector3 rotat = new Vector3(0, UnityEngine.Random.Range(-spread, spread), UnityEngine.Random.Range(-spread, spread));
+                Vector3 rotat = new Vector3(UnityEngine.Random.Range(-spread, spread), UnityEngine.Random.Range(-spread, spread), UnityEngine.Random.Range(-spread, spread));
                 pRand.GetComponent<Rigidbody>().AddForce((pRand.transform.forward + rotat) * projectileVelocity);
             }
         }

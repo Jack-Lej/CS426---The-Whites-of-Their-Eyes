@@ -92,7 +92,7 @@ public class WeaponManager : MonoBehaviour
                 switchAlarm = false;
             }
             weaponText.text = activeWeapon.GetWeaponText();
-            if(Input.GetButtonDown("Fire1"))
+            if(Input.GetKeyDown("Fire1"))
             {
                 shootTimer = DateTime.Now.AddMilliseconds(activeWeapon.GetWeaponFireDelay());
                 weaponText.text = activeWeapon.FireWeapon();
