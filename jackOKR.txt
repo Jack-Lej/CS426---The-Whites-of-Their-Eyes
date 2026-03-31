@@ -2,3 +2,16 @@ Weapon interface script: 2 hours, due by Tuesday
 Weapon interface functional: 2 hours, due by Wednesday
 Unique weapon: shotgun with multiple projectiles & segmented reloading: 4 hours, due by Friday 8pm
 3D Scene of Level 1 structure: 1 hour, due Friday 8pm
+
+
+WEEK 11
+----------------------------------------------
+TASKS:
+Implement 1 unique FSM/Nav mesh behavior for an enemy
+Implement 1 unique mechanim object, in theory for the enemy I designed the FSM for
+Create 2-3 more weapons, need to be "high tier" ones for major enemies
+Implement weight & weight management system
+Finish Rifle weapon design
+---------------------------------------------
+UPDATES:
+3-30: Implemented Rifle weapon, added weapon swapping system. Weapons must now finish their actions (fire, reload, switch) before any other action can be taken with them.
