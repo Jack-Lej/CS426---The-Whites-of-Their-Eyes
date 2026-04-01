@@ -86,13 +86,15 @@ public class WeaponManager : MonoBehaviour
     {
         if(ActionReady())
         {
+            //Once the switch timer is up, spawn the new weapon and reset the bool
             if(switchAlarm)
             {
+                testText.text = "Successful switch";
                 activeWeapon.WakeWeapon();
                 switchAlarm = false;
             }
             weaponText.text = activeWeapon.GetWeaponText();
-            if(Input.GetKeyDown("Fire1"))
+            if(Input.GetKey(KeyCode.Mouse0))
             {
                 shootTimer = DateTime.Now.AddMilliseconds(activeWeapon.GetWeaponFireDelay());
                 weaponText.text = activeWeapon.FireWeapon();
@@ -114,7 +116,10 @@ public class WeaponManager : MonoBehaviour
                 SwitchWeapon(2);
             }
             else if(Input.GetButtonDown("Switch Weapon 3"))
+            {
+                testText.text = "Weapon 2 Switch";
                 SwitchWeapon(3);
+            }
             else if(Input.GetButtonDown("Switch Weapon 4"))
                 SwitchWeapon(4);
             else if(Input.GetButtonDown("Switch Weapon 5"))
