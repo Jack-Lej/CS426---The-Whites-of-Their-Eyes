@@ -31,7 +31,7 @@ public class Shotgun : Weapon
             Vector3 center = firePoint.transform.position;
 
             GameObject pCenter = Instantiate(projectile, center, firePoint.transform.rotation);
-            pCenter.GetComponent<Rigidbody>().AddForce(pCenter.transform.forward * projectileVelocity);
+            pCenter.GetComponent<Rigidbody>().AddForce(pCenter.transform.forward * projectileVelocity * -1);
             
             //Position vectors for each of the 8 "random" pellets
             //If they all spawned on the same point, they would clip together & explode all over the place
@@ -46,7 +46,7 @@ public class Shotgun : Weapon
             {
                 GameObject pRand = Instantiate(projectile, center+vecs[i], firePoint.transform.rotation);
                 Vector3 rotat = new Vector3(UnityEngine.Random.Range(-spread, spread), UnityEngine.Random.Range(-spread, spread), UnityEngine.Random.Range(-spread, spread));
-                pRand.GetComponent<Rigidbody>().AddForce((pRand.transform.forward + rotat) * projectileVelocity);
+                pRand.GetComponent<Rigidbody>().AddForce((pRand.transform.forward + rotat) * projectileVelocity * -1);
             }
         }
         return string.Concat(weaponName, " ammo: ", currAmmo.ToString(), "/", magazineSize.ToString(), "\nReserve Ammo: ", reserveAmmo.ToString());

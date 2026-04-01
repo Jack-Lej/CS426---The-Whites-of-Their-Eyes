@@ -1,13 +1,14 @@
 using UnityEngine;
+using TMPro;
 
 public class Target : MonoBehaviour
 {
-
+    [SerializeField] TMP_Text healthText;
     public int health;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        health = 1000;
+        healthText.text = string.Concat("Heatlh: ", health);
     }
 
     // Update is called once per frame
@@ -22,7 +23,8 @@ public class Target : MonoBehaviour
         {
             Projectile p = collision.gameObject.GetComponent<Projectile>();
             health -= p.GetDamage();
-            Debug.Log("Health: " + health);
+            Debug.Log(string.Concat("Heatlh: ", health));
+            healthText.text = string.Concat("Heatlh: ", health);
             if(health <= 0)
             {
                 Destroy(gameObject);

@@ -11,7 +11,8 @@ public class Weapon : MonoBehaviour
     //Amount of shots that can be fired before needing to reload
     [SerializeField] protected int magazineSize;
     //Ammo currently read to be used, ammo "in the magazine"
-    [SerializeField] protected int currAmmo;
+    //Not serialized b/c it updates automatically, and to prevent adding an extra full clip to total ammo
+    protected int currAmmo;
 
     //Amount of reserve ammo available for reloading, includes the ammo used to load the weapon on game start
     //Important: we need to decide if we keep the reserve ammo for weapons that reload all at once (magazine-based)
@@ -41,9 +42,7 @@ public class Weapon : MonoBehaviour
 
     Transform t;
     Vector3 sleepVector = new Vector3(0, 1000, 0);
-    Vector3 readyPosition = new Vector3(0.5f, 0, 1);
 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         currAmmo = magazineSize;

@@ -9,6 +9,7 @@ public class Projectile : MonoBehaviour
     //Not necessary now, maybe not in future
     public float deceleration;
     public int damage;
+    [SerializeField] string name;
 
     Rigidbody rb;
     Transform t;
@@ -24,14 +25,20 @@ public class Projectile : MonoBehaviour
         return damage;
     }
 
-    public void OnCollisionEnter()
+    public virtual void OnCollisionEnter(Collision collision)
     {
-        Destroy(gameObject);
+        if(name == "Railgun Round")
+        {
+            Debug.Log("In rg check");
+            if(collision.gameObject.tag == "Enemy")
+                damage /= 2;
+                
+            
+            else
+                Destroy(gameObject);
+        }
+        else
+            Destroy(gameObject);
     }
 
-
-    void Update()
-    {
-
-    }
 }
