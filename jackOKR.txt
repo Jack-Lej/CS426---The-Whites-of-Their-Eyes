@@ -15,3 +15,4 @@ Finish Rifle weapon design
 ---------------------------------------------
 UPDATES:
 3-30: Implemented Rifle weapon, added weapon swapping system. Weapons must now finish their actions (fire, reload, switch) before any other action can be taken with them. Need to allow weapons to fire continuously by holding fire button, even non-automatic weapons.
+3-31: Added Railgun with own projectile & laser; projectile still needs to go through enemies. Fixed rotation of weapons when switching, and fixed shotgun pellets not doing damage. Weapons now fire continuously.
