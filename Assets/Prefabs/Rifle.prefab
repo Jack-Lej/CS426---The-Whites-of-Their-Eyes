@@ -165,13 +165,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Weapon
   magazineSize: 30
-  currAmmo: 0
   reserveAmmo: 630
   reloadTime: 1200
   fireDelay: 65
   projectileVelocity: 500
   manager: {fileID: 0}
-  projectile: {fileID: 3096739852597059259, guid: ff34e7a255efec4429f98b21686d4bd5, type: 3}
+  projectile: {fileID: 8718020317698012777, guid: 5604a54be71a3574aa38f617f30162ba, type: 3}
   ammoText: {fileID: 0}
   firePoint: {fileID: 3242006828180517801}
   weaponName: 

@@ -13,10 +13,10 @@ GameObject:
   - component: {fileID: 7695180801546295842}
   - component: {fileID: 2661966935604194830}
   - component: {fileID: 4342186560089441675}
-  - component: {fileID: 6882804068464114156}
+  - component: {fileID: -3604230611276946411}
   m_Layer: 0
   m_Name: Shotgun Pellet
-  m_TagString: Shotgun Pellet
+  m_TagString: Projectile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -141,7 +141,7 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &6882804068464114156
+--- !u!114 &-3604230611276946411
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -150,10 +150,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 617719506206176291}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d2946d97c54fb794fb920fd74b7255a3, type: 3}
+  m_Script: {fileID: 11500000, guid: a912e021f819d32469e3952a48dbd52d, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: '::'
-  velocity: 0
-  deceleration: 0
+  m_EditorClassIdentifier: Assembly-CSharp::Projectile
+  velocity: 2
+  deceleration: 0.001
   damage: 8
-  spawnTime: 2000
