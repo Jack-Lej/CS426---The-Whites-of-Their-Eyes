@@ -86,7 +86,7 @@ public class RotateAroundObj : MonoBehaviour
 
         if(isFacingTarget)
         {
-            Debug.Log("Facing target");
+            // Debug.Log("Facing target");
         }
 
         // float step = Mathf.Min(rotationSpeed * Time.deltaTime, Mathf.Abs(angleToTarget));

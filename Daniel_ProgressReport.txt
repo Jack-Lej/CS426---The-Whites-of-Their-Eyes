@@ -1,0 +1,10 @@
+3/31/26
+Started of melee enemy with a humanoid skin and animations
+
+What I've done:
+	Added idle and wander states
+		- Enemy just randomly choose points around it and walks over to that point
+
+ToDo:
+	- Add run, attacking, and death state and attach an animation to them
+	- Add functionality of enemy running after player when player gets within a certain distance
