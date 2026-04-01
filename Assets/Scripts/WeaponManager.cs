@@ -117,7 +117,7 @@ public class WeaponManager : MonoBehaviour
             }
             else if(Input.GetButtonDown("Switch Weapon 3"))
             {
-                testText.text = "Weapon 2 Switch";
+                testText.text = "Weapon 3 Switch";
                 SwitchWeapon(3);
             }
             else if(Input.GetButtonDown("Switch Weapon 4"))
