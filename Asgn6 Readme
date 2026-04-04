@@ -2,3 +2,8 @@ A README.txt file explaining your design and its rationale, and how your compone
 
 Our design philosophy is to treat the game like we were making a mod for DOOM (2016), like how people would make WADs for the the original and its sequal. We borrow most of the themeing: demoic, hellish, dungeons, and the weapons are all either from real life or are popular science-fiction staples. 
 This means that we can allow ourselves a broad collection of artstyles and monster designs, while the twist on resource management means we aren't just making a clone. The big battles will feel epic, and tense, but the sting of the last mag should help the last fight with one guy feel the same way. 
+
+Mechanim & Enemies:
+"Parasite" melee enemy, added by Daniel. AI using nav mesh to wander the level until it sees the player, at which point it runs towards them and attacks. Uses an FSM to determine behavior
+Turret enemy, added by Daniel. Sits in place. Tracks the player from afar, and fires at them when they enter a sphere surrounding them. Automatic behavior determined by script.
+Enemy with gun, added by Daniel. Moves around the level until it notices the player, then moves within firing range. Shoots at the player and tries to stay a certain distance away from them. Controlled by C# script.
