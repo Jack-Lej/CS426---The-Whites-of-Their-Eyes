@@ -31,6 +31,10 @@ public class RotateAroundObj : MonoBehaviour
     // Update is called once per frame
     internal void Update()
     {
+        if(targetObj == null)
+        {
+            return;
+        }
         // Calculate direction from sourceObj's position, not transform's
         Vector3 targetDirection = targetObj.transform.position - sourceObj.transform.position;
 
@@ -63,6 +67,11 @@ public class RotateAroundObj : MonoBehaviour
                 float vStep = Mathf.Min(rotationSpeed * Time.deltaTime, Mathf.Abs(verticalAngle));
                 float vDirection = Mathf.Sign(verticalAngle);
                 verticalPivot.transform.Rotate(Vector3.right, -vDirection * vStep, Space.Self);
+
+                Vector3 clampedEuler = verticalPivot.transform.localEulerAngles;
+                float xAngle = clampedEuler.x > 180f ? clampedEuler.x - 360f : clampedEuler.x;
+                clampedEuler.x = Mathf.Clamp(xAngle, -60f, 60f);
+                verticalPivot.transform.localEulerAngles = clampedEuler;
             }
 
             isFacingTarget = facingHorizontal && facingVertical;
@@ -82,6 +91,7 @@ public class RotateAroundObj : MonoBehaviour
         //     Debug.Log("Facing target");
         //     return;
         // }
+
         
 
         if(isFacingTarget)

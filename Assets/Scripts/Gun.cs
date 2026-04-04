@@ -87,19 +87,19 @@ public abstract class Gun : MonoBehaviour
             Invoke("Shoot", timeBetweenShots);
     }
 
-    protected void Reload()
+    protected virtual void Reload()
     {
         reloading = true;
         Invoke("ReloadFinished", reloadTime);
     }
 
-    private void ResetShot()
+    protected virtual void ResetShot()
     {
         readyToShoot = true;
         allowInvoke = true;
     }
 
-    private void ReloadFinished()
+    protected virtual void ReloadFinished()
     {
         bulletsLeft = magazineSize;
         reloading = false;

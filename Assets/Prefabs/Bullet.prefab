@@ -187,6 +187,8 @@ MonoBehaviour:
   bounciness: 0
   useGravity: 0
   explosionDamage: 40
+  directHitDamage: 40
+  isExplosive: 0
   explosionRange: 0.5
   explosionForce: 1
   maxCollisions: 1

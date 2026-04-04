@@ -8,3 +8,24 @@ What I've done:
 ToDo:
 	- Add run, attacking, and death state and attach an animation to them
 	- Add functionality of enemy running after player when player gets within a certain distance
+
+/***********************************************************************************************************/
+
+4/3/26
+Finished Melee enemy
+	- Has attack and death animation now
+	- dies when heal is depleted
+	- Uses finite state machine to determine whether it is attacking, wandering around, chasing, or is dead
+	- Uses NavMesh to traverse through the map
+
+Updated the moving ranged enemy
+	- Fixed bug where bullets will gradually start spawning underground
+	- Changed target logic where it attacks nearby enemies rather than a specified enemy from the start
+	- Added hitbox to allow death
+	- Changed the prefab "Bullet" to do regular damage rather than explosive damage
+	- No longer uses the script RotatedAroundObj to rotate. It now rotates using the Navmesh logic
+
+Todo: 
+	- Update turret targeting logic to attack a player on entry of its attack radius like with the moving ranged enemy
+	- Add health and proper collisions to turrets
+	- Fix weird bug with the moving ranged enemies where the bullet spread becomes very large

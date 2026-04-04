@@ -303,12 +303,14 @@ MonoBehaviour:
     m_Bits: 64
   bounciness: 0
   useGravity: 0
-  explosionDamage: 100
+  explosionDamage: 200
+  directHitDamage: 0
+  isExplosive: 1
   explosionRange: 2
   explosionForce: 200
   maxCollisions: 1
   maxLifetime: 5
-  explodeOnTouch: 0
+  explodeOnTouch: 1
 --- !u!96 &7748725263288296514
 TrailRenderer:
   serializedVersion: 4

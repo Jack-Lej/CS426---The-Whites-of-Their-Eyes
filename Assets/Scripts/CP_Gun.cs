@@ -5,6 +5,7 @@ using UnityEngine.InputSystem;
 public class CP_Gun : Gun
 {
     protected bool shooting;
+    private bool isShooting = false;
     [Header("Rotation")]
     public RotateAroundObj rotateScript; // implment rotation within CP_Gun instead of attaching two scripts to the turret
 
@@ -21,8 +22,9 @@ public class CP_Gun : Gun
     protected void managefiring()
     {
         shooting = true;
-        if (readyToShoot && shooting && !reloading && bulletsLeft > 0)
+        if (!isShooting && readyToShoot && shooting && !reloading && bulletsLeft > 0)
         {
+            isShooting = true;
             bulletsShot = 0;
             Shoot();
         }
@@ -106,6 +108,20 @@ public class CP_Gun : Gun
         {
             shooting = false;
         }
+    }
+
+    override protected void ResetShot()  // override this from Gun
+    {
+        readyToShoot = true;
+        allowInvoke = true;
+        isShooting = false;  // allow a new chain to start
+    }
+
+    override protected void ReloadFinished()  // override in CP_Gun
+    {
+        bulletsLeft = magazineSize;
+        reloading = false;
+        isShooting = false;  // allow firing again after reload
     }
 
 
