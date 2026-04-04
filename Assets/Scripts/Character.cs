@@ -1,0 +1,37 @@
+using UnityEngine;
+using UnityEngine.Events;
+
+public class Character : MonoBehaviour
+{
+    public int maxHealth = 100;
+    public int currentHealth;
+
+    public UnityEvent onDeath;
+    public UnityEvent<int> onDamageTaken;
+
+    void Start()
+    {
+        currentHealth = maxHealth;
+    }
+
+    public void TakeDamage(int damage)
+    {
+        if (currentHealth <= 0) return; // Already dead, ignore further damage
+
+        currentHealth -= damage;
+        onDamageTaken.Invoke(damage);
+        Debug.Log(gameObject.name + " took " + damage + ". HP: " + currentHealth);
+
+        if (currentHealth <= 0)
+        {
+            currentHealth = 0;
+            Debug.Log(gameObject.name + " died");
+            onDeath.Invoke();
+        }
+    }
+
+    public void Heal(int amount)
+    {
+        currentHealth = Mathf.Min(currentHealth + amount, maxHealth);
+    }
+}

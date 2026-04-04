@@ -17,6 +17,8 @@ public class CustomBullet : MonoBehaviour
 
     //Damage
     public int explosionDamage;
+    public int directHitDamage;
+    public bool isExplosive = true;
     public float explosionRange;
     public float explosionForce;
 
@@ -34,6 +36,18 @@ public class CustomBullet : MonoBehaviour
     private void Start()
     {
         Setup();
+    }
+
+    private void HandleImpact()
+    {
+        if (isExplosive)
+        {
+            Explode();
+        }
+        else
+        {
+            Invoke("Delay", 0.05f); // Just clean up, damage was already dealt in OnCollisionEnter
+        }
     }
 
     private void Update()
@@ -62,10 +76,19 @@ public class CustomBullet : MonoBehaviour
         Collider[] enemies = Physics.OverlapSphere(transform.position, explosionRange, whatIsEnemies);
         for (int i = 0; i < enemies.Length; i++)
         {
-            //Get component of enemy and call Take Damage
-
-            //Just an example!
-            ///enemies[i].GetComponent<ShootingAi>().TakeDamage(explosionDamage);
+            HurtBox hurtBox = enemies[i].GetComponent<HurtBox>();
+            if (hurtBox != null)
+            {
+                hurtBox.ReceiveDamage(explosionDamage);
+            } 
+            else
+            {
+                Character character = enemies[i].GetComponentInParent<Character>();
+                if (character != null)
+                {
+                    character.TakeDamage(explosionDamage);
+                }
+            }
 
             //Add explosion force (if enemy has a rigidbody)
             if (enemies[i].GetComponent<Rigidbody>())
@@ -80,6 +103,23 @@ public class CustomBullet : MonoBehaviour
         Destroy(gameObject);
     }
 
+    private void DealDirectHitDamage(Collider other)
+    {
+        HurtBox hurtBox = other.GetComponent<HurtBox>();
+        if (hurtBox != null)
+        {
+            hurtBox.ReceiveDamage(directHitDamage);
+        }
+        else
+        {
+            Character character = other.GetComponentInParent<Character>();
+            if (character != null)
+            {
+                character.TakeDamage(directHitDamage);
+            }
+        }
+    }
+
     private void OnCollisionEnter(Collision collision)
     {
         //Don't count collisions with other bullets
@@ -88,8 +128,18 @@ public class CustomBullet : MonoBehaviour
         //Count up collisions
         collisions++;
 
-        //Explode if bullet hits an enemy directly and explodeOnTouch is activated
-        if (collision.collider.CompareTag("Enemy") && explodeOnTouch) Explode();
+        if(!isExplosive)
+        {
+            DealDirectHitDamage(collision.collider);
+            Invoke("Delay", 0.05f);
+            return;
+        }
+
+        // //Explode if bullet hits an enemy directly and explodeOnTouch is activated
+        // if (collision.collider.CompareTag("Enemy") && explodeOnTouch) Explode();
+
+        //Explode if bullet hits an Player directly and explodeOnTouch is activated
+        if (collision.collider.CompareTag("Player") && explodeOnTouch) Explode();
     }
 
     private void Setup()

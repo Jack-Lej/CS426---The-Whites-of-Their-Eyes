@@ -1,0 +1,36 @@
+3/31/26
+Started of melee enemy with a humanoid skin and animations
+
+What I've done:
+	Added idle and wander states
+		- Enemy just randomly choose points around it and walks over to that point
+
+ToDo:
+	- Add run, attacking, and death state and attach an animation to them
+	- Add functionality of enemy running after player when player gets within a certain distance
+
+/***********************************************************************************************************/
+
+4/3/26
+Finished Melee enemy
+	- Has attack and death animation now
+	- dies when health is depleted
+	- Uses finite state machine to determine whether it is attacking, wandering around, chasing, or is dead
+	- Uses NavMesh to traverse through the map
+	- Plays appropriate animation depending on state
+
+Updated the moving ranged enemy
+	- Fixed bug where bullets will gradually start spawning underground
+	- Changed target logic where it attacks nearby enemies rather than a specified enemy from the start
+	- Added hitbox to allow death
+	- Changed the prefab "Bullet" to do regular damage rather than explosive damage
+	- No longer uses the script RotatedAroundObj to rotate. It now rotates using the Navmesh logic
+
+Added new script "Character.cs" that handles HP for all characters (NPC or player)
+	- Used for reference for the hit/hurt boxes
+
+Todo: 
+	- Update turret targeting logic to attack a player on entry of its attack radius like with the moving ranged enemy
+	- Add health and proper collisions to turrets
+	- Fix weird bug with the moving ranged enemies where the bullet spread becomes very large
+	- Implement State based behavior similar to that of the melee enemy
