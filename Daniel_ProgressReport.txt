@@ -14,7 +14,7 @@ ToDo:
 4/3/26
 Finished Melee enemy
 	- Has attack and death animation now
-	- dies when heal is depleted
+	- dies when health is depleted
 	- Uses finite state machine to determine whether it is attacking, wandering around, chasing, or is dead
 	- Uses NavMesh to traverse through the map
 	- Plays appropriate animation depending on state
