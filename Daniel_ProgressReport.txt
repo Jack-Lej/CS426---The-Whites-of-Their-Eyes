@@ -26,6 +26,9 @@ Updated the moving ranged enemy
 	- Changed the prefab "Bullet" to do regular damage rather than explosive damage
 	- No longer uses the script RotatedAroundObj to rotate. It now rotates using the Navmesh logic
 
+Added new script "Character.cs" that handles HP for all characters (NPC or player)
+	- Used for reference for the hit/hurt boxes
+
 Todo: 
 	- Update turret targeting logic to attack a player on entry of its attack radius like with the moving ranged enemy
 	- Add health and proper collisions to turrets
