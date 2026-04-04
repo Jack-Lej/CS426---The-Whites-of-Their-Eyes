@@ -33,5 +33,21 @@ public class Target : MonoBehaviour
         }
     }
 
+    private void OnTriggerEnter(Collider collision)
+    {
+        if(collision.gameObject.tag == "Projectile")
+        {
+            Projectile p = collision.gameObject.GetComponent<Projectile>();
+            health -= p.GetDamage();
+            Debug.Log(string.Concat("Heatlh: ", health));
+            healthText.text = string.Concat("Heatlh: ", health);
+            if(health <= 0)
+            {
+                Destroy(gameObject);
+            }
+            
+        }
+    }
+
 
 }
