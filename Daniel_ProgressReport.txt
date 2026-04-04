@@ -17,6 +17,7 @@ Finished Melee enemy
 	- dies when heal is depleted
 	- Uses finite state machine to determine whether it is attacking, wandering around, chasing, or is dead
 	- Uses NavMesh to traverse through the map
+	- Plays appropriate animation depending on state
 
 Updated the moving ranged enemy
 	- Fixed bug where bullets will gradually start spawning underground
@@ -29,3 +30,4 @@ Todo:
 	- Update turret targeting logic to attack a player on entry of its attack radius like with the moving ranged enemy
 	- Add health and proper collisions to turrets
 	- Fix weird bug with the moving ranged enemies where the bullet spread becomes very large
+	- Implement State based behavior similar to that of the melee enemy
