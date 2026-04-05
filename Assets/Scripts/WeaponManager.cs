@@ -23,13 +23,23 @@ public class WeaponManager : MonoBehaviour
     [SerializeField] protected TMP_Text weaponText;
     [SerializeField] protected TMP_Text testText;
 
+    [SerializeField] protected TMP_Text weightText;
+
+    [SerializeField] protected DiscardWeaponBehavior weightUI;
+
+    [SerializeField] protected BasicFPCC playerMovement;
+
     private Weapon[] weaponArr = new Weapon[10];
 
     //Weapon currently in use
     private Weapon activeWeapon;
+//helklo
+    private float totalWeight;
+    private float startWeight;
 
     DateTime reloadTimer;
     bool switchAlarm;
+    bool tildePressed;
     DateTime switchTimer;
     DateTime shootTimer;
 
@@ -38,8 +48,9 @@ public class WeaponManager : MonoBehaviour
         reloadTimer = DateTime.Now;
         switchTimer = DateTime.Now;
         switchAlarm = false;
+        tildePressed = false;
         shootTimer = DateTime.Now;
-        
+
         weaponArr[0] = null;
         weaponArr[1] = weapon1;
         weaponArr[2] = weapon2;
@@ -52,6 +63,9 @@ public class WeaponManager : MonoBehaviour
         weaponArr[9] = weapon9;
         activeWeapon = weapon1;
         activeWeapon.WakeWeapon();
+
+        UpdateWeight();
+        startWeight = totalWeight;
     }
 
     //newWeapon refers to the position in the weapons array
@@ -79,6 +93,50 @@ public class WeaponManager : MonoBehaviour
         }
         return false;
     }
+
+    public void DropAmmo(int weapon, string amount)
+    {
+        try
+        {
+            int amt = Int32.Parse(amount);
+            weaponArr[weapon].DropAmmo(amt);
+        }
+        //Do nothing on the catch, if amount was incorrect
+        catch (FormatException) {}
+    }
+
+    public void DropWeapon(int weapon)
+    {
+        if(weaponArr[weapon] == activeWeapon)
+        {
+            weaponArr[weapon] = null;
+            for(int i = 1; i < 10; i++)
+            {
+                if(weaponArr[i] != null)
+                {
+                    SwitchWeapon(i);
+                }
+            }
+        }
+        else
+            weaponArr[weapon] = null;
+    }
+
+    private void UpdateWeight()
+    {
+        totalWeight = 0;
+        for(int i = 1; i < 10; i++)
+        {
+            Weapon w = weaponArr[i];
+            if(w == null)
+                continue;
+            totalWeight += w.GetWeaponWeight();    
+        }
+
+        totalWeight += 0; //include health kit weight here
+
+        weightText.text = string.Concat("Weight: ", totalWeight);
+    }
     
 
     // Update is called once per frame
@@ -86,6 +144,11 @@ public class WeaponManager : MonoBehaviour
     {
         if(ActionReady())
         {
+            //Update the weight from all items
+            UpdateWeight();
+            playerMovement.UpdateSpeedBonus(1 + (1 - (totalWeight/startWeight)));
+
+
             //Once the switch timer is up, spawn the new weapon and reset the bool
             if(switchAlarm)
             {
@@ -94,7 +157,7 @@ public class WeaponManager : MonoBehaviour
                 switchAlarm = false;
             }
             weaponText.text = activeWeapon.GetWeaponText();
-            if(Input.GetKey(KeyCode.Mouse0))
+            if(Input.GetKey(KeyCode.Mouse0) && !tildePressed)
             {
                 shootTimer = DateTime.Now.AddMilliseconds(activeWeapon.GetWeaponFireDelay());
                 weaponText.text = activeWeapon.FireWeapon();
@@ -132,6 +195,11 @@ public class WeaponManager : MonoBehaviour
                 SwitchWeapon(8);
             else if(Input.GetButtonDown("Switch Weapon 9"))
                 SwitchWeapon(9);
+            else if(Input.GetButtonDown("Management Mode")); 
+            {
+                Debug.Log("key detected");
+                tildePressed = !tildePressed;   
+            }
         }
     }
 }

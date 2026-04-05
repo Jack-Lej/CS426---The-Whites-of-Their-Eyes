@@ -98,6 +98,8 @@ public class BasicFPCC : MonoBehaviour
     public float gravity = -9.81f;                   // gravity / fall rate
     public float jumpHeight = 2.5f;                  // jump height
 
+    private float speedBonus = 1f;                   //Calculated by the player's weight in WeaponManager
+
     [Header("Grounded Settings")]
     [Tooltip("The starting position of the isGrounded spherecast. Set to the sphereCastRadius plus the CC Skin Width. Enable showGizmos to visualize.")]
     // this should be just above the base of the cc, in the amount of the skin width (in case the cc sinks in)
@@ -157,6 +159,11 @@ public class BasicFPCC : MonoBehaviour
         ProcessInputs();
         ProcessLook();
         ProcessMovement();
+    }
+
+    public void UpdateSpeedBonus(float speed)
+    {
+        speedBonus = speed;
     }
    
     void Initialize()
@@ -413,7 +420,7 @@ public class BasicFPCC : MonoBehaviour
        
         // - Move -
 
-        calc = move * speed * Time.deltaTime;
+        calc = move * speed * Time.deltaTime * speedBonus;
         calc += fauxGravity * Time.deltaTime;
 
         controller.Move( calc );
