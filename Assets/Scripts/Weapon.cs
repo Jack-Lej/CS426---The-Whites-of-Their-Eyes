@@ -96,7 +96,7 @@ public class Weapon : MonoBehaviour
     }
 
     //Returns the weight of the weapon and all its ammo
-    float GetWeaponWeight()
+    public float GetWeaponWeight()
     {
         return (currAmmo+reserveAmmo)*ammoWeight + weaponWeight;
     }
@@ -114,7 +114,7 @@ public class Weapon : MonoBehaviour
     public virtual int GetReloadDelay()
         {return reloadTime;}   
 
-    public void RemoveAmmo(int amount)
+    public void DropAmmo(int amount)
     {
         reserveAmmo -= amount;
         if(reserveAmmo < 0)

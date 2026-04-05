@@ -27,18 +27,7 @@ public class Projectile : MonoBehaviour
 
     public virtual void OnCollisionEnter(Collision collision)
     {
-        if(name == "Railgun Round")
-        {
-            Debug.Log("In rg check");
-            if(collision.gameObject.tag == "Enemy")
-                damage /= 2;
-                
-            
-            else
-                Destroy(gameObject);
-        }
-        else
-            Destroy(gameObject);
+        Destroy(gameObject);
     }
 
 }

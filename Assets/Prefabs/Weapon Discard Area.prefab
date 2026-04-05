@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &8718020317698012777
+--- !u!1 &6501166109995430918
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,49 +8,49 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 2214639475986523840}
-  - component: {fileID: 4202119687114862794}
-  - component: {fileID: 4000421169624851469}
-  - component: {fileID: 8246183421746447557}
-  - component: {fileID: 1094491458513019241}
-  - component: {fileID: 1204193034687018785}
+  - component: {fileID: 4843490316490567077}
+  - component: {fileID: 8616310957841135130}
+  - component: {fileID: 4892018467796170492}
+  - component: {fileID: 8256195683633845141}
+  - component: {fileID: 8909038594393282872}
+  - component: {fileID: 3487515954786643237}
   m_Layer: 0
-  m_Name: Railgun Round
-  m_TagString: Projectile
+  m_Name: Weapon Discard Area
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &2214639475986523840
+--- !u!4 &4843490316490567077
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8718020317698012777}
+  m_GameObject: {fileID: 6501166109995430918}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 7.00424, y: 1.79, z: 7.19}
-  m_LocalScale: {x: 0.025, y: 0.01, z: 0.2}
+  m_LocalPosition: {x: -6.75, y: 0, z: 1.83329}
+  m_LocalScale: {x: 3, y: 1, z: 3}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!33 &4202119687114862794
+--- !u!33 &8616310957841135130
 MeshFilter:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8718020317698012777}
-  m_Mesh: {fileID: 10208, guid: 0000000000000000e000000000000000, type: 0}
---- !u!23 &4000421169624851469
+  m_GameObject: {fileID: 6501166109995430918}
+  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!23 &4892018467796170492
 MeshRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8718020317698012777}
+  m_GameObject: {fileID: 6501166109995430918}
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
@@ -69,7 +69,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 33367da224d334a4d9e453e78d54b712, type: 2}
+  - {fileID: 2100000, guid: 70829a7740871324e80005c3379f6470, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -93,13 +93,13 @@ MeshRenderer:
   m_SortingOrder: 0
   m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!136 &8246183421746447557
-CapsuleCollider:
+--- !u!65 &8256195683633845141
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8718020317698012777}
+  m_GameObject: {fileID: 6501166109995430918}
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
@@ -111,34 +111,16 @@ CapsuleCollider:
   m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.5
-  m_Height: 2
-  m_Direction: 1
+  serializedVersion: 3
+  m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &1094491458513019241
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8718020317698012777}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f08d257b430792a408d82c9d80acde3c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: '::'
-  velocity: 0
-  deceleration: 0
-  damage: 1600
-  name: Railgun Round
---- !u!54 &1204193034687018785
+--- !u!54 &8909038594393282872
 Rigidbody:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8718020317698012777}
+  m_GameObject: {fileID: 6501166109995430918}
   serializedVersion: 5
   m_Mass: 1
   m_LinearDamping: 0
@@ -159,3 +141,15 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &3487515954786643237
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6501166109995430918}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3368c8e454a51284e891ce19981f5df5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: '::'

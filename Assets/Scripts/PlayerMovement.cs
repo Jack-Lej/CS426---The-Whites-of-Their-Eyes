@@ -29,6 +29,7 @@ public class Example : MonoBehaviour
         jumpAction.action.Disable();
     }
 
+    
     void Update()
     {
         groundedPlayer = controller.isGrounded;
