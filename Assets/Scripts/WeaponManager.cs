@@ -20,8 +20,14 @@ public class WeaponManager : MonoBehaviour
     [SerializeField] Weapon weapon8;
     [SerializeField] Weapon weapon9;
 
+    [SerializeField] int numHealthKits;
+
+    [SerializeField] int healthKitHealing;
+
+    [SerializeField] Character player;
+
     [SerializeField] protected TMP_Text weaponText;
-    [SerializeField] protected TMP_Text testText;
+    [SerializeField] protected TMP_Text healthText;
 
     [SerializeField] protected TMP_Text weightText;
 
@@ -42,6 +48,10 @@ public class WeaponManager : MonoBehaviour
     bool tildePressed;
     DateTime switchTimer;
     DateTime shootTimer;
+
+
+
+
 
     void Start()
     {
@@ -103,6 +113,15 @@ public class WeaponManager : MonoBehaviour
         }
         //Do nothing on the catch, if amount was incorrect
         catch (FormatException) {}
+    }
+
+    public void UseHealthKit()
+    {
+        if(numHealthKits <= 0)
+            return;
+        player.Heal(healthKitHealing);
+        numHealthKits--;
+        switchTimer = DateTime.Now.AddMilliseconds(1000);    
     }
 
     public void DropWeapon(int weapon)
@@ -170,17 +189,14 @@ public class WeaponManager : MonoBehaviour
             else if(Input.GetButtonDown("Switch Weapon 1"))
             {
                 //switchTimer = DateTime.Now.AddMilliseconds()
-                testText.text = "Weapon 1 Switch";
                 SwitchWeapon(1);
             }
             else if(Input.GetButtonDown("Switch Weapon 2"))
             {
-                testText.text = "Weapon 2 Switch";
                 SwitchWeapon(2);
             }
             else if(Input.GetButtonDown("Switch Weapon 3"))
             {
-                testText.text = "Weapon 3 Switch";
                 SwitchWeapon(3);
             }
             else if(Input.GetButtonDown("Switch Weapon 4"))
@@ -195,6 +211,10 @@ public class WeaponManager : MonoBehaviour
                 SwitchWeapon(8);
             else if(Input.GetButtonDown("Switch Weapon 9"))
                 SwitchWeapon(9);
+            else if(Input.GetButtonDown("Use Health Kit"))
+            {
+                UseHealthKit(); 
+            }
             else if(Input.GetKey(KeyCode.BackQuote))
             {
                 Debug.Log(tildePressed);

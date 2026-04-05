@@ -326,8 +326,8 @@ MonoBehaviour:
   wanderRadius: 10
   idleTime: 8
   interval: 8
-  damage: 10
   stopDistance: 1.2
+  deathCleanupDelay: 5
   agent: {fileID: 8928746758526241116}
 --- !u!195 &8928746758526241116
 NavMeshAgent:

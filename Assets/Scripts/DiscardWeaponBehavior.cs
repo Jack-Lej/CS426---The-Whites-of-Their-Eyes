@@ -26,32 +26,26 @@ public class DiscardWeaponBehavior : MonoBehaviour
     {
         w1AmmoButton.onClick.AddListener(() =>
         {
-            Debug.Log("Click");
             manager.DropAmmo(1, w1Field.text);
         });
         w1WeaponButton.onClick.AddListener(() =>
         {
-            Debug.Log("Click");
             manager.DropWeapon(1);
         });
         w2AmmoButton.onClick.AddListener(() =>
         {
-            Debug.Log("Click");
             manager.DropAmmo(2, w2Field.text);
         });
         w2WeaponButton.onClick.AddListener(() =>
         {
-            Debug.Log("Click");
             manager.DropWeapon(2);
         });
         w3AmmoButton.onClick.AddListener(() =>
         {
-            Debug.Log("Click");
             manager.DropAmmo(3, w3Field.text);
         });
         w3WeaponButton.onClick.AddListener(() =>
         {
-            Debug.Log("Click");
             manager.DropWeapon(3);
         });
     }
