@@ -195,9 +195,10 @@ public class WeaponManager : MonoBehaviour
                 SwitchWeapon(8);
             else if(Input.GetButtonDown("Switch Weapon 9"))
                 SwitchWeapon(9);
-            else if(Input.GetButtonDown("Management Mode")); 
+            else if(Input.GetKey(KeyCode.BackQuote))
             {
-                Debug.Log("key detected");
+                Debug.Log(tildePressed);
+                switchTimer = DateTime.Now.AddMilliseconds(400);
                 tildePressed = !tildePressed;   
             }
         }
