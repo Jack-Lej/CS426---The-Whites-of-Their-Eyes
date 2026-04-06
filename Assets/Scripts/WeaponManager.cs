@@ -83,7 +83,6 @@ public class WeaponManager : MonoBehaviour
     {
         if(weaponArr[newWeapon] == activeWeapon || weaponArr[newWeapon] == null)
         {
-            testText.text = "Weapon switch the same or null";
             return;
         }
 
@@ -121,7 +120,8 @@ public class WeaponManager : MonoBehaviour
             return;
         player.Heal(healthKitHealing);
         numHealthKits--;
-        switchTimer = DateTime.Now.AddMilliseconds(1000);    
+        switchTimer = DateTime.Now.AddMilliseconds(1000);   
+        healthText.text = string.Concat("Health: ", player.GetHealth(), "\nMedkits: ", numHealthKits); 
     }
 
     public void DropWeapon(int weapon)
@@ -171,7 +171,6 @@ public class WeaponManager : MonoBehaviour
             //Once the switch timer is up, spawn the new weapon and reset the bool
             if(switchAlarm)
             {
-                testText.text = "Successful switch";
                 activeWeapon.WakeWeapon();
                 switchAlarm = false;
             }
