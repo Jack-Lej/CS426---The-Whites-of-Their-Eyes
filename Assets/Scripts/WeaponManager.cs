@@ -173,6 +173,11 @@ public class WeaponManager : MonoBehaviour
 
         weightText.text = string.Concat("Weight: ", totalWeight);
     }
+
+    public float GetTotalWeight()
+    {
+        return totalWeight;
+    }
     
 
     // Update is called once per frame
