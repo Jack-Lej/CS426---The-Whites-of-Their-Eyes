@@ -4,10 +4,29 @@ Our design philosophy is to treat the game like we were making a mod for DOOM (2
 This means that we can allow ourselves a broad collection of artstyles and monster designs, while the twist on resource management means we aren't just making a clone. The big battles will feel epic, and tense, but the sting of the last mag should help the last fight with one guy feel the same way. 
 
 Mechanim & Enemies:
-"Parasite" melee enemy, added by Daniel. AI using nav mesh to wander the level until it sees the player, at which point it runs towards them and attacks. Uses an FSM to determine behavior
-"Skeleton Zombie" melee enemy, added by Daniel. Uses the same AI logic as "Parasite", but has different health, speed, and damage stats, along with a longer reaching attack
-"Vampire Swordsman" melee enemy, added by Daniel. Just the same AI logic as the other two melee enemies, and has slight difference in stats from the Parasite enemy, but has a longer attack reach.
-Turret enemy, added by Daniel. Sits in place. Tracks the player from afar, and fires at them when they enter a sphere surrounding them. Automatic behavior determined by script.
-Enemy with gun, added by Daniel. Moves around the level until it notices the player, then moves within firing range. Shoots at the player and tries to stay a certain distance away from them. Controlled by C# script.
+  "Parasite" melee enemy, added by Daniel. AI using nav mesh to wander the level until it sees the player, at which point it runs towards them and attacks. Uses an FSM to determine behavior
+  "Skeleton Zombie" melee enemy, added by Daniel. Uses the same AI logic as "Parasite", but has different health, speed, and damage stats, along with a longer reaching attack
+  "Vampire Swordsman" melee enemy, added by Daniel. Just the same AI logic as the other two melee enemies, and has slight difference in stats from the Parasite enemy, but has a longer attack reach.
+  Turret enemy, added by Daniel. Sits in place. Tracks the player from afar, and fires at them when they enter a sphere surrounding them. Automatic behavior determined by script.
+  Enemy with gun, added by Daniel. Moves around the level until it notices the player, then moves within firing range. Shoots at the player and tries to stay a certain distance away from them. Controlled by C# script.
+
+Added 3D physics objects
+  Added a new first person control scheme to the player character, Added by Rayan
+  Added 3 new melee enemies, one of which has a sword attachment on the 3D model prefab to act as its weapon
+  Added new weapons for the player, by Jack: Railgun and machine gun along with their repsective bullet projectiles
+
+Added Lights:
+  The railgun, added by Jack, has a green laser light implmenting withing the gun's model to act as a laser sight.
+  A light by the goal area to indicate the exit
+  A few lights from torches spread around the map
+
+Added Textures:
+  There are textures, added by Jack, in main level for the floors, platforms, and walls
+  There are added textures with the three melee enemies that came with the 3D models from Mixamo
+
+FSMs/Nav Meshes for objects/ Prefabs:
+  The three melee enemies use a FSM logic to swtich between the different states: idling, wandering, chasing, attacking, and dead
+  All moving enemies navigate the map via a nav mesh
+  Each new enemy has its own prefab along with their own animation controller
 
 
