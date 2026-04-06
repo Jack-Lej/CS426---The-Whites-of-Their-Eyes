@@ -5,5 +5,9 @@ This means that we can allow ourselves a broad collection of artstyles and monst
 
 Mechanim & Enemies:
 "Parasite" melee enemy, added by Daniel. AI using nav mesh to wander the level until it sees the player, at which point it runs towards them and attacks. Uses an FSM to determine behavior
+"Skeleton Zombie" melee enemy, added by Daniel. Uses the same AI logic as "Parasite", but has different health, speed, and damage stats, along with a longer reaching attack
+"Vampire Swordsman" melee enemy, added by Daniel. Just the same AI logic as the other two melee enemies, and has slight difference in stats from the Parasite enemy, but has a longer attack reach.
 Turret enemy, added by Daniel. Sits in place. Tracks the player from afar, and fires at them when they enter a sphere surrounding them. Automatic behavior determined by script.
 Enemy with gun, added by Daniel. Moves around the level until it notices the player, then moves within firing range. Shoots at the player and tries to stay a certain distance away from them. Controlled by C# script.
+
+
