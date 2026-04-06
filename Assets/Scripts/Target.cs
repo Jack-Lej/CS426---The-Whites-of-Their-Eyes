@@ -23,7 +23,7 @@ public class Target : MonoBehaviour
         {
             Projectile p = collision.gameObject.GetComponent<Projectile>();
             health -= p.GetDamage();
-            Debug.Log(string.Concat("Heatlh: ", health));
+            Debug.Log(string.Concat("Target health: ", health));
             healthText.text = string.Concat("Heatlh: ", health);
             if(health <= 0)
             {

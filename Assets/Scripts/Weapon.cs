@@ -40,7 +40,6 @@ public class Weapon : MonoBehaviour
     //Weight per unit of ammo for the weapon
     [SerializeField] protected float ammoWeight;
 
-    Transform t;
     Vector3 sleepVector = new Vector3(0, 1000, 0);
 
     void Start()
@@ -124,19 +123,6 @@ public class Weapon : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        /*
-        if(Input.GetButtonDown("Fire1"))
-        {
-            FireWeapon();
-        }
-        if(Input.GetButtonDown("Reload"))
-        {
-            ReloadWeapon();
-        }
-        if(reloading && reloadEnd.CompareTo(DateTime.Now) <= 0)
-        {
-            reloading = false;
-            ammoText.text = string.Concat(weaponName, " ammo: ", currAmmo.ToString(), "/", magazineSize.ToString(), "\n", "Reserve Ammo: ", reserveAmmo.ToString());
-        } */
+        
     }
 }

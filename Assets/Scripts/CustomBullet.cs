@@ -3,7 +3,7 @@ using UnityEngine;
 // YouTube Tutorial by Dave / GameDevelopment
 // https://www.youtube.com/watch?v=0jGL5_DFIo8
 
-public class CustomBullet : MonoBehaviour
+public class CustomBullet : Projectile
 {
     //Assignables
     public Rigidbody rb;

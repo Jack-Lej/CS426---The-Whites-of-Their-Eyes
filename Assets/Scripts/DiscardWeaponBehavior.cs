@@ -21,38 +21,39 @@ public class DiscardWeaponBehavior : MonoBehaviour
     [SerializeField] Button w3WeaponButton;
     [SerializeField] TMP_InputField w3Field;
 
+    [SerializeField] Button healthKitButton;
+    [SerializeField] TMP_InputField healthkitField;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         w1AmmoButton.onClick.AddListener(() =>
         {
-            Debug.Log("Click");
             manager.DropAmmo(1, w1Field.text);
         });
         w1WeaponButton.onClick.AddListener(() =>
         {
-            Debug.Log("Click");
             manager.DropWeapon(1);
         });
         w2AmmoButton.onClick.AddListener(() =>
         {
-            Debug.Log("Click");
             manager.DropAmmo(2, w2Field.text);
         });
         w2WeaponButton.onClick.AddListener(() =>
         {
-            Debug.Log("Click");
             manager.DropWeapon(2);
         });
         w3AmmoButton.onClick.AddListener(() =>
         {
-            Debug.Log("Click");
             manager.DropAmmo(3, w3Field.text);
         });
         w3WeaponButton.onClick.AddListener(() =>
         {
-            Debug.Log("Click");
             manager.DropWeapon(3);
+        });
+        healthKitButton.onClick.AddListener(() =>
+        {
+            manager.DropHealthkit(w3Field.text);
         });
     }
 
@@ -61,11 +62,6 @@ public class DiscardWeaponBehavior : MonoBehaviour
        
     }
 
-
-    private void OnTriggerEnter(Collider collider)
-    {
-
-    }
 
     // Update is called once per frame
     void Update()

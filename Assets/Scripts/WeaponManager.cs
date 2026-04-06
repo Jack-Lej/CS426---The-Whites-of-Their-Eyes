@@ -20,10 +20,17 @@ public class WeaponManager : MonoBehaviour
     [SerializeField] Weapon weapon8;
     [SerializeField] Weapon weapon9;
 
+    [SerializeField] int numHealthKits;
+
+    [SerializeField] int healthKitHealing;
+
+    [SerializeField] Character player;
+
     [SerializeField] protected TMP_Text weaponText;
-    [SerializeField] protected TMP_Text testText;
 
     [SerializeField] protected TMP_Text weightText;
+
+    [SerializeField] protected TMP_Text healthkitText;
 
     [SerializeField] protected DiscardWeaponBehavior weightUI;
 
@@ -42,6 +49,10 @@ public class WeaponManager : MonoBehaviour
     bool tildePressed;
     DateTime switchTimer;
     DateTime shootTimer;
+
+
+
+
 
     void Start()
     {
@@ -64,6 +75,9 @@ public class WeaponManager : MonoBehaviour
         activeWeapon = weapon1;
         activeWeapon.WakeWeapon();
 
+        healthkitText.text = string.Concat("Healthkits: ", numHealthKits);
+        weaponText.text = activeWeapon.GetWeaponText();
+
         UpdateWeight();
         startWeight = totalWeight;
     }
@@ -73,7 +87,6 @@ public class WeaponManager : MonoBehaviour
     {
         if(weaponArr[newWeapon] == activeWeapon || weaponArr[newWeapon] == null)
         {
-            testText.text = "Weapon switch the same or null";
             return;
         }
 
@@ -105,6 +118,29 @@ public class WeaponManager : MonoBehaviour
         catch (FormatException) {}
     }
 
+    public void DropHealthkit(string amount)
+    {
+        try
+        {
+            int amt = Int32.Parse(amount);
+            numHealthKits = Mathf.Max(0, numHealthKits - amt);
+            healthkitText.text = string.Concat("Healthkits: ", numHealthKits);
+        }
+        //Do nothing on the catch, if amount was incorrect
+        catch (FormatException) {}
+        
+    }
+
+    public void UseHealthKit()
+    {
+        if(numHealthKits <= 0)
+            return;
+        player.Heal(healthKitHealing);
+        numHealthKits--;
+        healthkitText.text = string.Concat("Healthkits: ", numHealthKits);
+        switchTimer = DateTime.Now.AddMilliseconds(1000);   
+    }
+
     public void DropWeapon(int weapon)
     {
         if(weaponArr[weapon] == activeWeapon)
@@ -133,9 +169,14 @@ public class WeaponManager : MonoBehaviour
             totalWeight += w.GetWeaponWeight();    
         }
 
-        totalWeight += 0; //include health kit weight here
+        totalWeight += 2*numHealthKits; //include health kit weight here
 
         weightText.text = string.Concat("Weight: ", totalWeight);
+    }
+
+    public float GetTotalWeight()
+    {
+        return totalWeight;
     }
     
 
@@ -152,7 +193,6 @@ public class WeaponManager : MonoBehaviour
             //Once the switch timer is up, spawn the new weapon and reset the bool
             if(switchAlarm)
             {
-                testText.text = "Successful switch";
                 activeWeapon.WakeWeapon();
                 switchAlarm = false;
             }
@@ -170,17 +210,14 @@ public class WeaponManager : MonoBehaviour
             else if(Input.GetButtonDown("Switch Weapon 1"))
             {
                 //switchTimer = DateTime.Now.AddMilliseconds()
-                testText.text = "Weapon 1 Switch";
                 SwitchWeapon(1);
             }
             else if(Input.GetButtonDown("Switch Weapon 2"))
             {
-                testText.text = "Weapon 2 Switch";
                 SwitchWeapon(2);
             }
             else if(Input.GetButtonDown("Switch Weapon 3"))
             {
-                testText.text = "Weapon 3 Switch";
                 SwitchWeapon(3);
             }
             else if(Input.GetButtonDown("Switch Weapon 4"))
@@ -195,6 +232,11 @@ public class WeaponManager : MonoBehaviour
                 SwitchWeapon(8);
             else if(Input.GetButtonDown("Switch Weapon 9"))
                 SwitchWeapon(9);
+            else if(Input.GetButtonDown("Use Health Kit"))
+            {
+                UseHealthKit(); 
+            }
+            //Used to activate management mode
             else if(Input.GetKey(KeyCode.BackQuote))
             {
                 Debug.Log(tildePressed);

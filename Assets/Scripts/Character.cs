@@ -14,10 +14,15 @@ public class Character : MonoBehaviour
         currentHealth = maxHealth;
     }
 
-    public void TakeDamage(int damage)
+    public int GetHealth()
     {
-        if (currentHealth <= 0) return; // Already dead, ignore further damage
+        return currentHealth;
+    }
 
+    public virtual void TakeDamage(int damage)
+    {
+        Debug.Log("In TakeDamage");
+        if (currentHealth <= 0) return; // Already dead, ignore further damage
         currentHealth -= damage;
         onDamageTaken.Invoke(damage);
         Debug.Log(gameObject.name + " took " + damage + ". HP: " + currentHealth);
@@ -30,8 +35,28 @@ public class Character : MonoBehaviour
         }
     }
 
-    public void Heal(int amount)
+    public virtual void Heal(int amount)
     {
         currentHealth = Mathf.Min(currentHealth + amount, maxHealth);
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if(collision.gameObject.tag == "Projectile")
+        {
+            Debug.Log(gameObject.name + " collided.");
+            Projectile p = collision.gameObject.GetComponent<Projectile>();
+            this.TakeDamage(p.GetDamage());
+        }
+    }
+
+    private void OnTriggerEnter(Collider collision)
+    {
+        if(collision.gameObject.tag == "Projectile")
+        {
+            Debug.Log(gameObject.name + " triggered.");
+            Projectile p = collision.gameObject.GetComponent<Projectile>();
+            this.TakeDamage(p.GetDamage());
+        }
     }
 }

@@ -11,13 +11,11 @@ public class Projectile : MonoBehaviour
     public int damage;
     [SerializeField] string name;
 
-    Rigidbody rb;
-    Transform t;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        rb = GetComponent<Rigidbody>();
-        t = GetComponent<Transform>();
+
     }
 
     public int GetDamage()
@@ -26,6 +24,10 @@ public class Projectile : MonoBehaviour
     }
 
     public virtual void OnCollisionEnter(Collision collision)
+    {
+        Destroy(gameObject);
+    }
+    public virtual void OnTriggerEnter(Collider collider)
     {
         Destroy(gameObject);
     }
