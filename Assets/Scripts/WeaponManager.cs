@@ -123,7 +123,7 @@ public class WeaponManager : MonoBehaviour
         try
         {
             int amt = Int32.Parse(amount);
-            numHealthKits = Mathf.Max(0, numHealthKits - amt);
+            numHealthKits -= amt;
             healthkitText.text = string.Concat("Healthkits: ", numHealthKits);
         }
         //Do nothing on the catch, if amount was incorrect
@@ -170,7 +170,7 @@ public class WeaponManager : MonoBehaviour
             totalWeight += w.GetWeaponWeight();    
         }
 
-        totalWeight += 2*numHealthKits; //include health kit weight here
+        totalWeight += 1*numHealthKits; //include health kit weight here
 
         weightText.text = string.Concat("Weight: ", totalWeight);
     }
