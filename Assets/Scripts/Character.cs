@@ -21,8 +21,8 @@ public class Character : MonoBehaviour
 
     public virtual void TakeDamage(int damage)
     {
+        Debug.Log("In TakeDamage");
         if (currentHealth <= 0) return; // Already dead, ignore further damage
-
         currentHealth -= damage;
         onDamageTaken.Invoke(damage);
         Debug.Log(gameObject.name + " took " + damage + ". HP: " + currentHealth);
@@ -46,7 +46,7 @@ public class Character : MonoBehaviour
         {
             Debug.Log(gameObject.name + " collided.");
             Projectile p = collision.gameObject.GetComponent<Projectile>();
-            TakeDamage(p.GetDamage());
+            this.TakeDamage(p.GetDamage());
         }
     }
 
@@ -54,8 +54,9 @@ public class Character : MonoBehaviour
     {
         if(collision.gameObject.tag == "Projectile")
         {
+            Debug.Log(gameObject.name + " triggered.");
             Projectile p = collision.gameObject.GetComponent<Projectile>();
-            TakeDamage(p.GetDamage());
+            this.TakeDamage(p.GetDamage());
         }
     }
 }

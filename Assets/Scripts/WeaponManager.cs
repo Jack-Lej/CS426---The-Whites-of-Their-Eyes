@@ -75,7 +75,8 @@ public class WeaponManager : MonoBehaviour
         activeWeapon = weapon1;
         activeWeapon.WakeWeapon();
 
-        healthkitText = string.Concat("Healthkits: ", numHealthKits);
+        healthkitText.text = string.Concat("Healthkits: ", numHealthKits);
+        weaponText.text = activeWeapon.GetWeaponText();
 
         UpdateWeight();
         startWeight = totalWeight;
@@ -168,7 +169,7 @@ public class WeaponManager : MonoBehaviour
             totalWeight += w.GetWeaponWeight();    
         }
 
-        totalWeight += 0; //include health kit weight here
+        totalWeight += 2*numHealthKits; //include health kit weight here
 
         weightText.text = string.Concat("Weight: ", totalWeight);
     }

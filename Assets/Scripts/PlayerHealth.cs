@@ -10,17 +10,17 @@ public class PlayerHealth : Character
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        
+        currentHealth = maxHealth;
     }
     public override void TakeDamage(int damage)
     {
+
         if (currentHealth <= 0) return; // Already dead, ignore further damage
 
         currentHealth -= damage;
         onDamageTaken.Invoke(damage);
         Debug.Log(gameObject.name + " took " + damage + ". HP: " + currentHealth);
         healthText.text = string.Concat("Health: ", currentHealth, "/", maxHealth);
-        Debug.Log("Player hit");
         if (currentHealth <= 0)
         {
             currentHealth = 0;
