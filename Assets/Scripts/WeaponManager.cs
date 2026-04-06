@@ -27,9 +27,10 @@ public class WeaponManager : MonoBehaviour
     [SerializeField] Character player;
 
     [SerializeField] protected TMP_Text weaponText;
-    [SerializeField] protected TMP_Text healthText;
 
     [SerializeField] protected TMP_Text weightText;
+
+    [SerializeField] protected TMP_Text healthkitText;
 
     [SerializeField] protected DiscardWeaponBehavior weightUI;
 
@@ -74,6 +75,8 @@ public class WeaponManager : MonoBehaviour
         activeWeapon = weapon1;
         activeWeapon.WakeWeapon();
 
+        healthkitText = string.Concat("Healthkits: ", numHealthKits);
+
         UpdateWeight();
         startWeight = totalWeight;
     }
@@ -114,14 +117,27 @@ public class WeaponManager : MonoBehaviour
         catch (FormatException) {}
     }
 
+    public void DropHealthkit(string amount)
+    {
+        try
+        {
+            int amt = Int32.Parse(amount);
+            numHealthKits = Mathf.Max(0, numHealthKits - amt);
+            healthkitText.text = string.Concat("Healthkits: ", numHealthKits);
+        }
+        //Do nothing on the catch, if amount was incorrect
+        catch (FormatException) {}
+        
+    }
+
     public void UseHealthKit()
     {
         if(numHealthKits <= 0)
             return;
         player.Heal(healthKitHealing);
         numHealthKits--;
+        healthkitText.text = string.Concat("Healthkits: ", numHealthKits);
         switchTimer = DateTime.Now.AddMilliseconds(1000);   
-        healthText.text = string.Concat("Health: ", player.GetHealth(), "\nMedkits: ", numHealthKits); 
     }
 
     public void DropWeapon(int weapon)
@@ -214,6 +230,7 @@ public class WeaponManager : MonoBehaviour
             {
                 UseHealthKit(); 
             }
+            //Used to activate management mode
             else if(Input.GetKey(KeyCode.BackQuote))
             {
                 Debug.Log(tildePressed);

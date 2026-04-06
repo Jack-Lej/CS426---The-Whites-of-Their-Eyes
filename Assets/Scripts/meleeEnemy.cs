@@ -4,8 +4,11 @@ using UnityEngine.AI;
 
 public class meleeEnemy : MonoBehaviour
 {
+
     private enum CharacterStates {Wandering, Idle, Attacking, Chasing, Dead};
     private CharacterStates currentState;
+
+    [SerializeField] int attackDamage;
     // private bool wandering = true;
     private Vector3 currentDestination;
     public float wanderRadius = 10f;
@@ -169,6 +172,8 @@ public class meleeEnemy : MonoBehaviour
             // Implement damage to player here
             // Debug.Log("Player hit for " + damage + " damage");
             // Debug.Log("Hit!");
+            PlayerHealth player = collision.gameObject.GetComponent<PlayerHealth>();
+            player.TakeDamage(attackDamage);
         }
     }
 

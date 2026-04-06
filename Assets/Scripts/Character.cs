@@ -19,7 +19,7 @@ public class Character : MonoBehaviour
         return currentHealth;
     }
 
-    public void TakeDamage(int damage)
+    public virtual void TakeDamage(int damage)
     {
         if (currentHealth <= 0) return; // Already dead, ignore further damage
 
@@ -35,7 +35,7 @@ public class Character : MonoBehaviour
         }
     }
 
-    public void Heal(int amount)
+    public virtual void Heal(int amount)
     {
         currentHealth = Mathf.Min(currentHealth + amount, maxHealth);
     }
@@ -44,6 +44,7 @@ public class Character : MonoBehaviour
     {
         if(collision.gameObject.tag == "Projectile")
         {
+            Debug.Log(gameObject.name + " collided.");
             Projectile p = collision.gameObject.GetComponent<Projectile>();
             TakeDamage(p.GetDamage());
         }
