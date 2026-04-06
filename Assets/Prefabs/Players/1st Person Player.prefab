@@ -827,7 +827,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 0, y: 0.5}
-  m_AnchoredPosition: {x: -493, y: -60}
+  m_AnchoredPosition: {x: -493, y: -100}
   m_SizeDelta: {x: 400, y: 60}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &2330108375520696722
@@ -4341,10 +4341,10 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 4928535650557163726}
-  - {fileID: 4342112157267862601}
-  - {fileID: 13825523761615565}
   - {fileID: 3672215053015224569}
+  - {fileID: 4342112157267862601}
+  - {fileID: 4928535650557163726}
+  - {fileID: 13825523761615565}
   m_Father: {fileID: 2854294111160829052}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
@@ -5365,9 +5365,21 @@ PrefabInstance:
       propertyPath: ammoText
       value: 
       objectReference: {fileID: 1247562731069192669}
+    - target: {fileID: 3575016084419291941, guid: 517b1f86209d9454b8bae3cc2006edb2, type: 3}
+      propertyPath: projectileVelocity
+      value: 800
+      objectReference: {fileID: 0}
     - target: {fileID: 5437604628233501832, guid: 517b1f86209d9454b8bae3cc2006edb2, type: 3}
       propertyPath: m_Name
       value: Shotgun
+      objectReference: {fileID: 0}
+    - target: {fileID: 5437604628233501832, guid: 517b1f86209d9454b8bae3cc2006edb2, type: 3}
+      propertyPath: m_TagString
+      value: Weapon
+      objectReference: {fileID: 0}
+    - target: {fileID: 8040217927950367676, guid: 517b1f86209d9454b8bae3cc2006edb2, type: 3}
+      propertyPath: m_TagString
+      value: Weapon
       objectReference: {fileID: 0}
     - target: {fileID: 8969458942647186498, guid: 517b1f86209d9454b8bae3cc2006edb2, type: 3}
       propertyPath: m_LocalPosition.x
@@ -5478,6 +5490,34 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 387710808199384625, guid: e12ea21eab86267438e8a1dc86e79f59, type: 3}
+      propertyPath: m_TagString
+      value: Weapon
+      objectReference: {fileID: 0}
+    - target: {fileID: 603510624732980238, guid: e12ea21eab86267438e8a1dc86e79f59, type: 3}
+      propertyPath: m_TagString
+      value: Weapon
+      objectReference: {fileID: 0}
+    - target: {fileID: 3206380165096365520, guid: e12ea21eab86267438e8a1dc86e79f59, type: 3}
+      propertyPath: m_TagString
+      value: Weapon
+      objectReference: {fileID: 0}
+    - target: {fileID: 4876529164652425135, guid: e12ea21eab86267438e8a1dc86e79f59, type: 3}
+      propertyPath: m_TagString
+      value: Weapon
+      objectReference: {fileID: 0}
+    - target: {fileID: 5153843098819274103, guid: e12ea21eab86267438e8a1dc86e79f59, type: 3}
+      propertyPath: m_TagString
+      value: Weapon
+      objectReference: {fileID: 0}
+    - target: {fileID: 5833400938973276188, guid: e12ea21eab86267438e8a1dc86e79f59, type: 3}
+      propertyPath: m_TagString
+      value: Weapon
+      objectReference: {fileID: 0}
+    - target: {fileID: 6337237901227584564, guid: e12ea21eab86267438e8a1dc86e79f59, type: 3}
+      propertyPath: manager
+      value: 
+      objectReference: {fileID: 364297300005968323}
     - target: {fileID: 6337237901227584564, guid: e12ea21eab86267438e8a1dc86e79f59, type: 3}
       propertyPath: ammoText
       value: 
@@ -5485,10 +5525,26 @@ PrefabInstance:
     - target: {fileID: 6337237901227584564, guid: e12ea21eab86267438e8a1dc86e79f59, type: 3}
       propertyPath: projectile
       value: 
-      objectReference: {fileID: 6134818659874854027}
+      objectReference: {fileID: 8718020317698012777, guid: 5fec4bc982fef3248a1df27d32e18736, type: 3}
+    - target: {fileID: 6337237901227584564, guid: e12ea21eab86267438e8a1dc86e79f59, type: 3}
+      propertyPath: projectileVelocity
+      value: 1000
+      objectReference: {fileID: 0}
+    - target: {fileID: 7379938235390198272, guid: e12ea21eab86267438e8a1dc86e79f59, type: 3}
+      propertyPath: m_TagString
+      value: Weapon
+      objectReference: {fileID: 0}
+    - target: {fileID: 7953962645795087274, guid: e12ea21eab86267438e8a1dc86e79f59, type: 3}
+      propertyPath: m_TagString
+      value: Weapon
+      objectReference: {fileID: 0}
     - target: {fileID: 7970256943770366036, guid: e12ea21eab86267438e8a1dc86e79f59, type: 3}
       propertyPath: m_Name
       value: Railgun
+      objectReference: {fileID: 0}
+    - target: {fileID: 7970256943770366036, guid: e12ea21eab86267438e8a1dc86e79f59, type: 3}
+      propertyPath: m_TagString
+      value: Weapon
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -5523,6 +5579,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Rifle
       objectReference: {fileID: 0}
+    - target: {fileID: 271569568269639942, guid: b868ebcce17b14a439b7292a1440bdd4, type: 3}
+      propertyPath: m_TagString
+      value: Weapon
+      objectReference: {fileID: 0}
     - target: {fileID: 1141665082976243365, guid: b868ebcce17b14a439b7292a1440bdd4, type: 3}
       propertyPath: manager
       value: 
@@ -5542,6 +5602,14 @@ PrefabInstance:
     - target: {fileID: 1141665082976243365, guid: b868ebcce17b14a439b7292a1440bdd4, type: 3}
       propertyPath: weaponWeight
       value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 1141665082976243365, guid: b868ebcce17b14a439b7292a1440bdd4, type: 3}
+      propertyPath: projectileVelocity
+      value: 500
+      objectReference: {fileID: 0}
+    - target: {fileID: 2566090510190424369, guid: b868ebcce17b14a439b7292a1440bdd4, type: 3}
+      propertyPath: m_TagString
+      value: Weapon
       objectReference: {fileID: 0}
     - target: {fileID: 2687797233033401510, guid: b868ebcce17b14a439b7292a1440bdd4, type: 3}
       propertyPath: m_LocalPosition.x

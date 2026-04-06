@@ -138,7 +138,8 @@ public class WeaponManager : MonoBehaviour
         player.Heal(healthKitHealing);
         numHealthKits--;
         healthkitText.text = string.Concat("Healthkits: ", numHealthKits);
-        switchTimer = DateTime.Now.AddMilliseconds(1000);   
+        reloadTimer = DateTime.Now.AddMilliseconds(1000); 
+        weaponText.text = "Using Healthkit";  
     }
 
     public void DropWeapon(int weapon)
