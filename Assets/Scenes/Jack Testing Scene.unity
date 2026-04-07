@@ -420,6 +420,8 @@ MonoBehaviour:
   w3AmmoButton: {fileID: 0}
   w3WeaponButton: {fileID: 0}
   w3Field: {fileID: 0}
+  healthKitButton: {fileID: 0}
+  healthkitField: {fileID: 0}
 --- !u!114 &985189948 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 3488509461043127496, guid: 17629c1a7ca8785478cea7eaca823219, type: 3}
@@ -964,67 +966,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f148bc236679d8e42a6cef4448c0812b, type: 3}
---- !u!1001 &7001080532990526592
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 4843490316490567077, guid: 60a3bc20aae47c74e8e06bef19a1947e, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -6.75
-      objectReference: {fileID: 0}
-    - target: {fileID: 4843490316490567077, guid: 60a3bc20aae47c74e8e06bef19a1947e, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0.97
-      objectReference: {fileID: 0}
-    - target: {fileID: 4843490316490567077, guid: 60a3bc20aae47c74e8e06bef19a1947e, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 1.83329
-      objectReference: {fileID: 0}
-    - target: {fileID: 4843490316490567077, guid: 60a3bc20aae47c74e8e06bef19a1947e, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4843490316490567077, guid: 60a3bc20aae47c74e8e06bef19a1947e, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4843490316490567077, guid: 60a3bc20aae47c74e8e06bef19a1947e, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4843490316490567077, guid: 60a3bc20aae47c74e8e06bef19a1947e, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4843490316490567077, guid: 60a3bc20aae47c74e8e06bef19a1947e, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4843490316490567077, guid: 60a3bc20aae47c74e8e06bef19a1947e, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4843490316490567077, guid: 60a3bc20aae47c74e8e06bef19a1947e, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6501166109995430918, guid: 60a3bc20aae47c74e8e06bef19a1947e, type: 3}
-      propertyPath: m_Name
-      value: Weapon Discard Area
-      objectReference: {fileID: 0}
-    - target: {fileID: 6501166109995430918, guid: 60a3bc20aae47c74e8e06bef19a1947e, type: 3}
-      propertyPath: m_TagString
-      value: Weapon Discard Area
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 60a3bc20aae47c74e8e06bef19a1947e, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
@@ -1035,5 +976,4 @@ SceneRoots:
   - {fileID: 2021275340}
   - {fileID: 1383986410}
   - {fileID: 1158758655}
-  - {fileID: 7001080532990526592}
   - {fileID: 229965896}
