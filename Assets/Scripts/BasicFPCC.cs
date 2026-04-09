@@ -382,10 +382,13 @@ public class BasicFPCC : MonoBehaviour
                     fauxGravity.y = Mathf.Lerp( fauxGravity.y, -1f, 4f * Time.deltaTime );
                 }
             }
-
+            Debug.Log(isSliding);
+            Debug.Log(isCeiling);
+            Debug.Log(inputKeyDownJump);
             // - Jump -
             if ( !isSliding && !isCeiling && inputKeyDownJump ) // jump
             {
+                Debug.Log("Inside jump");
                 fauxGravity.y = Mathf.Sqrt( jumpHeight * -2f * gravity );
             }
 
