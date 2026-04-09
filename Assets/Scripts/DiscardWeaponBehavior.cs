@@ -13,22 +13,25 @@ public class DiscardWeaponBehavior : MonoBehaviour
     [SerializeField] CanvasGroup cGroup;
 
     //Each weapon has three elemnts in its "drop x" interface; a field to enter how much ammo to drop,
-    //a button to drop that much ammo, and a button to drop the weapon and all its ammo at once
+    //a button to drop that much ammo, and a button to drop the weapon and all its ammo at once. The text object is used to change the text when confirming the drop
     //The dateTime and bool are used to keep track of the drop weapon button, and when to reset its state
     [SerializeField] Button w1AmmoButton;
     [SerializeField] Button w1WeaponButton;
+    [SerializeField] TextMeshProUGUI w1WeaponButtonText;
     [SerializeField] TMP_InputField w1Field;
     DateTime w1Confirm;
     bool drop1Pressed = false;
 
     [SerializeField] Button w2AmmoButton;
     [SerializeField] Button w2WeaponButton;
+    [SerializeField] TextMeshProUGUI w2WeaponButtonText;
     [SerializeField] TMP_InputField w2Field;
     DateTime w2Confirm;
     bool drop2Pressed = false;
 
     [SerializeField] Button w3AmmoButton;
     [SerializeField] Button w3WeaponButton;
+    [SerializeField] TextMeshProUGUI w3WeaponButtonText;
     [SerializeField] TMP_InputField w3Field;
     DateTime w3Confirm;
     bool drop3Pressed = false;
@@ -47,7 +50,7 @@ public class DiscardWeaponBehavior : MonoBehaviour
                     {
                         drop1Pressed = true;
                         w1Confirm = DateTime.Now.AddMilliseconds(2500);
-                        GameObject.Find("w1WeaponButton").transform.Find("Text").GetComponent<Text>().text = "Confirm?";
+                        w1WeaponButtonText.text = "Confirm?";
                     }
                     else
                     {
@@ -59,29 +62,48 @@ public class DiscardWeaponBehavior : MonoBehaviour
                     }
                     break;
                 }
+            case 2:
+                {
+                    if(!drop2Pressed)
+                    {
+                        drop2Pressed = true;
+                        w2Confirm = DateTime.Now.AddMilliseconds(2500);
+                        w2WeaponButtonText.text = "Confirm?";
+                    }
+                    else
+                    {
+                        confirmActive = false;
+                        Destroy(w2AmmoButton);
+                        Destroy(w2Field);
+                        Destroy(w2WeaponButton);
+                        manager.DropWeapon(2);
+                    }
+                    break;
+                }    
+            case 3:
+                {
+                    if(!drop3Pressed)
+                    {
+                        drop3Pressed = true;
+                        w3Confirm = DateTime.Now.AddMilliseconds(3500);
+                        w3WeaponButtonText.text = "Confirm?";
+                    }
+                    else
+                    {
+                        confirmActive = false;
+                        Destroy(w3AmmoButton);
+                        Destroy(w3Field);
+                        Destroy(w3WeaponButton);
+                        manager.DropWeapon(3);
+                    }
+                    break;
+                }        
 
         }
     }
 
     void ToggleUI()
     {
-        /*
-        if(uiActive)
-        {
-            w1AmmoButton.enabled = false;
-            w1WeaponButton.enabled = false;
-            w1Field.enabled = false;
-
-            uiActive = false;
-        }
-        else
-        {
-            w1AmmoButton.enabled = true;
-            w1WeaponButton.enabled = true;
-            w1Field.enabled = true;
-
-            uiActive = true;
-        } */
         if(uiActive)
         {
             uiActive = false;
@@ -113,7 +135,7 @@ public class DiscardWeaponBehavior : MonoBehaviour
         });
         w2WeaponButton.onClick.AddListener(() =>
         {
-            manager.DropWeapon(2);
+            DropWeapon(2);
         });
         w3AmmoButton.onClick.AddListener(() =>
         {
@@ -121,11 +143,11 @@ public class DiscardWeaponBehavior : MonoBehaviour
         });
         w3WeaponButton.onClick.AddListener(() =>
         {
-            manager.DropWeapon(3);
+            DropWeapon(3);
         });
         healthKitButton.onClick.AddListener(() =>
         {
-            manager.DropHealthkit(w3Field.text);
+            manager.DropHealthkit(healthkitField.text);
         });
         ToggleUI();
     }
@@ -145,6 +167,19 @@ public class DiscardWeaponBehavior : MonoBehaviour
             {
                 drop1Pressed = false;
                 confirmActive = false;
+                w1WeaponButtonText.text = "Drop Shotgun";
+            }
+            if(w2Confirm.CompareTo(DateTime.Now) <= 0)
+            {
+                drop2Pressed = false;
+                confirmActive = false;
+                w1WeaponButtonText.text = "Drop Rifle";
+            }
+            if(w3Confirm.CompareTo(DateTime.Now) <= 0)
+            {
+                drop3Pressed = false;
+                confirmActive = false;
+                w1WeaponButtonText.text = "Drop Railgun";
             }
         }
 

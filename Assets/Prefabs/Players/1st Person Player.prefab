@@ -2988,12 +2988,15 @@ MonoBehaviour:
   cGroup: {fileID: 3261414921666933182}
   w1AmmoButton: {fileID: 6348347523448550690}
   w1WeaponButton: {fileID: 6063148657264270499}
+  w1WeaponButtonText: {fileID: 7444754878910344246}
   w1Field: {fileID: 4384712043767173902}
   w2AmmoButton: {fileID: 5657289777857003533}
   w2WeaponButton: {fileID: 3957150981995775881}
+  w2WeaponButtonText: {fileID: 1122549786269882797}
   w2Field: {fileID: 4384712043767173902}
   w3AmmoButton: {fileID: 8381992262242846896}
   w3WeaponButton: {fileID: 8556966395739439971}
+  w3WeaponButtonText: {fileID: 8250317503878138695}
   w3Field: {fileID: 6329097387607592303}
   healthKitButton: {fileID: 7536726746076753114}
   healthkitField: {fileID: 5854184467465361830}
