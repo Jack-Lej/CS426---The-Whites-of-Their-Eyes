@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 2844379316281053019}
   - component: {fileID: 4131085857057962456}
   - component: {fileID: 8871817465214423701}
-  - component: {fileID: 6015281781305342950}
   m_Layer: 0
   m_Name: Sphere
   m_TagString: Untagged
@@ -91,27 +90,6 @@ MeshRenderer:
   m_SortingOrder: 0
   m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!135 &6015281781305342950
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2081962448858186048}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Radius: 0.5
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &7879577518188677107
 GameObject:
   m_ObjectHideFlags: 0
@@ -193,7 +171,7 @@ SphereCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Radius: 0.3
+  m_Radius: 0.75
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &4310434234015776651
 MonoBehaviour:
@@ -211,4 +189,4 @@ MonoBehaviour:
   name: Sphere of Doom
   numBounces: 20
   rb: {fileID: 3695728042994762779}
-  speed: 20
+  speed: 35
