@@ -28,10 +28,10 @@ public class Projectile : MonoBehaviour
         if(collision.gameObject.tag != "Weapon" && collision.gameObject.tag != "Projectile")
             Destroy(gameObject);
     }
-    public virtual void OnTriggerEnter(Collider collider)
-    {
-        if(collider.gameObject.tag != "Weapon" && collider.gameObject.tag != "Projectile")
-            Destroy(gameObject);
-    }
+    //public virtual void OnTriggerEnter(Collider collider)
+    //{
+    //    if(collider.gameObject.tag != "Weapon" && collider.gameObject.tag != "Projectile")
+    //        Destroy(gameObject);
+    //}
 
 }
