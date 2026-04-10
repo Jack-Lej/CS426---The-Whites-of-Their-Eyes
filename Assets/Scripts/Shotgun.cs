@@ -82,7 +82,6 @@ public class Shotgun : Weapon
                 reserveAmmo = 0;
             }
             return "Reloading . . .";
-            return string.Concat(weaponName, " ammo: ", currAmmo.ToString(), "/", magazineSize.ToString(), "\nReserve Ammo: ", reserveAmmo.ToString());
         }
         //Otherwise just return status as usual
         return string.Concat(weaponName, " ammo: ", currAmmo.ToString(), "/", magazineSize.ToString(), "\nReserve Ammo: ", reserveAmmo.ToString());
@@ -101,7 +100,6 @@ public class Shotgun : Weapon
         //Used to repeatedly play reload sound; one per shell loaded
         if(numShellsToReload > 0 && lastTimeReloaded.AddMilliseconds(reloadTime).CompareTo(DateTime.Now) <= 0)
         {
-            Debug.Log("in reload sound");
             lastTimeReloaded = DateTime.Now;
             numShellsToReload--;
             audioSource.PlayOneShot(reloadSound, 1);
