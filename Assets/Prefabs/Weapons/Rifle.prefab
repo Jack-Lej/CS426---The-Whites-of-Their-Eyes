@@ -167,7 +167,7 @@ MonoBehaviour:
   magazineSize: 30
   reserveAmmo: 630
   reloadTime: 1200
-  fireDelay: 65
+  fireDelay: 90
   projectileVelocity: 700
   manager: {fileID: 0}
   projectile: {fileID: 8718020317698012777, guid: 5604a54be71a3574aa38f617f30162ba, type: 3}

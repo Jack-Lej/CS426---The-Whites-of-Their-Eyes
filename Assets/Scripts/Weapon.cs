@@ -85,6 +85,7 @@ public class Weapon : MonoBehaviour
         //Does the weapon need reloading, and can it be reloaded?
         if(currAmmo < magazineSize && reserveAmmo > 0)
         {
+            audioSource.PlayOneShot(reloadSound, 1);
             //Is there enough ammo to reload the entire capacity?
             if(reserveAmmo > (magazineSize-currAmmo))
             {
@@ -108,7 +109,7 @@ public class Weapon : MonoBehaviour
         return (currAmmo+reserveAmmo)*ammoWeight + weaponWeight;
     }
 
-    public string GetWeaponText()
+    public virtual string GetWeaponText()
     {
         return string.Concat(weaponName, " ammo: ", currAmmo.ToString(), "/", magazineSize.ToString(), "\nReserve Ammo: ", reserveAmmo.ToString());
     }

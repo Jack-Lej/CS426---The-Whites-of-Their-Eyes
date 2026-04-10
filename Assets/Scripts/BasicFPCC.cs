@@ -472,6 +472,7 @@ public class BasicFPCC : MonoBehaviour
     // find if isGrounded, slope angle and directional vector
     void GroundCheck()
     {
+        
         //Vector3 origin = new Vector3( transform.position.x, transform.position.y - (controller.height / 2) + startDistanceFromBottom, transform.position.z );
         Vector3 origin = new Vector3( playerTx.position.x, playerTx.position.y + groundOffsetY, playerTx.position.z );
 

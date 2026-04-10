@@ -1271,6 +1271,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 506368384121352916}
+  - component: {fileID: 2162575843725844967}
+  - component: {fileID: 7762460757597660297}
   m_Layer: 0
   m_Name: Minigun
   m_TagString: Untagged
@@ -1307,3 +1309,131 @@ Transform:
   - {fileID: 7447003002842477424}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2162575843725844967
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7653725687019307225}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 493c1472e53b15c45a602874a9bb77f0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Minigun
+  magazineSize: 1000
+  reserveAmmo: 1000
+  reloadTime: 0
+  fireDelay: 40
+  projectileVelocity: 700
+  manager: {fileID: 0}
+  projectile: {fileID: 8718020317698012777, guid: ab3c8bed0ec412141b0b6a4ff7f6e4ef, type: 3}
+  firePoint: {fileID: 0}
+  weaponName: Minigun
+  weaponWeight: 60
+  ammoWeight: 0.01
+  audioSource: {fileID: 7762460757597660297}
+  dryFireSound: {fileID: 0}
+  reloadSound: {fileID: 0}
+  fireSound: {fileID: 0}
+  firePoint1: {fileID: 1061776086398055765}
+  firePoint2: {fileID: 5053502229594022281}
+  firePoint3: {fileID: 6465014803490603505}
+  firePoint4: {fileID: 3870737475854283162}
+--- !u!82 &7762460757597660297
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7653725687019307225}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_Resource: {fileID: 0}
+  m_PlayOnAwake: 1
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
