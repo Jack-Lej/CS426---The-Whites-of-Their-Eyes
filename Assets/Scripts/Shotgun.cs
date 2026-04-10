@@ -68,14 +68,17 @@ public class Shotgun : Weapon
         //Does the weapon need reloading, and can it be reloaded?
         if(currAmmo < magazineSize && reserveAmmo > 0)
         {
+            
             if(reserveAmmo > (magazineSize-currAmmo))
             {
                 reserveAmmo -= (magazineSize - currAmmo);
+                numShellsToReload = (magazineSize - currAmmo);
                 currAmmo = magazineSize;
             }
             else
             {
                 currAmmo += reserveAmmo;
+                numShellsToReload = reserveAmmo;
                 reserveAmmo = 0;
             }
             return "Reloading . . .";
@@ -98,6 +101,7 @@ public class Shotgun : Weapon
         //Used to repeatedly play reload sound; one per shell loaded
         if(numShellsToReload > 0 && lastTimeReloaded.AddMilliseconds(reloadTime).CompareTo(DateTime.Now) <= 0)
         {
+            Debug.Log("in reload sound");
             lastTimeReloaded = DateTime.Now;
             numShellsToReload--;
             audioSource.PlayOneShot(reloadSound, 1);
