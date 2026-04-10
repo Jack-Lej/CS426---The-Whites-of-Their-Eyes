@@ -353,6 +353,7 @@ public class BasicFPCC : MonoBehaviour
        
         if ( isGrounded )
         {
+            Debug.Log("---------------------------------------------------------------Is Grounded---------------------------------------------------------------");
             if ( isSlipping ) // slip down slope
             {
                 // movement left/right while slipping down
@@ -387,7 +388,6 @@ public class BasicFPCC : MonoBehaviour
             if ( !isSliding && !isCeiling && inputKeyDownJump ) // jump
             {
                 fauxGravity.y = Mathf.Sqrt( jumpHeight * -2f * gravity );
-                Debug.Log("Inside Jump");
             }
 
             // --
