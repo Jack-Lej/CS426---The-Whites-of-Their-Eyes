@@ -46,6 +46,7 @@ public class Rocket : Projectile
         if(collision.gameObject.tag != "Weapon" && collision.gameObject.tag != "Projectile")
         {
             ExplodeNonAlloc();
+            DealDamage(collision.collider);
             //Spawn explosion graphic
             Destroy(gameObject);
         }

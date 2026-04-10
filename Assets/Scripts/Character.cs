@@ -38,7 +38,7 @@ public class Character : MonoBehaviour
     {
         currentHealth = Mathf.Min(currentHealth + amount, maxHealth);
     }
-
+    /*
     private void OnCollisionEnter(Collision collision)
     {
         if(collision.gameObject.tag == "Projectile")
@@ -57,5 +57,5 @@ public class Character : MonoBehaviour
             Projectile p = collision.gameObject.GetComponent<Projectile>();
             this.TakeDamage(p.GetDamage());
         }
-    }
+    } */
 }

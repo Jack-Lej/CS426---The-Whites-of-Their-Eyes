@@ -12,6 +12,7 @@ public class Shotgun : Weapon
 
     //Spread (in degrees) of randomness for the pellets to move in
     [SerializeField] float spread;
+    [SerializeField] protected AudioClip pumpSound;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -20,7 +21,11 @@ public class Shotgun : Weapon
         spread /= 360;
         lastTimeReloaded = DateTime.Now;
     }
-
+    IEnumerator PlayPump()
+    {
+        yield return new WaitForSeconds(0.3f);
+        audioSource.PlayOneShot(pumpSound);
+    }
     //Over-ridden because the shotgun fires 9 pellets at once
     public override string FireWeapon()
     {
@@ -31,6 +36,7 @@ public class Shotgun : Weapon
         else if(currAmmo > 0)
         {
             audioSource.PlayOneShot(fireSound, 1);
+            StartCoroutine(PlayPump());
             currAmmo--;
             //Spawn the guaranteed center pellet
             Vector3 center = firePoint.transform.position;

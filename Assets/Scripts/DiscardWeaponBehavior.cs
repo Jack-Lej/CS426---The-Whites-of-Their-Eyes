@@ -36,6 +36,27 @@ public class DiscardWeaponBehavior : MonoBehaviour
     DateTime w3Confirm;
     bool drop3Pressed = false;
 
+    [SerializeField] Button w4AmmoButton;
+    [SerializeField] Button w4WeaponButton;
+    [SerializeField] TextMeshProUGUI w4WeaponButtonText;
+    [SerializeField] TMP_InputField w4Field;
+    DateTime w4Confirm;
+    bool drop4Pressed = false;
+
+    [SerializeField] Button w5AmmoButton;
+    [SerializeField] Button w5WeaponButton;
+    [SerializeField] TextMeshProUGUI w5WeaponButtonText;
+    [SerializeField] TMP_InputField w5Field;
+    DateTime w5Confirm;
+    bool drop5Pressed = false;
+
+    [SerializeField] Button w6AmmoButton;
+    [SerializeField] Button w6WeaponButton;
+    [SerializeField] TextMeshProUGUI w6WeaponButtonText;
+    [SerializeField] TMP_InputField w6Field;
+    DateTime w6Confirm;
+    bool drop6Pressed = false;
+
     [SerializeField] Button healthKitButton;
     [SerializeField] TMP_InputField healthkitField;
 
@@ -85,7 +106,7 @@ public class DiscardWeaponBehavior : MonoBehaviour
                     if(!drop3Pressed)
                     {
                         drop3Pressed = true;
-                        w3Confirm = DateTime.Now.AddMilliseconds(3500);
+                        w3Confirm = DateTime.Now.AddMilliseconds(2500);
                         w3WeaponButtonText.text = "Confirm?";
                     }
                     else
@@ -97,7 +118,61 @@ public class DiscardWeaponBehavior : MonoBehaviour
                         manager.DropWeapon(3);
                     }
                     break;
-                }        
+                } 
+            case 4:
+                {
+                    if(!drop4Pressed)
+                    {
+                        drop4Pressed = true;
+                        w4Confirm = DateTime.Now.AddMilliseconds(2500);
+                        w4WeaponButtonText.text = "Confirm?";
+                    }
+                    else
+                    {
+                        confirmActive = false;
+                        Destroy(w4AmmoButton);
+                        Destroy(w4Field);
+                        Destroy(w4WeaponButton);
+                        manager.DropWeapon(4);
+                    }
+                    break;
+                } 
+            case 5:
+                {
+                    if(!drop5Pressed)
+                    {
+                        drop5Pressed = true;
+                        w5Confirm = DateTime.Now.AddMilliseconds(2500);
+                        w5WeaponButtonText.text = "Confirm?";
+                    }
+                    else
+                    {
+                        confirmActive = false;
+                        Destroy(w5AmmoButton);
+                        Destroy(w5Field);
+                        Destroy(w5WeaponButton);
+                        manager.DropWeapon(5);
+                    }
+                    break;
+                } 
+            case 6:
+                {
+                    if(!drop6Pressed)
+                    {
+                        drop6Pressed = true;
+                        w6Confirm = DateTime.Now.AddMilliseconds(2500);
+                        w6WeaponButtonText.text = "Confirm?";
+                    }
+                    else
+                    {
+                        confirmActive = false;
+                        Destroy(w6AmmoButton);
+                        Destroy(w6Field);
+                        Destroy(w6WeaponButton);
+                        manager.DropWeapon(6);
+                    }
+                    break;
+                }                    
 
         }
     }
@@ -121,6 +196,10 @@ public class DiscardWeaponBehavior : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        healthKitButton.onClick.AddListener(() =>
+        {
+            manager.DropHealthkit(healthkitField.text);
+        });
         w1AmmoButton.onClick.AddListener(() =>
         {
             manager.DropAmmo(1, w1Field.text);
@@ -145,16 +224,32 @@ public class DiscardWeaponBehavior : MonoBehaviour
         {
             DropWeapon(3);
         });
-        healthKitButton.onClick.AddListener(() =>
+        w4AmmoButton.onClick.AddListener(() =>
         {
-            manager.DropHealthkit(healthkitField.text);
+            manager.DropAmmo(4, w4Field.text);
         });
+        w4WeaponButton.onClick.AddListener(() =>
+        {
+            DropWeapon(4);
+        });
+        w5AmmoButton.onClick.AddListener(() =>
+        {
+            manager.DropAmmo(5, w5Field.text);
+        });
+        w5WeaponButton.onClick.AddListener(() =>
+        {
+            DropWeapon(5);
+        });
+        w6AmmoButton.onClick.AddListener(() =>
+        {
+            manager.DropAmmo(6, w6Field.text);
+        });
+        w6WeaponButton.onClick.AddListener(() =>
+        {
+            DropWeapon(6);
+        });
+        
         ToggleUI();
-    }
-
-    void Awake()
-    {
-       
     }
 
 
@@ -180,6 +275,24 @@ public class DiscardWeaponBehavior : MonoBehaviour
                 drop3Pressed = false;
                 confirmActive = false;
                 w1WeaponButtonText.text = "Drop Railgun";
+            }
+            if(w4Confirm.CompareTo(DateTime.Now) <= 0)
+            {
+                drop4Pressed = false;
+                confirmActive = false;
+                w1WeaponButtonText.text = "Drop Launcher";
+            }
+            if(w5Confirm.CompareTo(DateTime.Now) <= 0)
+            {
+                drop5Pressed = false;
+                confirmActive = false;
+                w1WeaponButtonText.text = "Drop Minigun";
+            }
+            if(w6Confirm.CompareTo(DateTime.Now) <= 0)
+            {
+                drop6Pressed = false;
+                confirmActive = false;
+                w1WeaponButtonText.text = "Drop SoDL";
             }
         }
 
