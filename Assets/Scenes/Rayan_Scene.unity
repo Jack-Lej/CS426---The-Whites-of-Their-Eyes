@@ -416,7 +416,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2491967102473594027, guid: 17629c1a7ca8785478cea7eaca823219, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2491967102473594027, guid: 17629c1a7ca8785478cea7eaca823219, type: 3}
       propertyPath: m_LocalPosition.z
@@ -453,6 +453,30 @@ PrefabInstance:
     - target: {fileID: 3454092704861594686, guid: 17629c1a7ca8785478cea7eaca823219, type: 3}
       propertyPath: projectileVelocity
       value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 3488509461043127496, guid: 17629c1a7ca8785478cea7eaca823219, type: 3}
+      propertyPath: isGrounded
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3488509461043127496, guid: 17629c1a7ca8785478cea7eaca823219, type: 3}
+      propertyPath: showGizmos
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3488509461043127496, guid: 17629c1a7ca8785478cea7eaca823219, type: 3}
+      propertyPath: groundCheckY
+      value: 0.29
+      objectReference: {fileID: 0}
+    - target: {fileID: 3488509461043127496, guid: 17629c1a7ca8785478cea7eaca823219, type: 3}
+      propertyPath: ceilingCheckY
+      value: 1.85
+      objectReference: {fileID: 0}
+    - target: {fileID: 3488509461043127496, guid: 17629c1a7ca8785478cea7eaca823219, type: 3}
+      propertyPath: raycastLength
+      value: 1.78
+      objectReference: {fileID: 0}
+    - target: {fileID: 3488509461043127496, guid: 17629c1a7ca8785478cea7eaca823219, type: 3}
+      propertyPath: sphereCastRadius
+      value: 0.58
       objectReference: {fileID: 0}
     - target: {fileID: 3873217454775410978, guid: 17629c1a7ca8785478cea7eaca823219, type: 3}
       propertyPath: m_LocalRotation.w
@@ -505,7 +529,7 @@ PrefabInstance:
     - target: {fileID: 5954937642367655078, guid: 17629c1a7ca8785478cea7eaca823219, type: 3}
       propertyPath: weapon2
       value: 
-      objectReference: {fileID: 801902858}
+      objectReference: {fileID: 0}
     - target: {fileID: 5954937642367655078, guid: 17629c1a7ca8785478cea7eaca823219, type: 3}
       propertyPath: testText
       value: 
@@ -530,31 +554,24 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.y
       value: 175
       objectReference: {fileID: 0}
+    - target: {fileID: 8140146243077715516, guid: 17629c1a7ca8785478cea7eaca823219, type: 3}
+      propertyPath: m_Radius
+      value: 0.5
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 4962829867524155578, guid: 17629c1a7ca8785478cea7eaca823219, type: 3}
     m_RemovedGameObjects:
     - {fileID: 4305361168575903655, guid: 17629c1a7ca8785478cea7eaca823219, type: 3}
     - {fileID: 364297300005968323, guid: 17629c1a7ca8785478cea7eaca823219, type: 3}
     m_AddedGameObjects:
-    - targetCorrespondingSourceObject: {fileID: 2854294111160829052, guid: 17629c1a7ca8785478cea7eaca823219, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 171755562}
     - targetCorrespondingSourceObject: {fileID: 5763401321351810739, guid: 17629c1a7ca8785478cea7eaca823219, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1686264984}
+    - targetCorrespondingSourceObject: {fileID: 2854294111160829052, guid: 17629c1a7ca8785478cea7eaca823219, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 171755562}
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 17629c1a7ca8785478cea7eaca823219, type: 3}
---- !u!114 &801902858 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 5583337299745447653, guid: 17629c1a7ca8785478cea7eaca823219, type: 3}
-  m_PrefabInstance: {fileID: 292414455}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e385437650a72d24cbed382dcb3c3dde, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: '::'
 --- !u!114 &1004795555 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 1247562731069192669, guid: 17629c1a7ca8785478cea7eaca823219, type: 3}
@@ -743,7 +760,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::WeaponManager
   weapon1: {fileID: 1707983235}
-  weapon2: {fileID: 801902858}
+  weapon2: {fileID: 0}
   weapon3: {fileID: 0}
   weapon4: {fileID: 0}
   weapon5: {fileID: 0}
@@ -751,8 +768,14 @@ MonoBehaviour:
   weapon7: {fileID: 0}
   weapon8: {fileID: 0}
   weapon9: {fileID: 0}
+  numHealthKits: 0
+  healthKitHealing: 0
+  player: {fileID: 0}
   weaponText: {fileID: 1004795555}
-  testText: {fileID: 171755563}
+  weightText: {fileID: 0}
+  healthkitText: {fileID: 0}
+  weightUI: {fileID: 0}
+  playerMovement: {fileID: 0}
 --- !u!114 &1707983235 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 3454092704861594686, guid: 17629c1a7ca8785478cea7eaca823219, type: 3}

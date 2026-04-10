@@ -353,6 +353,7 @@ public class BasicFPCC : MonoBehaviour
        
         if ( isGrounded )
         {
+            Debug.Log("---------------------------------------------------------------Is Grounded---------------------------------------------------------------");
             if ( isSlipping ) // slip down slope
             {
                 // movement left/right while slipping down
