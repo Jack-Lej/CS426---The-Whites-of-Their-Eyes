@@ -5,12 +5,25 @@ using UnityEngine.InputSystem;
 
 public class Projectile : MonoBehaviour
 {
-    public float velocity;
-    //Not necessary now, maybe not in future
-    public float deceleration;
     public int damage;
     [SerializeField] string name;
 
+    protected void DealDamage(Collider other)
+    {
+        HurtBox hurtBox = other.GetComponent<HurtBox>();
+        if (hurtBox != null)
+        {
+            hurtBox.ReceiveDamage(damage);
+        }
+        else
+        {
+            Character character = other.GetComponentInParent<Character>();
+            if (character != null)
+            {
+                character.TakeDamage(damage);
+            }
+        }
+    }
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()

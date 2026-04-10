@@ -3,9 +3,10 @@ using UnityEngine;
 public class SphereofDoom : Projectile
 {
 
-    [Serializable] int numBounces;
+    [SerializeField] int numBounces;
+    [SerializeField] Rigidbody rb;
+    [SerializeField] int speed;
     int startNumBounces;
-    [Serializable] Material mat;
     Color color;
     float alpha;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -13,6 +14,7 @@ public class SphereofDoom : Projectile
     {
         alpha = 1f;
         startNumBounces = numBounces;
+        
     }
     public override void OnCollisionEnter(Collision collision)
     {
@@ -20,20 +22,18 @@ public class SphereofDoom : Projectile
         {
             // Deals damage to the collided hurbox before destroying the projectile
             DealDamage(collision.collider);
-            if(collision.GameObject.tag == "Enemy")
+            if(collision.gameObject.tag == "Enemy")
                 numBounces -= 2;
             else
                 numBounces--;    
-
-            alpha = numBounces/startNumBounces;
-            color = new Color(color.r, color.g, color.b, alpha);
-            mat.SetColor("_Color", color); 
+            Debug.Log("Num bounces left: " + numBounces);
             // Debug.Log(name + " collided with " + collision.gameObject.name);
             if(numBounces <= 0)
             {
                 Destroy(gameObject);
             }
         }
+        rb.linearVelocity = (Vector3.Normalize(rb.linearVelocity) * speed);
     }
     // Update is called once per frame
     void Update()
