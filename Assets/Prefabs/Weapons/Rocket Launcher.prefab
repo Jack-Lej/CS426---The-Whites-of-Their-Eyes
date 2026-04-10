@@ -502,7 +502,7 @@ MonoBehaviour:
   reserveAmmo: 40
   reloadTime: 2000
   fireDelay: 1200
-  projectileVelocity: 400
+  projectileVelocity: 600
   manager: {fileID: 0}
   projectile: {fileID: 4519073192657682481, guid: cb314d8bd1a1e2845a6171ea0b9e8019, type: 3}
   firePoint: {fileID: 3353274381415089502}
