@@ -18,3 +18,14 @@ UPDATES:
 3-31: Added Railgun with own projectile & laser; projectile still needs to go through enemies. Fixed rotation of weapons when switching, and fixed shotgun pellets not doing damage. Weapons now fire continuously.
 4-04: Railgun projectile implemented, but has issues detecting collisions (maybe due to high speed?). Added weapon drop system, key to toggle is '`'.
 4-05: Health system & healthkits added, weight management system improved. Decorated & filled demo level 1.
+
+
+WEEK 12
+----------------------------------------------
+TASKS:
+More weapons: 1 more mid-level weapon like railgun, two "boss" weapons: chaingun and bouncing ball of doom
+Refine UI: find & solve problems on design doc
+Weapon sounds: fire, reload, dry-fire
+----------------------------------------------
+UPDATES:
+4-06: Located UI issues for design doc, re-organized assets, added simple weapon sounds code: need to still choose & add actual sounds (still using test sounds)
