@@ -4543,6 +4543,7 @@ Transform:
   m_Children:
   - {fileID: 4027558945045485397}
   - {fileID: 2854294111160829052}
+  - {fileID: 7535976906156204859}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
 --- !u!33 &4133657389694733061
@@ -5379,6 +5380,7 @@ Transform:
   - {fileID: 5501727843554256125}
   - {fileID: 239671667425544042}
   - {fileID: 2827119406401631459}
+  - {fileID: 3057033457155847387}
   - {fileID: 5763401321351810739}
   m_Father: {fileID: 2491967102473594027}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -6292,6 +6294,208 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!1001 &5179220648614755016
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 4027558945045485397}
+    m_Modifications:
+    - target: {fileID: 6542098433606419972, guid: dc3c05af1f035774aa585d402866d7ae, type: 3}
+      propertyPath: m_Name
+      value: Sphere of Doom Gun
+      objectReference: {fileID: 0}
+    - target: {fileID: 7893836008440909331, guid: dc3c05af1f035774aa585d402866d7ae, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 2.41
+      objectReference: {fileID: 0}
+    - target: {fileID: 7893836008440909331, guid: dc3c05af1f035774aa585d402866d7ae, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7893836008440909331, guid: dc3c05af1f035774aa585d402866d7ae, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -1.82
+      objectReference: {fileID: 0}
+    - target: {fileID: 7893836008440909331, guid: dc3c05af1f035774aa585d402866d7ae, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7893836008440909331, guid: dc3c05af1f035774aa585d402866d7ae, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7893836008440909331, guid: dc3c05af1f035774aa585d402866d7ae, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7893836008440909331, guid: dc3c05af1f035774aa585d402866d7ae, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7893836008440909331, guid: dc3c05af1f035774aa585d402866d7ae, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7893836008440909331, guid: dc3c05af1f035774aa585d402866d7ae, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7893836008440909331, guid: dc3c05af1f035774aa585d402866d7ae, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 6542098433606419972, guid: dc3c05af1f035774aa585d402866d7ae, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 9150166967217940037}
+    - targetCorrespondingSourceObject: {fileID: 6542098433606419972, guid: dc3c05af1f035774aa585d402866d7ae, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 8681388370716248045}
+  m_SourcePrefab: {fileID: 100100000, guid: dc3c05af1f035774aa585d402866d7ae, type: 3}
+--- !u!1 &2101626729306848460 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6542098433606419972, guid: dc3c05af1f035774aa585d402866d7ae, type: 3}
+  m_PrefabInstance: {fileID: 5179220648614755016}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &9150166967217940037
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2101626729306848460}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e385437650a72d24cbed382dcb3c3dde, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Weapon
+  magazineSize: 3
+  reserveAmmo: 21
+  reloadTime: 3000
+  fireDelay: 3000
+  projectileVelocity: 650
+  manager: {fileID: 364297300005968323}
+  projectile: {fileID: 0}
+  firePoint: {fileID: 5770347451665314923}
+  weaponName: Sphere of Doom Launcher
+  weaponWeight: 40
+  ammoWeight: 2
+  audioSource: {fileID: 8681388370716248045}
+  dryFireSound: {fileID: 0}
+  reloadSound: {fileID: 0}
+  fireSound: {fileID: 0}
+--- !u!82 &8681388370716248045
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2101626729306848460}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_Resource: {fileID: 0}
+  m_PlayOnAwake: 1
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+--- !u!4 &3057033457155847387 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 7893836008440909331, guid: dc3c05af1f035774aa585d402866d7ae, type: 3}
+  m_PrefabInstance: {fileID: 5179220648614755016}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &5770347451665314923 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1726054939187973795, guid: dc3c05af1f035774aa585d402866d7ae, type: 3}
+  m_PrefabInstance: {fileID: 5179220648614755016}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &5574432330774505955
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6522,6 +6726,68 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e385437650a72d24cbed382dcb3c3dde, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Weapon
+--- !u!1001 &7170476438948875182
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 2491967102473594027}
+    m_Modifications:
+    - target: {fileID: 799262786560977045, guid: 18eadfe0bf8516b4a8405feef477d99a, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -2.4067
+      objectReference: {fileID: 0}
+    - target: {fileID: 799262786560977045, guid: 18eadfe0bf8516b4a8405feef477d99a, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 799262786560977045, guid: 18eadfe0bf8516b4a8405feef477d99a, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0.5048
+      objectReference: {fileID: 0}
+    - target: {fileID: 799262786560977045, guid: 18eadfe0bf8516b4a8405feef477d99a, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 799262786560977045, guid: 18eadfe0bf8516b4a8405feef477d99a, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 799262786560977045, guid: 18eadfe0bf8516b4a8405feef477d99a, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 799262786560977045, guid: 18eadfe0bf8516b4a8405feef477d99a, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 799262786560977045, guid: 18eadfe0bf8516b4a8405feef477d99a, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 799262786560977045, guid: 18eadfe0bf8516b4a8405feef477d99a, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 799262786560977045, guid: 18eadfe0bf8516b4a8405feef477d99a, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7879577518188677107, guid: 18eadfe0bf8516b4a8405feef477d99a, type: 3}
+      propertyPath: m_Name
+      value: Sphere of Doom
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 18eadfe0bf8516b4a8405feef477d99a, type: 3}
+--- !u!4 &7535976906156204859 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 799262786560977045, guid: 18eadfe0bf8516b4a8405feef477d99a, type: 3}
+  m_PrefabInstance: {fileID: 7170476438948875182}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &7321564793110715018
 PrefabInstance:
   m_ObjectHideFlags: 0

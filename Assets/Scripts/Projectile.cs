@@ -26,12 +26,16 @@ public class Projectile : MonoBehaviour
     public virtual void OnCollisionEnter(Collision collision)
     {
         if(collision.gameObject.tag != "Weapon" && collision.gameObject.tag != "Projectile")
+            // Deals damage to the collided hurbox before destroying the projectile
+            DealDamage(collision.collider);
+            // Debug.Log(name + " collided with " + collision.gameObject.name);
             Destroy(gameObject);
     }
-    //public virtual void OnTriggerEnter(Collider collider)
-    //{
-    //    if(collider.gameObject.tag != "Weapon" && collider.gameObject.tag != "Projectile")
-    //        Destroy(gameObject);
-    //}
+    // public virtual void OnTriggerEnter(Collider collider)
+    // {
+    //     if(collider.gameObject.tag != "Weapon" && collider.gameObject.tag != "Projectile")
+    //         // Debug.Log(name + " triggered with " + collider.gameObject.name);
+    //         Destroy(gameObject);
+    // }
 
 }
