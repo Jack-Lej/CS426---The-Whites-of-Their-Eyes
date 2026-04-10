@@ -24,13 +24,11 @@ public class Weapon : MonoBehaviour
     //How long it takes (in milliseconds) between each shot when holding down the fire button
     [SerializeField] protected int fireDelay;
 
-    //Simple check for reloading; disable firing during reload
-
+    
     [SerializeField] protected int projectileVelocity;
 
     [SerializeField] protected GameObject manager;
     [SerializeField] protected GameObject projectile;
-    [SerializeField] protected TMP_Text ammoText;
     //Where projectiles spawn from on the weapon's model
     [SerializeField] protected GameObject firePoint;
 
@@ -39,6 +37,14 @@ public class Weapon : MonoBehaviour
     [SerializeField] protected float weaponWeight;
     //Weight per unit of ammo for the weapon
     [SerializeField] protected float ammoWeight;
+
+    [SerializeField] protected AudioSource audioSource;
+    [SerializeField] protected AudioClip dryFireSound;
+    [SerializeField] protected AudioClip reloadSound;
+    [SerializeField] protected AudioClip fireSound;
+
+
+
 
     Vector3 sleepVector = new Vector3(0, 1000, 0);
 
@@ -61,10 +67,11 @@ public class Weapon : MonoBehaviour
     {
         if(currAmmo <= 0)
         {
-            //Play dry-fire "click" sfx
+            audioSource.PlayOneShot(dryFireSound, 1);
         }
         if(currAmmo > 0)
         {
+            audioSource.PlayOneShot(fireSound, 1);
             currAmmo--;
             GameObject p = Instantiate(projectile, firePoint.transform.position, firePoint.transform.rotation);
             p.GetComponent<Rigidbody>().AddForce(p.transform.forward * projectileVelocity);
@@ -74,6 +81,7 @@ public class Weapon : MonoBehaviour
 
     public virtual string ReloadWeapon()
     {
+        audioSource.PlayOneShot(reloadSound, 1);
         //Does the weapon need reloading, and can it be reloaded?
         if(currAmmo < magazineSize && reserveAmmo > 0)
         {

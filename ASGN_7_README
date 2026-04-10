@@ -1,0 +1,50 @@
+What We Added/Changed for Assignment 7:
+
+3 New weapons: Rocket Launcher, Minigun, and Bouncing Sphere of Doom
+X New Enemies:
+Improved movement: 
+2 New Levels: 
+Sounds: Weapon sounds, enemy sounds, ambient sounds
+UI: UI now more distinct, weapon drop system now hideable & resistant to catastrophic misclicks
+
+From the Design Document:
+
+UI Design: Problems and Solutions
+
+Problem 1: UI mis-sized to screen
+Rework canvas using “Scale to Screen” option ✓
+Problem 2: Health/Ammo/Weight text overlaps
+Solution: Position it better ✓
+Problem 3: Health/Ammo/Weight text indistinct from each other
+Solution: Different font/color ✓
+Problem 4: Text fails to stand out from background
+Add half-opacity background box with contrasting color ✓
+Problem 5:  Crosshair indistinct
+Recolor it, create different crosshairs for different guns
+Problem 6: Drop weapons interface too intrusive
+Include keybind to show/hide it, and bring it up automatically if over weight when weapon finished ✓
+Problem 7: No information about game state
+Include basic context-specific information text: “Level cleared”, “Weight limit to next floor 80 units”, etc
+Problem 8: “Drop Weapon” button too easy to accidentally click
+Include confirmation second click on button ✓
+Problem 9: No pause menu
+Include simple pause menu with controls & restart level options
+
+Sound Design
+Industry Example: DOOM (2016) Level 1
+
+
+Jack Sound 1: “Mission Status” text sound (3:35)
+-The sound is taking place either inside the DOOM marine’s helmet, or just on the player’s screen, non-diagetically. It happened because the mission information text appeared, and there were individual sounds for each line of information.
+-The sound and its associated visual is in contrast to the visuals and sounds of the rest of the game: DOOM is wet, organic, and violent, the sound made by the text is clean and very digital
+-The sound took place because the text appeared, it was included to draw attention to important information relevant to making progress.
+-This sound effect is not very repetitive; it is only used when displaying or updating the info text, which is not often. It may become annoying by association; in that players may dislike being told what to do by the text all the time, but that’s an outlier scenario, especially for how unobtrusive the text and sound are.
+-They probably created the sound entirely digitally; they were probably inspired for the tone and feel of the sound from science fiction movies or from the sounds electronic devices make in real life to indicate a change.
+-The sound is subtle, as mentioned before, but it doesn’t get drowned out, usually because it comes up in quieter moments between fights.
+Jack Sound 2: “Low Health” Alert (8:55)
+-The sound, again, is either playing for Doomguy inside his helmet, or for the player non-diagetically. It plays when the player takes damage and falls below 25 health.
+-The sound accentuates its accompanying popup well; it’s vital information to know that you’re close to dying, so by having a sound and visual it makes the information nearly impossible to miss, even if the player never looks at their health bar.
+-The sound played because the player’s health dropped below 25. It was included so that players have a warning to seek shelter or look for a health item, to make the game more fair
+-It can become very repetitive, especially if the player is unable to completely refill their health, or they are not very good at the combat. But it could have been much more annoying if it were louder or harsher, so it’s fine where it is.
+-Like I said above, it seems a little quiet, and it could get drowned out if you’re not careful, but it would become more repetitive and annoying on long play sessions if it were louder or harsher. It is quiet enough, as well, to not cover up any other important sounds in the game.
+TWoTE Sound Design: Accepted and Rejected
