@@ -3,15 +3,15 @@ using UnityEngine.AI;
 
 public class CP_Gun_Moving : CP_Gun
 {
-    private enum CharacterStates {Wandering, Idle, Attacking, Chasing, Dead};
-    private CharacterStates currentState;
+    // protected enum CharacterStates {Wandering, Idle, Attacking, Chasing, Dead};
+    // protected CharacterStates currentState;
     // private bool shooting;
     public UnityEngine.AI.NavMeshAgent agent;
     // public GameObject player;
     public float stopDistance = 5f;
     private Vector3 currentDestination;
-    private Transform playerTransform;
-    private GameObject targetObj;
+    // protected Transform playerTransform;
+    // protected GameObject targetObj;
     private float extendedBarrelDistance = 1f; // distance to extend the attack point when the NPC is moving towards the player
     Vector3 originalAttackPoint; // to store the original local position of the attack point
 
@@ -138,11 +138,11 @@ public class CP_Gun_Moving : CP_Gun
         // Debug.Log(IsStopped());
     }
 
-    void OnDamageTaken(int damage)
-    {
-        if (currentState == CharacterStates.Dead) return; // Don't do anything if dead
+    // void OnDamageTaken(int damage)
+    // {
+    //     if (currentState == CharacterStates.Dead) return; // Don't do anything if dead
 
-    }
+    // }
 
     
 

@@ -40,23 +40,23 @@ public class Character : MonoBehaviour
         currentHealth = Mathf.Min(currentHealth + amount, maxHealth);
     }
 
-    private void OnCollisionEnter(Collision collision)
-    {
-        if(collision.gameObject.tag == "Projectile")
-        {
-            Debug.Log(gameObject.name + " collided.");
-            Projectile p = collision.gameObject.GetComponent<Projectile>();
-            this.TakeDamage(p.GetDamage());
-        }
-    }
+    // private void OnCollisionEnter(Collision collision)
+    // {
+    //     if (collision.gameObject.CompareTag("Projectile"))
+    //     {
+    //         Debug.Log(gameObject.name + " collided.");
+    //         Projectile p = collision.gameObject.GetComponent<Projectile>();
+    //         this.TakeDamage(p.GetDamage());
+    //     }
+    // }
 
-    private void OnTriggerEnter(Collider collision)
-    {
-        if(collision.gameObject.tag == "Projectile")
-        {
-            Debug.Log(gameObject.name + " triggered.");
-            Projectile p = collision.gameObject.GetComponent<Projectile>();
-            this.TakeDamage(p.GetDamage());
-        }
-    }
+    // private void OnTriggerEnter(Collider collision)
+    // {
+    //     if(collision.gameObject.CompareTag("Projectile"))
+    //     {
+    //         Debug.Log(gameObject.name + " triggered.");
+    //         Projectile p = collision.gameObject.GetComponent<Projectile>();
+    //         this.TakeDamage(p.GetDamage());
+    //     }
+    // }
 }

@@ -9,6 +9,8 @@ public class RotateAroundObj : MonoBehaviour
     public GameObject targetObj; // The object to face towards
     public GameObject sourceObj; // The object that is rotating, used for calculating the angle to the target object
     private bool isFacingTarget = false;
+    public float gunElevationAngle = 60f;
+    public float gunDepressionAngle = -60f; // The angle at which the gun is depressed, used to adjust the vertical rotation calculations
     // public float fieldOfView = 0.5f;
 
     public bool IsFacingTarget
@@ -70,7 +72,7 @@ public class RotateAroundObj : MonoBehaviour
 
                 Vector3 clampedEuler = verticalPivot.transform.localEulerAngles;
                 float xAngle = clampedEuler.x > 180f ? clampedEuler.x - 360f : clampedEuler.x;
-                clampedEuler.x = Mathf.Clamp(xAngle, -60f, 60f);
+                clampedEuler.x = Mathf.Clamp(xAngle, gunDepressionAngle, gunElevationAngle);
                 verticalPivot.transform.localEulerAngles = clampedEuler;
             }
 

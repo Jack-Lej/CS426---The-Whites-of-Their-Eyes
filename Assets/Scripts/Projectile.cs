@@ -11,6 +11,23 @@ public class Projectile : MonoBehaviour
     public int damage;
     [SerializeField] string name;
 
+    private void DealDamage(Collider other)
+    {
+        HurtBox hurtBox = other.GetComponent<HurtBox>();
+        if (hurtBox != null)
+        {
+            hurtBox.ReceiveDamage(damage);
+        }
+        else
+        {
+            Character character = other.GetComponentInParent<Character>();
+            if (character != null)
+            {
+                character.TakeDamage(damage);
+            }
+        }
+    }
+
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -26,12 +43,16 @@ public class Projectile : MonoBehaviour
     public virtual void OnCollisionEnter(Collision collision)
     {
         if(collision.gameObject.tag != "Weapon" && collision.gameObject.tag != "Projectile")
+            DealDamage(collision.collider);
+            // Debug.Log(name + " collided with " + collision.gameObject.name);
             Destroy(gameObject);
     }
-    public virtual void OnTriggerEnter(Collider collider)
-    {
-        if(collider.gameObject.tag != "Weapon" && collider.gameObject.tag != "Projectile")
-            Destroy(gameObject);
-    }
+    // public virtual void OnTriggerEnter(Collider collider)
+    // {
+    //     if(collider.gameObject.tag != "Weapon" && collider.gameObject.tag != "Projectile")
+    //         DealDamage(collider);
+    //         // Debug.Log(name + " triggered with " + collider.gameObject.name);
+    //         Destroy(gameObject);
+    // }
 
 }

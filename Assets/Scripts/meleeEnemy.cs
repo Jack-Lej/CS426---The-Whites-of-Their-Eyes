@@ -6,7 +6,11 @@ public class meleeEnemy : MonoBehaviour
 {
 
     private enum CharacterStates {Wandering, Idle, Attacking, Chasing, Dead};
+    [SerializeField] private AudioClip IdleSoundClip;
+    [SerializeField] private AudioClip[] AttackSoundClips;
+
     private CharacterStates currentState;
+    private AudioSource audioSource;
 
     [SerializeField] int attackDamage;
     // private bool wandering = true;
@@ -16,6 +20,7 @@ public class meleeEnemy : MonoBehaviour
     public float interval = 8f;
     public float stopDistance = 2f;
     public float deathCleanupDelay = 5f;
+    public float rotationSpeed = 260f; // Speed at which the enemy rotates to face the player
     public UnityEngine.AI.NavMeshAgent agent;
     private Animator animator;
     private Coroutine activeCoroutine;
@@ -30,6 +35,71 @@ public class meleeEnemy : MonoBehaviour
         }
 
         return false;
+    }
+
+    // Used to check if the enemy is facing the player before attacking
+    private bool IsFacingTarget(Transform target, float threshold = 0.75f)
+    {
+        Vector3 directionToTarget = (target.position - transform.position).normalized;
+        float dot = Vector3.Dot(transform.forward, directionToTarget);
+        return dot >= threshold;
+    }
+
+    private void RotateTowardsPlayer()
+    {
+        if (playerTransform == null) return;
+
+        Vector3 direction = (playerTransform.position - transform.position);
+        direction.y = 0f; // Keep rotation on the horizontal plane only
+        if (direction.sqrMagnitude < 0.001f) return;
+
+        Quaternion targetRotation = Quaternion.LookRotation(direction);
+        transform.rotation = Quaternion.RotateTowards(
+            transform.rotation,
+            targetRotation,
+            rotationSpeed * Time.deltaTime
+        );
+    }
+
+    public void OnAttackAnimationEvent() {
+       if(currentState == CharacterStates.Attacking) {
+            playRandAttackSound(AttackSoundClips);
+       }
+    }
+
+    public void OnIdleAnimationEvent() {
+        if(currentState == CharacterStates.Idle) {
+            playSound(IdleSoundClip);
+        }
+    }
+
+    private void playRandAttackSound(AudioClip[] clips) {
+        if (clips == null ||clips.Length == 0) return;
+
+        if(audioSource == null) {
+            Debug.LogWarning("AudioSource component missing on " + gameObject.name);
+            return;
+        }
+
+        int index = Random.Range(0, clips.Length);
+        audioSource.PlayOneShot(clips[index]);
+    }
+
+    private void playSound(AudioClip clip) {
+        if (clip == null) return;
+
+        if(audioSource == null) {
+            Debug.LogWarning("AudioSource component missing on " + gameObject.name);
+            return;
+        }
+
+        audioSource.PlayOneShot(clip);
+    }
+
+    private void StopSound() {
+        if(audioSource != null) {
+            audioSource.Stop();
+        }
     }
 
     protected Vector3 GetRandPoint(Vector3 origin, float radius)
@@ -79,7 +149,8 @@ public class meleeEnemy : MonoBehaviour
                 animator.SetBool("isChasing", false);
                 animator.SetBool("isAttacking", false);
                 animator.SetBool("isDead", false);
-
+                // playSound(IdleSoundClip);
+                
                 agent.speed = animator.GetFloat("WalkSpeed");
                 agent.ResetPath();
                 activeCoroutine = StartCoroutine(IdleCoroutine());
@@ -124,11 +195,20 @@ public class meleeEnemy : MonoBehaviour
         }
     }
 
-    // public void OnHitboxContact(Collider playerCollider)
-    // {
-    //     // playerCollider.GetComponent<PlayerHealth>().TakeDamage(damage);
-    //     Debug.Log("Player hit for " + damage + " damage");
-    // }
+    private void StepBackFromPlayer()
+    {
+        if (playerTransform == null) return;
+
+        Vector3 directionAwayFromPlayer = (transform.position - playerTransform.position).normalized;
+        Vector3 targetPosition = transform.position + directionAwayFromPlayer * (agent.stoppingDistance + 0.5f);
+
+        NavMeshHit hit;
+        if (NavMesh.SamplePosition(targetPosition, out hit, 2f, NavMesh.AllAreas))
+        {
+            agent.SetDestination(hit.position);
+            Debug.Log("Stepping back from player to position: " + hit.position);
+        }
+    }
 
 
 
@@ -141,10 +221,18 @@ public class meleeEnemy : MonoBehaviour
             playerTransform = other.transform;
             float distToPlayer = Vector3.Distance(transform.position, playerTransform.position);
 
-            if (distToPlayer <= agent.stoppingDistance + 0.5f)
+            // Makes sure the enemy in distance and is facing the player before attacking
+            if (distToPlayer <= agent.stoppingDistance + 0.5f && IsFacingTarget(playerTransform))
             {
                 SetState(CharacterStates.Attacking); // Loop attack animation
             }
+            // else if (distToPlayer <= agent.stoppingDistance + 0.5f && !IsFacingTarget(playerTransform))
+            // {
+            //     // Close enough to attack but not facing — rotate in place without moving
+            //     SetState(CharacterStates.Chasing);
+            //     StepBackFromPlayer();
+            //     RotateTowardsPlayer();
+            // }
             else
             {
                 SetState(CharacterStates.Chasing);
@@ -183,6 +271,12 @@ public class meleeEnemy : MonoBehaviour
         animator = GetComponent<Animator>();
         agent.speed = animator.GetFloat("WalkSpeed");
         agent.stoppingDistance = stopDistance;
+        audioSource = GetComponent<AudioSource>();
+        audioSource.clip = IdleSoundClip;
+
+        // if (IdlePlayer != null && IdleSoundClip != null)
+        //     IdlePlayer.actionClip = IdleSoundClip;
+        
 
         Character character = GetComponent<Character>();
         if (character != null)
@@ -212,6 +306,12 @@ public class meleeEnemy : MonoBehaviour
         if(currentState == CharacterStates.Chasing && playerTransform != null)
         {
             agent.SetDestination(playerTransform.position);
+            // Helps prevent the bug where the enemy getts stuck near the player
+            // not acttacking and not facing the player, but not moving either
+            if (IsStopped() && !IsFacingTarget(playerTransform))
+            {
+                RotateTowardsPlayer();
+            }
         }
     }
     // Grabs a random point within the wander radius and sets it as the destination

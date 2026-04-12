@@ -4,6 +4,10 @@ using UnityEngine.InputSystem;
 // Computer player class for the gun class
 public class CP_Gun : Gun
 {
+    protected enum CharacterStates {Wandering, Idle, Attacking, Chasing, Dead};
+    protected CharacterStates currentState;
+    protected GameObject targetObj;
+    protected Transform playerTransform;
     protected bool shooting;
     private bool isShooting = false;
     [Header("Rotation")]
@@ -31,6 +35,19 @@ public class CP_Gun : Gun
         if(readyToShoot && shooting && !reloading && bulletsLeft <= 0)
         {
             Reload();
+        }
+    }
+
+    void Start()
+    {
+        Character character = GetComponent<Character>();
+        if (character != null)
+        {
+            character.onDeath.AddListener(() => SetState(CharacterStates.Dead));
+            character.onDamageTaken.AddListener(OnDamageTaken);
+        } else
+        {
+            Debug.LogWarning("No Character component found on " + gameObject.name + ". Death state will not be handled properly.");
         }
     }
 
@@ -62,13 +79,14 @@ public class CP_Gun : Gun
         Quaternion directionRotation = Quaternion.LookRotation(directionWithSpread.normalized);
         Quaternion offsetRotation = Quaternion.Euler(90, 0, 0);
         GameObject currentBullet = Instantiate(bullet, attackPoint.position, directionRotation * offsetRotation);
+        playRandomSound(shootClips);
 
         currentBullet.GetComponent<Rigidbody>().AddForce(directionWithSpread.normalized * shootForce, ForceMode.Impulse);
         currentBullet.GetComponent<Rigidbody>().AddForce(attackPoint.up * upwardForce, ForceMode.Impulse);
 
         // If there is a muzzle flash animation, instantiate it at the attack point
         if (muzzleFlash != null)
-            Instantiate(muzzleFlash, attackPoint.position, Quaternion.identity);
+            Instantiate(muzzleFlash, attackPoint.position, directionRotation);
 
         bulletsLeft--;
         bulletsShot++;
@@ -86,20 +104,24 @@ public class CP_Gun : Gun
     protected void OnTriggerStay(Collider other)
     {   
         // Debug.Log("Is faceing target: " + rotateScript.IsFacingTarget);
-        if(rotateScript == null)
+        if (other.CompareTag("Player"))
         {
-            if (other.CompareTag("Player"))
+            targetObj = other.gameObject;
+            playerTransform = other.transform;
+
+            // Always update the rotate script target so it keeps rotating toward the player
+            if (rotateScript != null)
             {
-                managefiring();
+                rotateScript.targetObj = targetObj;
             }
-        } else
-        {
-            if (rotateScript.IsFacingTarget && other.CompareTag("Player"))
+
+            // Only fire once facing the player
+            if (rotateScript == null || rotateScript.IsFacingTarget)
             {
                 managefiring();
             }
         }
-        
+            
     }
     // stops firing when player is no longer within the trigger collider
     private void OnTriggerExit(Collider other)
@@ -107,6 +129,31 @@ public class CP_Gun : Gun
         if (other.CompareTag("Player"))
         {
             shooting = false;
+            targetObj = null;
+            rotateScript.targetObj = null;
+            playerTransform = null;
+        }
+    }
+
+    void SetState(CharacterStates newState)
+    {
+        if(currentState == newState) return; // No state change, do nothing
+
+        currentState = newState;
+        switch (currentState)
+        {
+            case CharacterStates.Idle:
+                Debug.Log("Switching to Idle");
+                break;
+
+            case CharacterStates.Attacking:
+                Debug.Log("Switching to Attacking");
+                break;
+
+            case CharacterStates.Dead:
+                Debug.Log("Switching to Dead");
+                Destroy(gameObject, 0.5f);
+                break;
         }
     }
 
@@ -122,6 +169,12 @@ public class CP_Gun : Gun
         bulletsLeft = magazineSize;
         reloading = false;
         isShooting = false;  // allow firing again after reload
+    }
+
+    protected void OnDamageTaken(int damage)
+    {
+        if (currentState == CharacterStates.Dead) return; // Don't do anything if dead
+
     }
 
 
