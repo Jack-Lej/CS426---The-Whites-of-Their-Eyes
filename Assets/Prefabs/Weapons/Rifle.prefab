@@ -168,7 +168,8 @@ MonoBehaviour:
   reserveAmmo: 630
   reloadTime: 1200
   fireDelay: 90
-  projectileVelocity: 700
+  crosshair: {fileID: 0}
+  projectileVelocity: 900
   manager: {fileID: 0}
   projectile: {fileID: 8718020317698012777, guid: 5604a54be71a3574aa38f617f30162ba, type: 3}
   firePoint: {fileID: 3242006828180517801}
@@ -544,7 +545,7 @@ Transform:
   m_GameObject: {fileID: 3242006828180517801}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.03, z: 0.55}
+  m_LocalPosition: {x: 0, y: 0.03, z: 0.75}
   m_LocalScale: {x: 0.05, y: 0.05, z: 0.05}
   m_ConstrainProportionsScale: 0
   m_Children: []

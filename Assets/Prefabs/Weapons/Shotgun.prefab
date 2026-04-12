@@ -149,7 +149,7 @@ Transform:
   m_GameObject: {fileID: 3272699130666900268}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
-  m_LocalPosition: {x: 0, y: 0.1, z: 0.5}
+  m_LocalPosition: {x: 0, y: 0.1, z: 0.8}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -306,7 +306,8 @@ MonoBehaviour:
   reserveAmmo: 50
   reloadTime: 1000
   fireDelay: 1200
-  projectileVelocity: 800
+  crosshair: {fileID: 0}
+  projectileVelocity: 1100
   manager: {fileID: 0}
   projectile: {fileID: 617719506206176291, guid: f071bf02b8c261d4b8258146a1ae43d6, type: 3}
   firePoint: {fileID: 3272699130666900268}
@@ -318,6 +319,7 @@ MonoBehaviour:
   reloadSound: {fileID: 0}
   fireSound: {fileID: 0}
   spread: 10
+  pumpSound: {fileID: 0}
 --- !u!1 &7527298122622846997
 GameObject:
   m_ObjectHideFlags: 0
