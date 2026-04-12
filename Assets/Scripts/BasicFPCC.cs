@@ -147,11 +147,24 @@ public class BasicFPCC : MonoBehaviour
     private float ceilingOffsetY = 0;                // calculated offset relative to height
     [Space(5)]
     public bool cursorActive = false;                // cursor state
+    
+    public static BasicFPCC Instance;               
 
    
     void Start()
     {
         Initialize();
+    }
+
+    void Awake()
+    {if (Instance != null && Instance != this)
+        {
+            Destroy(gameObject);
+            return;
+        }
+
+        Instance = this;
+        DontDestroyOnLoad(gameObject);
     }
 
     void Update()

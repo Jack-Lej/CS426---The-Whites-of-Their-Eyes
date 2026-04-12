@@ -12,6 +12,10 @@ public class Character : MonoBehaviour
     void Start()
     {
         currentHealth = maxHealth;
+        if(this.tag == "Enemy")
+        {
+            LevelManager.numEnemies++;
+        }
     }
 
     public int GetHealth()
@@ -29,6 +33,9 @@ public class Character : MonoBehaviour
         if (currentHealth <= 0)
         {
             currentHealth = 0;
+            if(this.tag == "Enemy")
+                LevelManager.numEnemies--;
+                
             Debug.Log(gameObject.name + " died");
             onDeath.Invoke();
         }

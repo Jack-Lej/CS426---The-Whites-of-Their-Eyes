@@ -60,6 +60,11 @@ public class DiscardWeaponBehavior : MonoBehaviour
     [SerializeField] Button healthKitButton;
     [SerializeField] TMP_InputField healthkitField;
 
+    [SerializeField] CanvasGroup levelWeightTextGroup;
+    [SerializeField] TMP_Text levelWeightText;
+
+    public static DiscardWeaponBehavior Instance;
+
     //Function to confirm the dropping of a weapon; player must click twice in order to avoid game-ruining accidents
     void DropWeapon(int w)
     {
@@ -193,6 +198,13 @@ public class DiscardWeaponBehavior : MonoBehaviour
         }
     }
 
+    public void DisplayLevelWeightText(int maxWeight)
+    {
+        levelWeightTextGroup.alpha = 1;
+        levelWeightTextGroup.interactable = true;
+        levelWeightText.text = string.Concat("Level Cleared! Max weight for next level is: ", maxWeight, ". Press U and ` to activate weapon drop UI");
+    }
+
     void Start()
     {
         healthKitButton.onClick.AddListener(() =>
@@ -248,7 +260,22 @@ public class DiscardWeaponBehavior : MonoBehaviour
             DropWeapon(6);
         });
         
+        levelWeightTextGroup.alpha = 0;
+        levelWeightTextGroup.interactable = false;
+
         ToggleUI();
+    }
+    
+    void Awake()
+    {
+        if (Instance != null && Instance != this)
+        {
+            Destroy(gameObject);
+            return;
+        }
+
+        Instance = this;
+        DontDestroyOnLoad(gameObject);
     }
 
 

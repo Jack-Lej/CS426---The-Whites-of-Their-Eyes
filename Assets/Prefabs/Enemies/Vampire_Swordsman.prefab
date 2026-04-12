@@ -214,7 +214,37 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: -7657966619581158213, guid: 195ab4984c89e3740912cefab5fdbf8c, type: 3}
       insertIndex: -1
       addedObject: {fileID: 2311547214678512582}
+    - targetCorrespondingSourceObject: {fileID: -3944456689697044043, guid: 195ab4984c89e3740912cefab5fdbf8c, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 6512804016584340720}
   m_SourcePrefab: {fileID: 100100000, guid: 195ab4984c89e3740912cefab5fdbf8c, type: 3}
+--- !u!1 &386633229350882836 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: -3944456689697044043, guid: 195ab4984c89e3740912cefab5fdbf8c, type: 3}
+  m_PrefabInstance: {fileID: 5485350629425776545}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &6512804016584340720
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 386633229350882836}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 17dff343601472349bc993b561675d48, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &4674323565173979888 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 195ab4984c89e3740912cefab5fdbf8c, type: 3}
@@ -232,7 +262,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4d1ee577cc8d26a48930d7624153fb6d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Character
-  maxHealth: 300
+  maxHealth: 500
   currentHealth: 0
   onDeath:
     m_PersistentCalls:
@@ -349,7 +379,7 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3

@@ -8,9 +8,15 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Scenes/Daniel_TestScene.unity
     guid: 99c9720ab356a0642a771bea13969a05
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Level 1.unity
     guid: d6b932d9423014d43943f71b2772e30a
+  - enabled: 1
+    path: Assets/Scenes/Title Screen.unity
+    guid: f83d7d6f848f7bd45a2e8039328822b1
+  - enabled: 0
+    path: Assets/Scenes/Jack Testing Scene.unity
+    guid: 7cf84ca6307267d4f90862f19d246e84
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 052faaac586de48259a63d0c4782560b, type: 3}
   m_UseUCBPForAssetBundles: 0

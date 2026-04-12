@@ -50,6 +50,8 @@ public class WeaponManager : MonoBehaviour
     DateTime switchTimer;
     DateTime shootTimer;
 
+    public static WeaponManager Instance;
+
 
 
 
@@ -80,6 +82,18 @@ public class WeaponManager : MonoBehaviour
 
         UpdateWeight();
         startWeight = totalWeight;
+    }
+
+    void Awake()
+    {
+        if (Instance != null && Instance != this)
+        {
+            Destroy(gameObject);
+            return;
+        }
+
+        Instance = this;
+        DontDestroyOnLoad(gameObject);
     }
 
     //newWeapon refers to the position in the weapons array
