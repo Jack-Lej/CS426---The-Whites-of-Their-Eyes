@@ -32,3 +32,4 @@ UPDATES:
 4-08: Fixed weapon drop boxes, minor UI updates/fixes
 4-09: Added minigun, rocket launcher, more UI improvements
 4-10: Sphere of Doom Launcher added, added weapon sounds, added title screen.
+4-11: Various bugfixes, re-balancing, and level loading features. Finalized UI and weapons for Asgn 7 turn-in.
