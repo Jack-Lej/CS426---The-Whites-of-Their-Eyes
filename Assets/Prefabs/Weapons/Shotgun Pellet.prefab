@@ -156,3 +156,4 @@ MonoBehaviour:
   velocity: 2
   deceleration: 0.001
   damage: 8
+  name: Shotgun Pellet

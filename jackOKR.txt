@@ -29,3 +29,6 @@ Weapon sounds: fire, reload, dry-fire
 ----------------------------------------------
 UPDATES:
 4-06: Located UI issues for design doc, re-organized assets, added simple weapon sounds code: need to still choose & add actual sounds (still using test sounds)
+4-08: Fixed weapon drop boxes, minor UI updates/fixes
+4-09: Added minigun, rocket launcher, more UI improvements
+4-10: Sphere of Doom Launcher added, added weapon sounds, added title screen.

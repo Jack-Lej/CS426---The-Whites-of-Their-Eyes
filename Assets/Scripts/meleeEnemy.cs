@@ -131,7 +131,7 @@ public class meleeEnemy : MonoBehaviour
         switch (currentState)
         {
             case CharacterStates.Wandering:
-                Debug.Log("Switching to Wandering");
+                //Debug.Log("Switching to Wandering");
                 animator.SetBool("isWalking", true);
                 animator.SetBool("isIdle", false);
                 animator.SetBool("isChasing", false);
@@ -143,7 +143,7 @@ public class meleeEnemy : MonoBehaviour
                 break;
 
             case CharacterStates.Idle:
-                Debug.Log("Switching to Idle");
+                //Debug.Log("Switching to Idle");
                 animator.SetBool("isWalking", false);
                 animator.SetBool("isIdle", true);
                 animator.SetBool("isChasing", false);
@@ -157,7 +157,7 @@ public class meleeEnemy : MonoBehaviour
                 break;
 
             case CharacterStates.Attacking:
-                Debug.Log("Switching to Attacking");
+                //Debug.Log("Switching to Attacking");
                 animator.SetBool("isWalking", false);
                 animator.SetBool("isIdle", false);
                 animator.SetBool("isChasing", false);
@@ -169,7 +169,7 @@ public class meleeEnemy : MonoBehaviour
                 break;
 
             case CharacterStates.Chasing:
-                Debug.Log("Switching to Chasing");
+                //Debug.Log("Switching to Chasing");
                 animator.SetBool("isWalking", false);
                 animator.SetBool("isIdle", false);
                 animator.SetBool("isChasing", true);

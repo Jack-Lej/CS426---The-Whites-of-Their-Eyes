@@ -353,6 +353,7 @@ public class BasicFPCC : MonoBehaviour
        
         if ( isGrounded )
         {
+            Debug.Log("---------------------------------------------------------------Is Grounded---------------------------------------------------------------");
             if ( isSlipping ) // slip down slope
             {
                 // movement left/right while slipping down
@@ -382,10 +383,13 @@ public class BasicFPCC : MonoBehaviour
                     fauxGravity.y = Mathf.Lerp( fauxGravity.y, -1f, 4f * Time.deltaTime );
                 }
             }
-
+            Debug.Log(isSliding);
+            Debug.Log(isCeiling);
+            Debug.Log(inputKeyDownJump);
             // - Jump -
             if ( !isSliding && !isCeiling && inputKeyDownJump ) // jump
             {
+                Debug.Log("Inside jump");
                 fauxGravity.y = Mathf.Sqrt( jumpHeight * -2f * gravity );
             }
 
@@ -469,6 +473,7 @@ public class BasicFPCC : MonoBehaviour
     // find if isGrounded, slope angle and directional vector
     void GroundCheck()
     {
+        
         //Vector3 origin = new Vector3( transform.position.x, transform.position.y - (controller.height / 2) + startDistanceFromBottom, transform.position.z );
         Vector3 origin = new Vector3( playerTx.position.x, playerTx.position.y + groundOffsetY, playerTx.position.z );
 

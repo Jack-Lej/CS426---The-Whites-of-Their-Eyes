@@ -157,5 +157,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Projectile
   velocity: 2
   deceleration: 0.001
-  damage: 20
+  damage: 10
   name: 

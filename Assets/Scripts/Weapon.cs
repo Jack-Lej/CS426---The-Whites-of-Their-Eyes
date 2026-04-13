@@ -24,7 +24,8 @@ public class Weapon : MonoBehaviour
     //How long it takes (in milliseconds) between each shot when holding down the fire button
     [SerializeField] protected int fireDelay;
 
-    
+    [SerializeField] CanvasGroup crosshair;
+
     [SerializeField] protected int projectileVelocity;
 
     [SerializeField] protected GameObject manager;
@@ -56,11 +57,13 @@ public class Weapon : MonoBehaviour
     public void SleepWeapon()
     {
         transform.position = sleepVector;
+        crosshair.alpha = 0;
     }
     public string WakeWeapon()
     {
         transform.position = manager.transform.position;
         transform.rotation = manager.transform.rotation;
+        crosshair.alpha = 1;
         return string.Concat(weaponName, " ammo: ", currAmmo.ToString(), "/", magazineSize.ToString(), "\n", "Reserve Ammo: ", reserveAmmo.ToString());
     }
     public virtual string FireWeapon()
@@ -85,6 +88,7 @@ public class Weapon : MonoBehaviour
         //Does the weapon need reloading, and can it be reloaded?
         if(currAmmo < magazineSize && reserveAmmo > 0)
         {
+            audioSource.PlayOneShot(reloadSound, 1);
             //Is there enough ammo to reload the entire capacity?
             if(reserveAmmo > (magazineSize-currAmmo))
             {
@@ -108,7 +112,7 @@ public class Weapon : MonoBehaviour
         return (currAmmo+reserveAmmo)*ammoWeight + weaponWeight;
     }
 
-    public string GetWeaponText()
+    public virtual string GetWeaponText()
     {
         return string.Concat(weaponName, " ammo: ", currAmmo.ToString(), "/", magazineSize.ToString(), "\nReserve Ammo: ", reserveAmmo.ToString());
     }

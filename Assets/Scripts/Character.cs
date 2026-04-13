@@ -21,7 +21,6 @@ public class Character : MonoBehaviour
 
     public virtual void TakeDamage(int damage)
     {
-        Debug.Log("In TakeDamage");
         if (currentHealth <= 0) return; // Already dead, ignore further damage
         currentHealth -= damage;
         onDamageTaken.Invoke(damage);
