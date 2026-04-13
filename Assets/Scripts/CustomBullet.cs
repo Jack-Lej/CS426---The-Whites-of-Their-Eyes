@@ -8,7 +8,7 @@ public class CustomBullet : MonoBehaviour
     //Assignables
     public Rigidbody rb;
     public GameObject explosion;
-    public LayerMask whatIsEnemies;
+    public LayerMask Explodable;
 
     //Stats
     [Range(0f,1f)]
@@ -72,18 +72,18 @@ public class CustomBullet : MonoBehaviour
 
         hasExploded = true;
 
-        //Check for enemies 
-        Collider[] enemies = Physics.OverlapSphere(transform.position, explosionRange, whatIsEnemies);
-        for (int i = 0; i < enemies.Length; i++)
+        //Check for characters within the explosion range
+        Collider[] chatacters = Physics.OverlapSphere(transform.position, explosionRange, Explodable);
+        for (int i = 0; i < chatacters.Length; i++)
         {
-            HurtBox hurtBox = enemies[i].GetComponent<HurtBox>();
+            HurtBox hurtBox = chatacters[i].GetComponent<HurtBox>();
             if (hurtBox != null)
             {
                 hurtBox.ReceiveDamage(explosionDamage);
             } 
             else
             {
-                Character character = enemies[i].GetComponentInParent<Character>();
+                Character character = chatacters[i].GetComponentInParent<Character>();
                 if (character != null)
                 {
                     character.TakeDamage(explosionDamage);
@@ -91,8 +91,8 @@ public class CustomBullet : MonoBehaviour
             }
 
             //Add explosion force (if enemy has a rigidbody)
-            if (enemies[i].GetComponent<Rigidbody>())
-                enemies[i].GetComponent<Rigidbody>().AddExplosionForce(explosionForce, transform.position, explosionRange);
+            if (chatacters[i].GetComponent<Rigidbody>())
+                chatacters[i].GetComponent<Rigidbody>().AddExplosionForce(explosionForce, transform.position, explosionRange);
         }
 
         //Add a little delay, just to make sure everything works fine

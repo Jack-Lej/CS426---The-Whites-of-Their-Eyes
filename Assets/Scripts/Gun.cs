@@ -9,6 +9,8 @@ using TMPro;
 public abstract class Gun : MonoBehaviour
 {
     [Header("Bullet Settings")]
+    protected AudioSource audioSource;
+    [SerializeField] protected AudioClip[] shootClips;
     public GameObject bullet;
     public float shootForce, upwardForce;
     public float spread;
@@ -31,10 +33,12 @@ public abstract class Gun : MonoBehaviour
     protected bool readyToShoot, reloading;
     protected bool allowInvoke = true;
 
+
     protected virtual void Awake()
     {
         bulletsLeft = magazineSize;
         readyToShoot = true;
+        audioSource = GetComponent<AudioSource>();
     }
 
     protected virtual void Update()
@@ -43,6 +47,19 @@ public abstract class Gun : MonoBehaviour
         {
             ammoDisplay.SetText(bulletsLeft / bulletsPerTap + " / " + magazineSize / bulletsPerTap);
         }
+    }
+
+    protected void playRandomSound(AudioClip[] clips) {
+        if (clips.Length == 0 || clips == null) return;
+
+        if(audioSource == null) {
+            Debug.LogWarning("AudioSource component missing on " + gameObject.name);
+            return;
+            // audioSource = GetComponent<AudioSource>();
+        }
+
+        int index = Random.Range(0, clips.Length);
+        audioSource.PlayOneShot(clips[index]);
     }
 
     protected void Shoot(Camera shootCam)
@@ -67,12 +84,13 @@ public abstract class Gun : MonoBehaviour
         Quaternion directionRotation = Quaternion.LookRotation(directionWithSpread.normalized);
         Quaternion offsetRotation = Quaternion.Euler(90, 0, 0);
         GameObject currentBullet = Instantiate(bullet, attackPoint.position, directionRotation * offsetRotation);
+        playRandomSound(shootClips);
 
         currentBullet.GetComponent<Rigidbody>().AddForce(directionWithSpread.normalized * shootForce, ForceMode.Impulse);
         currentBullet.GetComponent<Rigidbody>().AddForce(shootCam.transform.up * upwardForce, ForceMode.Impulse);
 
         if (muzzleFlash != null)
-            Instantiate(muzzleFlash, attackPoint.position, Quaternion.identity);
+            Instantiate(muzzleFlash, attackPoint.position, directionRotation * offsetRotation);
 
         bulletsLeft--;
         bulletsShot++;
@@ -104,4 +122,5 @@ public abstract class Gun : MonoBehaviour
         bulletsLeft = magazineSize;
         reloading = false;
     }
+
 }

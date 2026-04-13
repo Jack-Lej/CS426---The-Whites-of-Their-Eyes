@@ -33,18 +33,24 @@ public class LevelManager : MonoBehaviour
 
     void OnTriggerEnter(Collider collider)
     {
-        Debug.Log("In 1");
+        
         if(collider.gameObject.tag == "Player")
         {
-            Debug.Log("In 2");
+           
             if(nextLevel == 2)
             {
-                Debug.Log("In 3");
+                
                 SceneManager.LoadScene("Level 2");
+                collider.GetComponent<CharacterController>().enabled = false;
+                collider.transform.position = new Vector3(-120, 2, 1);
+                collider.GetComponent<CharacterController>().enabled = true;
             }
             else if(nextLevel == 3)
             {
                 SceneManager.LoadScene("Level 3");
+                collider.GetComponent<CharacterController>().enabled = false;
+                collider.transform.position = new Vector3(-90, 2, 0);
+                collider.GetComponent<CharacterController>().enabled = true;
             }
             
         }
