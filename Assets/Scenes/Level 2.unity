@@ -7982,7 +7982,7 @@ Transform:
   m_GameObject: {fileID: 1052221797}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 69.74585, y: 0, z: -28.69275}
+  m_LocalPosition: {x: 70.53, y: 0, z: -28.69275}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -8008,7 +8008,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::LevelExitBarrier
   manager: {fileID: 656392781}
-  weightLimit: 80
+  weightLimit: 40
 --- !u!1 &1095048059
 GameObject:
   m_ObjectHideFlags: 0
