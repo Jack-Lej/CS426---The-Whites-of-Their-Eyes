@@ -128,7 +128,7 @@ GameObject:
   - component: {fileID: 7418822520891244227}
   - component: {fileID: 1931227507022522192}
   - component: {fileID: 7748725263288296514}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Rocket
   m_TagString: Bullet
   m_Icon: {fileID: 0}
@@ -297,16 +297,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: '::'
   rb: {fileID: 1080925676737287368}
-  explosion: {fileID: 674140336206702316, guid: c4ca9d16484f65149a374c739a6f3165, type: 3}
-  whatIsEnemies:
+  explosion: {fileID: 100006, guid: 28ccd38a41e256a4e8fea96f5a8d039d, type: 3}
+  Explodable:
     serializedVersion: 2
     m_Bits: 64
   bounciness: 0
   useGravity: 0
-  explosionDamage: 200
+  explosionDamage: 8
   directHitDamage: 0
   isExplosive: 1
-  explosionRange: 2
+  explosionRange: 3
   explosionForce: 200
   maxCollisions: 1
   maxLifetime: 5

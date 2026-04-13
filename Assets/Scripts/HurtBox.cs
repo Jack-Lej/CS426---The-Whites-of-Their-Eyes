@@ -2,33 +2,53 @@ using UnityEngine;
 
 public class HurtBox : MonoBehaviour
 {
-    private Character character;
+    internal Character character;
 
     void Start()
     {
         character = GetComponentInParent<Character>();
     }
 
+
     // For physics-based projectiles (Rigidbody + non-trigger collider)
     private void OnCollisionEnter(Collision collision)
     {
-        // Handle player's Projectile
+
         Projectile projectile = collision.gameObject.GetComponent<Projectile>();
+        CustomBullet customBullet = collision.gameObject.GetComponent<CustomBullet>();
+        if (customBullet != null)
+        {
+            if(!customBullet.isExplosive) {
+                ReceiveDamage(customBullet.directHitDamage);
+            }
+            
+            return;
+        }
         if (projectile != null)
         {
             ReceiveDamage(projectile.GetDamage());
             return;
         }
+        Debug.Log("Collided with " + collision.gameObject.name);
     }
 
     // For trigger-based projectiles and hitboxes
     private void OnTriggerEnter(Collider other)
     {
-        // Handle CustomBullet explosion overlap
-        CustomBullet bullet = other.GetComponent<CustomBullet>();
-        if (bullet != null)
+
+        CustomBullet customBullet = other.GetComponent<CustomBullet>();
+        Projectile projectile = other.GetComponent<Projectile>();
+        if (projectile != null)
         {
-            ReceiveDamage(bullet.explosionDamage);
+            ReceiveDamage(projectile.GetDamage());
+            return;
+        }
+        if (customBullet != null)
+        {
+            if(!customBullet.isExplosive) {
+                ReceiveDamage(customBullet.directHitDamage);
+            }
+            
             return;
         }
     }
