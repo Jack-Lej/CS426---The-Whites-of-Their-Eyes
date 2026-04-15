@@ -9,6 +9,7 @@ using TMPro;
 
 public class WeaponManager : MonoBehaviour
 {
+    [Header("Weapons")]
     //List of weapons the player has, assignable in Unity editor
     [SerializeField] Weapon weapon1;
     [SerializeField] Weapon weapon2;
@@ -20,11 +21,15 @@ public class WeaponManager : MonoBehaviour
     [SerializeField] Weapon weapon8;
     [SerializeField] Weapon weapon9;
 
+    [Header("Health Kit Info")]
+
     [SerializeField] int numHealthKits;
 
     [SerializeField] int healthKitHealing;
 
     [SerializeField] Character player;
+
+    [Header("Canvas Text")]
 
     [SerializeField] protected TMP_Text weaponText;
 
@@ -36,6 +41,8 @@ public class WeaponManager : MonoBehaviour
 
     [SerializeField] protected BasicFPCC playerMovement;
 
+    [SerializeField] protected MenuManager menuManager;
+
     private Weapon[] weaponArr = new Weapon[10];
 
     //Weapon currently in use
@@ -46,14 +53,11 @@ public class WeaponManager : MonoBehaviour
 
     DateTime reloadTimer;
     bool switchAlarm;
-    bool tildePressed;
+    bool mouseDisabled;
     DateTime switchTimer;
     DateTime shootTimer;
 
     public static WeaponManager Instance;
-
-
-
 
 
     void Start()
@@ -61,7 +65,7 @@ public class WeaponManager : MonoBehaviour
         reloadTimer = DateTime.Now;
         switchTimer = DateTime.Now;
         switchAlarm = false;
-        tildePressed = false;
+        mouseDisabled = false;
         shootTimer = DateTime.Now;
 
         weaponArr[0] = null;
@@ -189,6 +193,10 @@ public class WeaponManager : MonoBehaviour
         weightText.text = string.Concat("Weight: ", totalWeight);
     }
 
+    public void DisableMouse()
+    {
+        mouseDisabled = !mouseDisabled;
+    }
     public float GetTotalWeight()
     {
         return totalWeight;
@@ -212,7 +220,7 @@ public class WeaponManager : MonoBehaviour
                 switchAlarm = false;
             }
             weaponText.text = activeWeapon.GetWeaponText();
-            if(Input.GetKey(KeyCode.Mouse0) && !tildePressed)
+            if(Input.GetKey(KeyCode.Mouse0) && !mouseDisabled)
             {
                 shootTimer = DateTime.Now.AddMilliseconds(activeWeapon.GetWeaponFireDelay());
                 weaponText.text = activeWeapon.FireWeapon();
@@ -254,9 +262,14 @@ public class WeaponManager : MonoBehaviour
             //Used to activate management mode
             else if(Input.GetKey(KeyCode.BackQuote))
             {
-                Debug.Log(tildePressed);
                 switchTimer = DateTime.Now.AddMilliseconds(400);
-                tildePressed = !tildePressed;   
+                mouseDisabled = !mouseDisabled;   
+            }
+            else if(Input.GetButtonDown("Pause"))
+            {
+                Debug.Log("In key detect");
+                mouseDisabled = !mouseDisabled;
+                menuManager.ToggleMenu();
             }
         }
     }

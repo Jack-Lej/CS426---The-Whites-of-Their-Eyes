@@ -463,7 +463,7 @@ public class BasicFPCC : MonoBehaviour
         RefreshCursor();
     }
 
-    void ToggleLockCursor()
+    public void ToggleLockCursor()
     {
         cursorActive = !cursorActive;
         RefreshCursor();

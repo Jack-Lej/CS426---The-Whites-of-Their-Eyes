@@ -8,36 +8,46 @@ using TMPro;
 public class Weapon : MonoBehaviour
 {
 
-    //Amount of shots that can be fired before needing to reload
-    [SerializeField] protected int magazineSize;
+    
     //Ammo currently read to be used, ammo "in the magazine"
     //Not serialized b/c it updates automatically, and to prevent adding an extra full clip to total ammo
     protected int currAmmo;
 
+    [Header("Basic Info")]
     //Amount of reserve ammo available for reloading, includes the ammo used to load the weapon on game start
     //Important: we need to decide if we keep the reserve ammo for weapons that reload all at once (magazine-based)
     //Ex: A rifle. 30 magazine size, 300 reserve ammo. Fires 3 shots, reloads. Do they lose 3 reserve ammo, or 30? I.e., do they "keep" the partially-emptied magazine and refill it, or discard it entirely
     //Maybe keep track of magazines?
     [SerializeField] protected int reserveAmmo;
+
+    //Amount of shots that can be fired before needing to reload
+    [SerializeField] protected int magazineSize;
+
     //Reload time in milliseconds
     [SerializeField] protected int reloadTime;
     //How long it takes (in milliseconds) between each shot when holding down the fire button
     [SerializeField] protected int fireDelay;
-
-    [SerializeField] CanvasGroup crosshair;
-
-    [SerializeField] protected int projectileVelocity;
-
-    [SerializeField] protected GameObject manager;
-    [SerializeField] protected GameObject projectile;
-    //Where projectiles spawn from on the weapon's model
-    [SerializeField] protected GameObject firePoint;
 
     [SerializeField] protected string weaponName;
     //Weight of the weapon for the inventory system
     [SerializeField] protected float weaponWeight;
     //Weight per unit of ammo for the weapon
     [SerializeField] protected float ammoWeight;
+
+    [SerializeField] protected int projectileVelocity;
+
+    [SerializeField] CanvasGroup crosshair;
+
+    [Header("External References")]
+
+    [SerializeField] protected GameObject manager;
+    [SerializeField] protected GameObject projectile;
+    //Where projectiles spawn from on the weapon's model
+    [SerializeField] protected GameObject firePoint;
+
+    
+
+    [Header("Sounds")]
 
     [SerializeField] protected AudioSource audioSource;
     [SerializeField] protected AudioClip dryFireSound;

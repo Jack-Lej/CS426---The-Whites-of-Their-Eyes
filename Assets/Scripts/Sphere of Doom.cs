@@ -8,13 +8,10 @@ public class SphereofDoom : Projectile
     [SerializeField] int speed;
     int startNumBounces;
     Color color;
-    float alpha;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        alpha = 1f;
         startNumBounces = numBounces;
-        
     }
     public override void OnCollisionEnter(Collision collision)
     {

@@ -8,10 +8,14 @@ public class DiscardWeaponBehavior : MonoBehaviour
     bool confirmActive = false;
 
     bool uiActive = true;
+
+    [Header("Other Managers")]
     [SerializeField] WeaponManager manager;
 
+    [Header("CanvasGroup")]
     [SerializeField] CanvasGroup cGroup;
 
+    [Header("Weapon 1 Drop Elements")]
     //Each weapon has three elemnts in its "drop x" interface; a field to enter how much ammo to drop,
     //a button to drop that much ammo, and a button to drop the weapon and all its ammo at once. The text object is used to change the text when confirming the drop
     //The dateTime and bool are used to keep track of the drop weapon button, and when to reset its state
@@ -22,6 +26,7 @@ public class DiscardWeaponBehavior : MonoBehaviour
     DateTime w1Confirm;
     bool drop1Pressed = false;
 
+    [Header("Weapon 2 Drop Elements")]
     [SerializeField] Button w2AmmoButton;
     [SerializeField] Button w2WeaponButton;
     [SerializeField] TextMeshProUGUI w2WeaponButtonText;
@@ -29,6 +34,7 @@ public class DiscardWeaponBehavior : MonoBehaviour
     DateTime w2Confirm;
     bool drop2Pressed = false;
 
+    [Header("Weapon 3 Drop Elements")]
     [SerializeField] Button w3AmmoButton;
     [SerializeField] Button w3WeaponButton;
     [SerializeField] TextMeshProUGUI w3WeaponButtonText;
@@ -36,6 +42,7 @@ public class DiscardWeaponBehavior : MonoBehaviour
     DateTime w3Confirm;
     bool drop3Pressed = false;
 
+    [Header("Weapon 4 Drop Elements")]
     [SerializeField] Button w4AmmoButton;
     [SerializeField] Button w4WeaponButton;
     [SerializeField] TextMeshProUGUI w4WeaponButtonText;
@@ -43,6 +50,7 @@ public class DiscardWeaponBehavior : MonoBehaviour
     DateTime w4Confirm;
     bool drop4Pressed = false;
 
+    [Header("Weapon 5 Drop Elements")]
     [SerializeField] Button w5AmmoButton;
     [SerializeField] Button w5WeaponButton;
     [SerializeField] TextMeshProUGUI w5WeaponButtonText;
@@ -50,6 +58,7 @@ public class DiscardWeaponBehavior : MonoBehaviour
     DateTime w5Confirm;
     bool drop5Pressed = false;
 
+    [Header("Weapon 6 Drop Elements")]
     [SerializeField] Button w6AmmoButton;
     [SerializeField] Button w6WeaponButton;
     [SerializeField] TextMeshProUGUI w6WeaponButtonText;
@@ -57,6 +66,7 @@ public class DiscardWeaponBehavior : MonoBehaviour
     DateTime w6Confirm;
     bool drop6Pressed = false;
 
+    [Header("Health Kit Drop Elements")]
     [SerializeField] Button healthKitButton;
     [SerializeField] TMP_InputField healthkitField;
 
