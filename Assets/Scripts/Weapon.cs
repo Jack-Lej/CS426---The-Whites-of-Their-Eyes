@@ -58,7 +58,7 @@ public class Weapon : MonoBehaviour
 
 
     Vector3 sleepVector = new Vector3(0, 1000, 0);
-
+    
     void Start()
     {
         currAmmo = magazineSize;

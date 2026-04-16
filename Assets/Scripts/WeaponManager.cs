@@ -149,6 +149,11 @@ public class WeaponManager : MonoBehaviour
         
     }
 
+    public Weapon GetActiveWeapon()
+    {
+        return activeWeapon;
+    }
+
     public void UseHealthKit()
     {
         if(numHealthKits <= 0)

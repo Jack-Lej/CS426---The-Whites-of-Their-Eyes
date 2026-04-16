@@ -660,17 +660,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e385437650a72d24cbed382dcb3c3dde, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Weapon
-  magazineSize: 3
   reserveAmmo: 21
-  reloadTime: 3000
+  magazineSize: 3
+  reloadTime: 5000
   fireDelay: 3000
-  projectileVelocity: 900
-  manager: {fileID: 0}
-  projectile: {fileID: 7879577518188677107, guid: 18eadfe0bf8516b4a8405feef477d99a, type: 3}
-  firePoint: {fileID: 1726054939187973795}
   weaponName: Shpere of Doom Launcher
   weaponWeight: 40
   ammoWeight: 2
+  projectileVelocity: 900
+  crosshair: {fileID: 0}
+  manager: {fileID: 0}
+  projectile: {fileID: 7879577518188677107, guid: 18eadfe0bf8516b4a8405feef477d99a, type: 3}
+  firePoint: {fileID: 1726054939187973795}
   audioSource: {fileID: 3226182597705616917}
   dryFireSound: {fileID: 0}
   reloadSound: {fileID: 0}

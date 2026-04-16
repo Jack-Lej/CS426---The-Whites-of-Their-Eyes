@@ -164,18 +164,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e385437650a72d24cbed382dcb3c3dde, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Weapon
-  magazineSize: 30
   reserveAmmo: 630
+  magazineSize: 30
   reloadTime: 1200
   fireDelay: 90
-  crosshair: {fileID: 0}
+  weaponName: Rifle
+  weaponWeight: 20
+  ammoWeight: 0.01
   projectileVelocity: 900
+  crosshair: {fileID: 0}
   manager: {fileID: 0}
   projectile: {fileID: 8718020317698012777, guid: 5604a54be71a3574aa38f617f30162ba, type: 3}
   firePoint: {fileID: 3242006828180517801}
-  weaponName: Rifle
-  weaponWeight: 0
-  ammoWeight: 0
   audioSource: {fileID: 0}
   dryFireSound: {fileID: 0}
   reloadSound: {fileID: 0}

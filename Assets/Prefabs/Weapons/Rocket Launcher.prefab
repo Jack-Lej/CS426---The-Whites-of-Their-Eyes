@@ -498,18 +498,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e385437650a72d24cbed382dcb3c3dde, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Weapon
-  magazineSize: 4
   reserveAmmo: 40
-  reloadTime: 2000
-  fireDelay: 1200
-  crosshair: {fileID: 0}
-  projectileVelocity: 800
-  manager: {fileID: 0}
-  projectile: {fileID: 4519073192657682481, guid: cb314d8bd1a1e2845a6171ea0b9e8019, type: 3}
-  firePoint: {fileID: 3353274381415089502}
+  magazineSize: 4
+  reloadTime: 3000
+  fireDelay: 1500
   weaponName: Rocket Launcher
   weaponWeight: 30
   ammoWeight: 0.75
+  projectileVelocity: 800
+  crosshair: {fileID: 0}
+  manager: {fileID: 0}
+  projectile: {fileID: 4519073192657682481, guid: cb314d8bd1a1e2845a6171ea0b9e8019, type: 3}
+  firePoint: {fileID: 3353274381415089502}
   audioSource: {fileID: 5934309753524198197}
   dryFireSound: {fileID: 0}
   reloadSound: {fileID: 0}
