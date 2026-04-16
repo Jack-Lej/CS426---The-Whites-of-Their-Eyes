@@ -783,6 +783,8 @@ MonoBehaviour:
   PivotObj: {fileID: 1797558985488557134}
   targetObj: {fileID: 0}
   sourceObj: {fileID: 5638529627030970297}
+  gunElevationAngle: 60
+  gunDepressionAngle: -60
 --- !u!114 &8578173097673838546
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -795,7 +797,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4d1ee577cc8d26a48930d7624153fb6d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Character
-  maxHealth: 800
+  maxHealth: 200
   currentHealth: 0
   onDeath:
     m_PersistentCalls:
