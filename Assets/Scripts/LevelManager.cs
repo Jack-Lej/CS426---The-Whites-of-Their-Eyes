@@ -29,6 +29,7 @@ public class LevelManager : MonoBehaviour
     {
         infoUpdated = false;
         levelUnlocked = false;
+        
     }
 
     void OnTriggerEnter(Collider collider)
@@ -60,7 +61,8 @@ public class LevelManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(numEnemies <= 0)
+        Debug.Log(GameObject.FindGameObjectsWithTag("Enemy").Length);
+        if(GameObject.FindGameObjectsWithTag("Enemy").Length == 0)
         {
             if(!infoUpdated)
             {
