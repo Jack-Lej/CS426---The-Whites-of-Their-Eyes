@@ -34,3 +34,64 @@ Todo:
 	- Add health and proper collisions to turrets
 	- Fix weird bug with the moving ranged enemies where the bullet spread becomes very large
 	- Implement State based behavior similar to that of the melee enemy
+
+
+/***********************************************************************************************************/
+4/18/26
+
+Changes:
+	- Health Bars
+		- All enemies now have health bars that update when the enemies are hit
+
+	- Enemies
+		- Ranged Pill Gunner and Laser Blaster turret
+			- Nerfed damage from 40 dmg per hit to 10
+
+		- Parasite Enemy
+			- 3 new sounds when hit
+
+		- Demon Swordsman
+			- 3 new sounds when hit
+			- Changed idle sound
+			- Changed damage to 70
+
+		- Large Clawed Demon
+			- Added 3 sounds when hit
+			- Changed health from 9001 to 9000 (Not sure why there was 1)
+
+		- New Enemies:
+			- Both new enemies share the same Idle sounds and model
+				- Differentiated by color
+
+			- Demon Summoner
+				- Does not do any attacks
+				- Keeps distance from player and summons parasite zombies every 15 sec
+				- Plays a sound along with a red particle effect in the area where the summoned enemy is spawned in
+
+			- Demon Suport
+				- Heals nearby enmeies by 200 when they lose 25% or less of their health
+				- Has a flamethrower attack
+					- attacks when nearby allies of the healer are in good health
+				- Prioritizes healing over attacking
+				- When an enemy is healed, a green partcile effect will show on the enemy healed
+					- Plays a sound to indicate the heal
+			
+
+	- New Scenes
+		- Enemy Display Room
+			- has the current enemies displayed in display cases along with a board that shows their stats and behavior
+
+		- End Credit Scene
+			- Shows the credits rolling up like usual end crdits
+			- Still needs Rayan's credit to the "Caves and Dugeons" assets
+			- Has enemies walking around in the background. This can be changed if you want
+
+	- Things to still add:
+		- Need to add hurt sounds for Demon Summoner and Demon Support
+		- Add more ranged enemies
+		- Find a way for melee enemies to land hits to the player on sloped surfaces
+		- Add boss enemies that behaves less like regular mobs
+		- Fix explosion damage for the Rocket prefab
+		- Add more enemies that use the rockets
+			- Idea: Maybe add a tank-like enemy? Not sure since that is not a monster
+			
