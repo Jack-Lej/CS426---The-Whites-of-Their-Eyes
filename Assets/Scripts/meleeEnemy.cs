@@ -6,8 +6,8 @@ public class meleeEnemy : MonoBehaviour
 {
 
     private enum CharacterStates {Wandering, Idle, Attacking, Chasing, Dead};
-    [SerializeField] private AudioClip IdleSoundClip;
-    [SerializeField] private AudioClip[] AttackSoundClips;
+    [SerializeField] protected AudioClip IdleSoundClip;
+    [SerializeField] protected AudioClip[] AttackSoundClips;
 
     private CharacterStates currentState;
     private AudioSource audioSource;
@@ -22,12 +22,13 @@ public class meleeEnemy : MonoBehaviour
     public float deathCleanupDelay = 5f;
     public float rotationSpeed = 260f; // Speed at which the enemy rotates to face the player
     public UnityEngine.AI.NavMeshAgent agent;
-    private Animator animator;
+    protected Animator animator;
     private Coroutine activeCoroutine;
+    [SerializeField] private float facingTargetOffset = 30f;
 
-    private Transform playerTransform;
+    public Transform playerTransform;
 
-    bool IsStopped() {
+    protected bool IsStopped() {
         if(!agent.pathPending && agent.remainingDistance <= agent.stoppingDistance + 0.1f) {
             if(agent.velocity.sqrMagnitude < 0.1f) {
                 return true;
@@ -38,28 +39,70 @@ public class meleeEnemy : MonoBehaviour
     }
 
     // Used to check if the enemy is facing the player before attacking
-    private bool IsFacingTarget(Transform target, float threshold = 0.75f)
-    {
-        Vector3 directionToTarget = (target.position - transform.position).normalized;
-        float dot = Vector3.Dot(transform.forward, directionToTarget);
-        return dot >= threshold;
-    }
+    // public bool IsFacingTarget(Transform target, float threshold = 0.75f)
+    // {
+    //     Vector3 directionToTarget = (target.position - transform.position).normalized;
+    //     Vector3 adjustedForward = Quaternion.Euler(0, facingTargetOffset, 0) * transform.forward;
 
-    private void RotateTowardsPlayer()
+    //     float dot = Vector3.Dot(adjustedForward, directionToTarget);
+    //     return dot >= threshold;
+    // }
+
+    protected void RotateTowardsPlayer()
     {
         if (playerTransform == null) return;
 
         Vector3 direction = (playerTransform.position - transform.position);
-        direction.y = 0f; // Keep rotation on the horizontal plane only
+        direction.y = 0f;
         if (direction.sqrMagnitude < 0.001f) return;
 
-        Quaternion targetRotation = Quaternion.LookRotation(direction);
-        transform.rotation = Quaternion.RotateTowards(
-            transform.rotation,
-            targetRotation,
-            rotationSpeed * Time.deltaTime
-        );
+        // Get the signed angle so we know which way to rotate
+        float signedAngle = Vector3.SignedAngle(transform.forward, direction, Vector3.up);
+
+        // Only rotate by the minimum needed, in the correct direction
+        float step = Mathf.Min(rotationSpeed * Time.deltaTime, Mathf.Abs(signedAngle));
+        transform.Rotate(Vector3.up, Mathf.Sign(signedAngle) * step);
     }
+
+    protected float GetCurrentAnimationDuration()
+    {
+        if(animator == null) return 0f;
+
+        AnimatorClipInfo[] clipInfos = animator.GetCurrentAnimatorClipInfo(0);
+        if(clipInfos.Length > 0)
+        {
+            return clipInfos[0].clip.length;
+        }
+
+        return 1f;
+    }
+
+    protected bool IsFacingTarget(Transform target)
+    {
+        Vector3 directionToTarget = (target.position - transform.position).normalized;
+        directionToTarget.y = 0f;
+        Vector3 forward = transform.forward;
+        forward.y = 0f;
+
+        float angle = Vector3.Angle(forward, directionToTarget);
+        return angle <= facingTargetOffset;
+    }
+
+    // protected void RotateTowardsPlayer()
+    // {
+    //     if (playerTransform == null) return;
+
+    //     Vector3 direction = (playerTransform.position - transform.position);
+    //     direction.y = 0f; // Keep rotation on the horizontal plane only
+    //     if (direction.sqrMagnitude < 0.001f) return;
+
+    //     Quaternion targetRotation = Quaternion.LookRotation(direction);
+    //     transform.rotation = Quaternion.RotateTowards(
+    //         transform.rotation,
+    //         targetRotation,
+    //         rotationSpeed * Time.deltaTime
+    //     );
+    // }
 
     public void OnAttackAnimationEvent() {
        if(currentState == CharacterStates.Attacking) {
@@ -73,7 +116,7 @@ public class meleeEnemy : MonoBehaviour
         }
     }
 
-    private void playRandAttackSound(AudioClip[] clips) {
+    protected void playRandAttackSound(AudioClip[] clips) {
         if (clips == null ||clips.Length == 0) return;
 
         if(audioSource == null) {
@@ -131,7 +174,7 @@ public class meleeEnemy : MonoBehaviour
         switch (currentState)
         {
             case CharacterStates.Wandering:
-                //Debug.Log("Switching to Wandering");
+                Debug.Log("Switching to Wandering");
                 animator.SetBool("isWalking", true);
                 animator.SetBool("isIdle", false);
                 animator.SetBool("isChasing", false);
@@ -143,7 +186,7 @@ public class meleeEnemy : MonoBehaviour
                 break;
 
             case CharacterStates.Idle:
-                //Debug.Log("Switching to Idle");
+                Debug.Log("Switching to Idle");
                 animator.SetBool("isWalking", false);
                 animator.SetBool("isIdle", true);
                 animator.SetBool("isChasing", false);
@@ -157,7 +200,7 @@ public class meleeEnemy : MonoBehaviour
                 break;
 
             case CharacterStates.Attacking:
-                //Debug.Log("Switching to Attacking");
+                Debug.Log("Switching to Attacking");
                 animator.SetBool("isWalking", false);
                 animator.SetBool("isIdle", false);
                 animator.SetBool("isChasing", false);
@@ -169,7 +212,7 @@ public class meleeEnemy : MonoBehaviour
                 break;
 
             case CharacterStates.Chasing:
-                //Debug.Log("Switching to Chasing");
+                Debug.Log("Switching to Chasing");
                 animator.SetBool("isWalking", false);
                 animator.SetBool("isIdle", false);
                 animator.SetBool("isChasing", true);
@@ -266,7 +309,7 @@ public class meleeEnemy : MonoBehaviour
     }
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    protected void Start()
     {
         animator = GetComponent<Animator>();
         agent.speed = animator.GetFloat("WalkSpeed");
@@ -291,7 +334,7 @@ public class meleeEnemy : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    protected void Update()
     {
         // While wandering, check if we've reached our destination
         if (currentState == CharacterStates.Wandering)
