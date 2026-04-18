@@ -1,5 +1,8 @@
 using UnityEngine;
 using UnityEngine.UI;
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine.SceneManagement;
 using TMPro;
 using System;
 
@@ -26,6 +29,8 @@ public class MenuManager : MonoBehaviour
     [SerializeField] CanvasGroup weaponsGroup;
     [SerializeField] Button weaponsCloseButton;
     RectTransform weaponsGroupPosition;
+
+    
     
 
 
@@ -38,7 +43,6 @@ public class MenuManager : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        menuPanel.alpha = 0;
         resumeButton.onClick.AddListener(() =>
         {
             weaponManager.DisableMouse();
@@ -46,13 +50,31 @@ public class MenuManager : MonoBehaviour
         });
         controlsButton.onClick.AddListener(() =>
         {
-            //weaponManager.DisableMouse();
+            Debug.Log("controls clicked");
+            ToggleControls();
+        });
+        controlsCloseButton.onClick.AddListener(() =>
+        {
+            Debug.Log("controls close clicked");
             ToggleControls();
         });
         weaponsButton.onClick.AddListener(() =>
         {
-            //weaponManager.DisableMouse();
+            Debug.Log("Weapons clicked");
             ToggleWeapons();
+        });
+        weaponsCloseButton.onClick.AddListener(() =>
+        {
+            Debug.Log("Weapons clicked");
+            ToggleWeapons();
+        });
+        menuButton.onClick.AddListener(() =>
+        {
+            SceneManager.LoadScene("Title Screen");
+        });
+        quitButton.onClick.AddListener(() =>
+        {
+            Application.Quit();
         });
 
         menuPanel.alpha = 0;
@@ -62,17 +84,13 @@ public class MenuManager : MonoBehaviour
         controlsOpen = false;
         controlsGroup.alpha = 0;    
         controlsGroup.interactable = false;
-        controlsGroupPosition = controlsGroup.GetComponent<RectTransform>();
-        rectTransform = controlsGroup.GetComponent<RectTransform>();
-        rectTransform.anchoredPosition = new Vector2(10000f, 10000f);
-        
+        controlsGroup.blocksRaycasts = false;
+
         weaponsOpen = false;
         weaponsGroup.alpha = 0;
         weaponsGroup.interactable = false;
-        weaponsGroupPosition = weaponsGroup.GetComponent<RectTransform>();
-        rectTransform = weaponsGroup.GetComponent<RectTransform>();
-        rectTransform.anchoredPosition = new Vector2(10000f, 10000f);
-        
+        weaponsGroup.blocksRaycasts = false;
+
     }
 
     public void ToggleMenu()
@@ -84,9 +102,7 @@ public class MenuManager : MonoBehaviour
             weaponManager.GetActiveWeapon().SleepWeapon();
             menuPanel.alpha = 1;
             menuPanel.interactable = true;
-            resumeButton.interactable = true;
-            controlsButton.interactable = true;
-            weaponsButton.interactable = true;
+            menuPanel.blocksRaycasts = true;
             menuOpen = true;
         }
         else
@@ -94,9 +110,7 @@ public class MenuManager : MonoBehaviour
             weaponManager.GetActiveWeapon().WakeWeapon();
             menuPanel.alpha = 0;
             menuPanel.interactable = false;
-            resumeButton.interactable = false;
-            controlsButton.interactable = false;
-            weaponsButton.interactable = false;
+            menuPanel.blocksRaycasts = true;
             menuOpen = false;
             Time.timeScale = 1;
         }
@@ -105,43 +119,41 @@ public class MenuManager : MonoBehaviour
 
     public void ToggleControls()
     {
-        Debug.Log("in controls toggle");
+        Debug.Log("controlsOpen:" + controlsOpen);
+
         if(!controlsOpen)
         {
             controlsOpen = true;
             controlsGroup.alpha = 1;
             controlsGroup.interactable = true;
-            rectTransform = controlsGroup.GetComponent<RectTransform>();
-            rectTransform.anchoredPosition = controlsGroupPosition.anchoredPosition;
+            controlsGroup.blocksRaycasts = true;
         }
         else
         {
             controlsOpen = false;
             controlsGroup.alpha = 0;
             controlsGroup.interactable = false;
-            rectTransform = controlsGroup.GetComponent<RectTransform>();
-            rectTransform.anchoredPosition = new Vector2(10000f, 10000);
+            controlsGroup.blocksRaycasts = false;
         }
     }
 
     public void ToggleWeapons()
     {
-        Debug.Log("in weapons toggle");
+        Debug.Log("weaponsOpen:" + weaponsOpen);
         if(!weaponsOpen)
         {
             weaponsOpen = true;
             weaponsGroup.alpha = 1;
             weaponsGroup.interactable = true;
-            rectTransform = weaponsGroup.GetComponent<RectTransform>();
-            rectTransform.anchoredPosition = weaponsGroupPosition.anchoredPosition;
+            weaponsGroup.blocksRaycasts = true;
         }
         else
         {
+            
             weaponsOpen = false;
             weaponsGroup.alpha = 0;
             weaponsGroup.interactable = false;
-            rectTransform = weaponsGroup.GetComponent<RectTransform>();
-            rectTransform.anchoredPosition = new Vector2(10000, 10000);
+            weaponsGroup.blocksRaycasts = false;
         }
     }
 

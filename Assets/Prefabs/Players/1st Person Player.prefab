@@ -1106,16 +1106,15 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &666435295928177441
-Transform:
+--- !u!224 &666435295928177441
+RectTransform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 966958251472731025}
-  serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 45.947643, y: -539.99994, z: 7568.9614}
+  m_LocalPosition: {x: 0, y: 0, z: 7568.9614}
   m_LocalScale: {x: 1.5384616, y: 1.5384616, z: 1.5384616}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -1126,6 +1125,11 @@ Transform:
   - {fileID: 4703201627569305858}
   m_Father: {fileID: 2854294111160829052}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 45.947643, y: -539.99994}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!225 &3467838858244306894
 CanvasGroup:
   m_ObjectHideFlags: 0
@@ -5538,7 +5542,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 336, y: 206.8}
+  m_AnchoredPosition: {x: 338, y: 206.8}
   m_SizeDelta: {x: 100, y: 20}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1015970874417910440
@@ -11346,6 +11350,9 @@ MonoBehaviour:
   onDamageTaken:
     m_PersistentCalls:
       m_Calls: []
+  audioSource: {fileID: 0}
+  damageClips: []
+  healthBar: {fileID: 0}
   healthText: {fileID: 4422026909099663493}
 --- !u!114 &3488509461043127496
 MonoBehaviour:
