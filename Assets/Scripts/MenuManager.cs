@@ -50,61 +50,80 @@ public class MenuManager : MonoBehaviour
             //weaponManager.DisableMouse();
             ToggleWeapons();
         });
-        ToggleControls();
-        ToggleMenu();
-        ToggleWeapons();
+
+        menuPanel.alpha = 0;
+        menuPanel.interactable = false;
+        menuOpen = false;
+
+        controlsOpen = false;
+        controlsGroup.alpha = 0;    
+        controlsGroup.interactable = false;
+        
+        weaponsOpen = false;
+        weaponsGroup.alpha = 0;
+        weaponsGroup.interactable = false;
+        
     }
 
     public void ToggleMenu()
     {
+        Debug.Log("in menu toggle");
         if(!menuOpen)
         {
+            Time.timeScale = 0;
             weaponManager.GetActiveWeapon().SleepWeapon();
             menuPanel.alpha = 1;
             menuPanel.interactable = true;
-            Time.timeScale = 0;
+            resumeButton.interactable = true;
+            controlsButton.interactable = true;
+            weaponsButton.interactable = true;
             menuOpen = true;
         }
         else
         {
             weaponManager.GetActiveWeapon().WakeWeapon();
             menuPanel.alpha = 0;
-            Time.timeScale = 1;
             menuPanel.interactable = false;
+            resumeButton.interactable = false;
+            controlsButton.interactable = false;
+            weaponsButton.interactable = false;
             menuOpen = false;
+            Time.timeScale = 1;
         }
         playerController.ToggleLockCursor();
     }
 
     public void ToggleControls()
     {
+        Debug.Log("in controls toggle");
         if(!controlsOpen)
         {
             controlsOpen = true;
-            controlsGroup.interactable = true;
             controlsGroup.alpha = 1;
+            controlsGroup.interactable = true;
         }
         else
         {
             controlsOpen = false;
-            controlsGroup.interactable = false;
             controlsGroup.alpha = 0;
+            controlsGroup.interactable = false;
         }
     }
 
     public void ToggleWeapons()
     {
+        Debug.Log("in weapons toggle");
         if(!weaponsOpen)
         {
             weaponsOpen = true;
-            weaponsGroup.interactable = true;
             weaponsGroup.alpha = 1;
+            weaponsGroup.interactable = true;
         }
         else
         {
             weaponsOpen = false;
-            weaponsGroup.interactable = false;
             weaponsGroup.alpha = 0;
+            weaponsGroup.interactable = false;
         }
     }
 

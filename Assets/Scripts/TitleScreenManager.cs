@@ -10,18 +10,23 @@ public class TitleScreenManager : MonoBehaviour
 {
 
     [SerializeField] Button startButton;
-
-    void LoadFirstLevel()
-    {
-        SceneManager.LoadScene("Level 1");
-    }
+    [SerializeField] Button tutorialButton;
+    [SerializeField] Button quitButton;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         startButton.onClick.AddListener(() =>
         {
-            LoadFirstLevel();
+            SceneManager.LoadScene("Level 1");
+        });
+        tutorialButton.onClick.AddListener(() =>
+        {
+            SceneManager.LoadScene("Tutorial");
+        });
+        quitButton.onClick.AddListener(() =>
+        {
+            Application.Quit();
         });
     }
 
