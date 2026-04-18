@@ -33,3 +33,22 @@ UPDATES:
 4-09: Added minigun, rocket launcher, more UI improvements
 4-10: Sphere of Doom Launcher added, added weapon sounds, added title screen.
 4-11: Various bugfixes, re-balancing, and level loading features. Finalized UI and weapons for Asgn 7 turn-in.
+
+
+WEEK 13
+----------------------------------------------
+TASKS:
+Add pause menu with controls, restart, weapon info, and back to main menu
+Add Tutorial, exit, and info to main menu
+Make player ui more obnoxious: player health bar, "reload now" message, use solid color for background
+Add death screen: restart, menu, quit
+Increase bullet size/visibility for rifle, shotgun, minigun
+Fix title screen to fill screen (maybe just issue for playing in editor)
+Retool ammo count/weapon damage once enemies within levels finalized
+Add Q/E weapon switching (more accessible than 1-6)
+
+Write intro story
+Write self credits: what you did, where you got external resources
+----------------------------------------------
+UPDATES:
+4-17: Added pause menu; having trouble with showing/hiding the compenents. Added tutorial, 100% functional. Added Q/E weapon switching.
