@@ -20,12 +20,16 @@ public class MenuManager : MonoBehaviour
     [Header("Controls Pop-Up Items")] 
     [SerializeField] CanvasGroup controlsGroup;
     [SerializeField] Button controlsCloseButton;
+    RectTransform controlsGroupPosition;
 
     [Header("Weapons Pop-Up Items")] 
     [SerializeField] CanvasGroup weaponsGroup;
     [SerializeField] Button weaponsCloseButton;
+    RectTransform weaponsGroupPosition;
+    
 
 
+    private RectTransform rectTransform;
 
     bool menuOpen = true;
     bool controlsOpen = true;
@@ -58,10 +62,16 @@ public class MenuManager : MonoBehaviour
         controlsOpen = false;
         controlsGroup.alpha = 0;    
         controlsGroup.interactable = false;
+        controlsGroupPosition = controlsGroup.GetComponent<RectTransform>();
+        rectTransform = controlsGroup.GetComponent<RectTransform>();
+        rectTransform.anchoredPosition = new Vector2(10000f, 10000f);
         
         weaponsOpen = false;
         weaponsGroup.alpha = 0;
         weaponsGroup.interactable = false;
+        weaponsGroupPosition = weaponsGroup.GetComponent<RectTransform>();
+        rectTransform = weaponsGroup.GetComponent<RectTransform>();
+        rectTransform.anchoredPosition = new Vector2(10000f, 10000f);
         
     }
 
@@ -101,12 +111,16 @@ public class MenuManager : MonoBehaviour
             controlsOpen = true;
             controlsGroup.alpha = 1;
             controlsGroup.interactable = true;
+            rectTransform = controlsGroup.GetComponent<RectTransform>();
+            rectTransform.anchoredPosition = controlsGroupPosition.anchoredPosition;
         }
         else
         {
             controlsOpen = false;
             controlsGroup.alpha = 0;
             controlsGroup.interactable = false;
+            rectTransform = controlsGroup.GetComponent<RectTransform>();
+            rectTransform.anchoredPosition = new Vector2(10000f, 10000);
         }
     }
 
@@ -118,12 +132,16 @@ public class MenuManager : MonoBehaviour
             weaponsOpen = true;
             weaponsGroup.alpha = 1;
             weaponsGroup.interactable = true;
+            rectTransform = weaponsGroup.GetComponent<RectTransform>();
+            rectTransform.anchoredPosition = weaponsGroupPosition.anchoredPosition;
         }
         else
         {
             weaponsOpen = false;
             weaponsGroup.alpha = 0;
             weaponsGroup.interactable = false;
+            rectTransform = weaponsGroup.GetComponent<RectTransform>();
+            rectTransform.anchoredPosition = new Vector2(10000, 10000);
         }
     }
 
