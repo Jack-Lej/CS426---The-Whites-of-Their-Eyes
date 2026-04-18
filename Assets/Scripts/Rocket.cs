@@ -3,9 +3,14 @@ using System.Collections;
 
 public class Rocket : Projectile
 {
-
+    [Header("Damage Numbers")]
     [SerializeField] int explosionDamage;
     [SerializeField] int explosionRadius;
+
+    [SerializeField] protected AudioClip explodeSound;
+    [SerializeField] protected AudioSource audioSource;
+
+    public GameObject explosionGraphic;
 
     float trueExplosionRadius;
 
@@ -21,7 +26,6 @@ public class Rocket : Projectile
     void ExplodeNonAlloc()
     {
         int numColliders = Physics.OverlapSphereNonAlloc(transform.position, explosionRadius, colliders, layerMask);
-        Debug.Log("Num Explosion Collisions: " + numColliders);
         if (numColliders > 0)
         {
             for (int i = 0; i < numColliders; i++)
@@ -32,13 +36,13 @@ public class Rocket : Projectile
                 {
                     Character c = colliders[i].gameObject.GetComponent<Character>();
                     float vec = Vector3.Distance(this.transform.position, col.transform.position);
-                    Debug.Log("Distance to " + col.gameObject.name + ": " + vec);
                     //Explosion damage is determined by distance from the explosion
                     if(vec <= trueExplosionRadius)
                         c.TakeDamage((int) Mathf.Round(explosionDamage * ((trueExplosionRadius-vec)/trueExplosionRadius)));
                 }
             }
         }
+
     }
 
     public override void OnCollisionEnter(Collision collision)
@@ -46,6 +50,8 @@ public class Rocket : Projectile
         if(collision.gameObject.tag != "Weapon" && collision.gameObject.tag != "Projectile")
         {
             ExplodeNonAlloc();
+            Instantiate(explosionGraphic, transform.position, Quaternion.identity);
+            audioSource.PlayOneShot(explodeSound, 1);
             DealDamage(collision.collider);
             //Spawn explosion graphic
             Destroy(gameObject);
