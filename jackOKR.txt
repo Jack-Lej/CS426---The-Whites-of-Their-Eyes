@@ -51,4 +51,4 @@ Write intro story
 Write self credits: what you did, where you got external resources
 ----------------------------------------------
 UPDATES:
-4-17: Added pause menu; having trouble with showing/hiding the compenents. Added tutorial, 100% functional. Added Q/E weapon switching.
+4-17: Added pause menu; having trouble with showing/hiding the compenents; the info screens are likely obscuring the buttons for the head pause menu even though they're alpha 0. Added tutorial, 100% functional. Added Q/E weapon switching. Added quit button to main menu.
