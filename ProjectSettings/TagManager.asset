@@ -9,6 +9,7 @@ TagManager:
   - Enemy
   - Bullet
   - Weapon
+  - FxTemporaire
   layers:
   - Default
   - TransparentFX
@@ -19,7 +20,7 @@ TagManager:
   - Explodable
   - Projectile
   - ProximityCollider
-  - 
+  - Player
   - 
   - 
   - 
