@@ -1,0 +1,41 @@
+Sci-fi Guns SFX Pack 
+Author: Mikael Vanninen
+Link: https://assetstore.unity.com/packages/audio/sound-fx/sci-fi-guns-sfx-pack-181144
+
+Monster Sound Effects Vol.1
+Author: Atelier Magicae
+Creator of Assests: Riria/Ririsaurus
+Link: https://ateliermagicae.itch.io/monster-sound-effects-vol1
+
+Abyssal Horror SFX Vol.1
+Author: Atelier Magicae
+Creator of Assets: Riria/Ririsaurus
+Link: https://ateliermagicae.itch.io/abyssal-horrors-sfx-vol1
+
+War FX (Rocket Turret Explosion VFX)
+Author Jean Moreno
+Link: https://assetstore.unity.com/packages/vfx/particles/war-fx-5669
+
+Grenade Sound FX (Rocket Turret Shooting SFX)
+Author: MGWSoundDesin
+Link: https://assetstore.unity.com/packages/audio/sound-fx/grenade-sound-fx-147490
+
+Free Cinematic Sound Effects
+Author: Gregor Quendel
+Link: https://assetstore.unity.com/packages/p/free-cinematic-sound-effects-224972
+
+Moster Roar Sound Pack
+Author: Leonardo Calvo
+Link: https://thesoundrack.itch.io/monster-roar-sound-pack
+
+Rusty Sword
+Author: Danvil
+Link: https://assetstore.unity.com/packages/3d/props/weapons/rusty-sword-315378
+
+VFX URP - Fire Package
+Author: Cartoon VFX By Wallcoeur
+Link: https://assetstore.unity.com/packages/vfx/particles/fire-explosions/vfx-urp-fire-package-305098
+
+Models and Animations:
+Author: Adobe Mixamo
+Link: https://www.mixamo.com/#/?page=1&type=Character
