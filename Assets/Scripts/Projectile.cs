@@ -6,7 +6,6 @@ using UnityEngine.InputSystem;
 public class Projectile : MonoBehaviour
 {
     public int damage;
-    [SerializeField] string name;
 
     protected void DealDamage(Collider other)
     {

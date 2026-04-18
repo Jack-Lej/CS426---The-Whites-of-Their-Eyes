@@ -9,6 +9,7 @@ using TMPro;
 
 public class WeaponManager : MonoBehaviour
 {
+    [Header("Weapons")]
     //List of weapons the player has, assignable in Unity editor
     [SerializeField] Weapon weapon1;
     [SerializeField] Weapon weapon2;
@@ -20,11 +21,15 @@ public class WeaponManager : MonoBehaviour
     [SerializeField] Weapon weapon8;
     [SerializeField] Weapon weapon9;
 
+    [Header("Health Kit Info")]
+
     [SerializeField] int numHealthKits;
 
     [SerializeField] int healthKitHealing;
 
     [SerializeField] Character player;
+
+    [Header("Canvas Text")]
 
     [SerializeField] protected TMP_Text weaponText;
 
@@ -36,24 +41,25 @@ public class WeaponManager : MonoBehaviour
 
     [SerializeField] protected BasicFPCC playerMovement;
 
+    [SerializeField] protected MenuManager menuManager;
+
     private Weapon[] weaponArr = new Weapon[10];
 
     //Weapon currently in use
     private Weapon activeWeapon;
+
+    private int activeWeaponNum;
 //helklo
     private float totalWeight;
     private float startWeight;
 
     DateTime reloadTimer;
     bool switchAlarm;
-    bool tildePressed;
+    bool mouseDisabled;
     DateTime switchTimer;
     DateTime shootTimer;
 
     public static WeaponManager Instance;
-
-
-
 
 
     void Start()
@@ -61,7 +67,7 @@ public class WeaponManager : MonoBehaviour
         reloadTimer = DateTime.Now;
         switchTimer = DateTime.Now;
         switchAlarm = false;
-        tildePressed = false;
+        mouseDisabled = false;
         shootTimer = DateTime.Now;
 
         weaponArr[0] = null;
@@ -76,6 +82,7 @@ public class WeaponManager : MonoBehaviour
         weaponArr[9] = weapon9;
         activeWeapon = weapon1;
         activeWeapon.WakeWeapon();
+        activeWeaponNum = 1;
 
         healthkitText.text = string.Concat("Healthkits: ", numHealthKits);
         weaponText.text = activeWeapon.GetWeaponText();
@@ -99,16 +106,56 @@ public class WeaponManager : MonoBehaviour
     //newWeapon refers to the position in the weapons array
     private void SwitchWeapon(int newWeapon)
     {
-        if(weaponArr[newWeapon] == activeWeapon || weaponArr[newWeapon] == null)
+        if(newWeapon < 1)
         {
-            return;
+            if(newWeapon == -1)
+            {
+                while(true)
+                {
+                    activeWeaponNum--;
+                    if(activeWeaponNum == 0)
+                        activeWeaponNum = 6;
+                    if(weaponArr[activeWeaponNum] != null)
+                        break;
+                }
+                activeWeapon.SleepWeapon();
+                activeWeapon = weaponArr[activeWeaponNum];
+                switchTimer = DateTime.Now.AddMilliseconds(1500);
+                weaponText.text = "Switching to " + activeWeapon.GetWeaponName();
+                switchAlarm = true;
+            }
+            else
+            {
+                while(true)
+                {
+                    activeWeaponNum++;
+                    if(activeWeaponNum == 7)
+                        activeWeaponNum = 1;
+                    if(weaponArr[activeWeaponNum] != null)
+                        break;
+                }
+                activeWeapon.SleepWeapon();
+                activeWeapon = weaponArr[activeWeaponNum];
+                switchTimer = DateTime.Now.AddMilliseconds(1500);
+                weaponText.text = "Switching to " + activeWeapon.GetWeaponName();
+                switchAlarm = true;
+            }
         }
+        else
+        {
 
-        activeWeapon.SleepWeapon();
-        activeWeapon = weaponArr[newWeapon];
-        switchTimer = DateTime.Now.AddMilliseconds(1500);
-        weaponText.text = "Switching to " + activeWeapon.GetWeaponName();
-        switchAlarm = true;
+            if(weaponArr[newWeapon] == activeWeapon || weaponArr[newWeapon] == null)
+            {
+                return;
+            }
+
+            activeWeapon.SleepWeapon();
+            activeWeapon = weaponArr[newWeapon];
+            activeWeaponNum = newWeapon;
+            switchTimer = DateTime.Now.AddMilliseconds(1500);
+            weaponText.text = "Switching to " + activeWeapon.GetWeaponName();
+            switchAlarm = true;
+        }
     }
 
     //Each time a player wants to perform an action with their weapon (shoot, reload, switch), check that no other action is being performed/cooling down
@@ -143,6 +190,11 @@ public class WeaponManager : MonoBehaviour
         //Do nothing on the catch, if amount was incorrect
         catch (FormatException) {}
         
+    }
+
+    public Weapon GetActiveWeapon()
+    {
+        return activeWeapon;
     }
 
     public void UseHealthKit()
@@ -189,6 +241,10 @@ public class WeaponManager : MonoBehaviour
         weightText.text = string.Concat("Weight: ", totalWeight);
     }
 
+    public void DisableMouse()
+    {
+        mouseDisabled = !mouseDisabled;
+    }
     public float GetTotalWeight()
     {
         return totalWeight;
@@ -212,7 +268,7 @@ public class WeaponManager : MonoBehaviour
                 switchAlarm = false;
             }
             weaponText.text = activeWeapon.GetWeaponText();
-            if(Input.GetKey(KeyCode.Mouse0) && !tildePressed)
+            if(Input.GetKey(KeyCode.Mouse0) && !mouseDisabled)
             {
                 shootTimer = DateTime.Now.AddMilliseconds(activeWeapon.GetWeaponFireDelay());
                 weaponText.text = activeWeapon.FireWeapon();
@@ -223,18 +279,11 @@ public class WeaponManager : MonoBehaviour
                 weaponText.text = activeWeapon.ReloadWeapon();
             }
             else if(Input.GetButtonDown("Switch Weapon 1"))
-            {
-                //switchTimer = DateTime.Now.AddMilliseconds()
                 SwitchWeapon(1);
-            }
             else if(Input.GetButtonDown("Switch Weapon 2"))
-            {
                 SwitchWeapon(2);
-            }
             else if(Input.GetButtonDown("Switch Weapon 3"))
-            {
                 SwitchWeapon(3);
-            }
             else if(Input.GetButtonDown("Switch Weapon 4"))
                 SwitchWeapon(4);
             else if(Input.GetButtonDown("Switch Weapon 5"))
@@ -247,16 +296,26 @@ public class WeaponManager : MonoBehaviour
                 SwitchWeapon(8);
             else if(Input.GetButtonDown("Switch Weapon 9"))
                 SwitchWeapon(9);
-            else if(Input.GetButtonDown("Use Health Kit"))
-            {
-                UseHealthKit(); 
+            else if(Input.GetButtonDown("Switch Weapon Q"))  
+            {  
+                Debug.Log("here");
+                SwitchWeapon(-1);
             }
+            else if (Input.GetButtonDown("Switch Weapon E"))
+                SwitchWeapon(0);  
+            else if(Input.GetButtonDown("Use Health Kit"))
+                UseHealthKit(); 
             //Used to activate management mode
             else if(Input.GetKey(KeyCode.BackQuote))
             {
-                Debug.Log(tildePressed);
                 switchTimer = DateTime.Now.AddMilliseconds(400);
-                tildePressed = !tildePressed;   
+                mouseDisabled = !mouseDisabled;   
+            }
+            else if(Input.GetButtonDown("Pause"))
+            {
+                Debug.Log("In key detect");
+                mouseDisabled = !mouseDisabled;
+                menuManager.ToggleMenu();
             }
         }
     }
