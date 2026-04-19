@@ -20,6 +20,8 @@ public class LevelManager : MonoBehaviour
 
     [SerializeField] GameObject player;
 
+    [SerializeField] BasicFPCC playerController;
+
 
     
 
@@ -36,10 +38,8 @@ public class LevelManager : MonoBehaviour
 
     void OnTriggerEnter(Collider collider)
     {
-        
         if(collider.gameObject.tag == "Player")
         {
-           
             if(nextLevel == 2)
             {
                 DontDestroyOnLoad(player);
@@ -58,10 +58,12 @@ public class LevelManager : MonoBehaviour
             }
             else if(nextLevel == 4)
             {
+                playerController.ToggleLockCursor();
                 SceneManager.LoadScene("Credits");
             }
             else if(nextLevel == 0)
             {
+                playerController.ToggleLockCursor();
                 SceneManager.LoadScene("Title Screen");
             }
             
@@ -72,7 +74,7 @@ public class LevelManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Debug.Log(GameObject.FindGameObjectsWithTag("Enemy").Length);
+        //Debug.Log(GameObject.FindGameObjectsWithTag("Enemy").Length);
         if(GameObject.FindGameObjectsWithTag("Enemy").Length == 0)
         {
             if(!infoUpdated)
