@@ -317,6 +317,8 @@ public class meleeEnemy : MonoBehaviour
         audioSource = GetComponent<AudioSource>();
         audioSource.clip = IdleSoundClip;
 
+        
+
         // if (IdlePlayer != null && IdleSoundClip != null)
         //     IdlePlayer.actionClip = IdleSoundClip;
         
