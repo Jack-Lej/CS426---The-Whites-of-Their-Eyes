@@ -43,7 +43,13 @@ Changes:
 	- Health Bars
 		- All enemies now have health bars that update when the enemies are hit
 
+	- Player
+		- Disabled colliders for all player weapons.
+
 	- Enemies
+		- Enemies now can semi-phase through
+			- Allows melee enemies to reach the player more consistently
+
 		- Ranged Pill Gunner and Laser Blaster turret
 			- Nerfed damage from 40 dmg per hit to 10
 
@@ -87,11 +93,15 @@ Changes:
 			- Has enemies walking around in the background. This can be changed if you want
 
 	- Things to still add:
-		- Need to add hurt sounds for Demon Summoner and Demon Support
 		- Add more ranged enemies
 		- Find a way for melee enemies to land hits to the player on sloped surfaces
 		- Add boss enemies that behaves less like regular mobs
 		- Fix explosion damage for the Rocket prefab
 		- Add more enemies that use the rockets
 			- Idea: Maybe add a tank-like enemy? Not sure since that is not a monster
+		- Add a small animation when enemies get hit to further indicate that they are getting hit
+
+	- Things to still fix
+		- Fix issue where enemies constantly push the player around when swarming the player to get into hitting range
+		- Have the flamethrower attack effect follow the Demon Healer as it spins to face the player
 			
