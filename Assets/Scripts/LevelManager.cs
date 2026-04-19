@@ -58,7 +58,11 @@ public class LevelManager : MonoBehaviour
             }
             else if(nextLevel == 4)
             {
-                SceneManager.LoadScene("Win Screen");
+                SceneManager.LoadScene("Credits");
+            }
+            else if(nextLevel == 0)
+            {
+                SceneManager.LoadScene("Title Screen");
             }
             
         }
