@@ -15,6 +15,9 @@ EditorBuildSettings:
     path: Assets/Scenes/EnemyDisplayRoom.unity
     guid: 830a8045b6c37f34cb08797ad0cdbeb0
   - enabled: 1
+    path: Assets/Scenes/Beginning Screen.unity
+    guid: 360985c1521aeb84eb2718a49d9e1b56
+  - enabled: 1
     path: Assets/Scenes/Level 1.unity
     guid: a181661f2556fc44489a993bdac4f883
   - enabled: 1

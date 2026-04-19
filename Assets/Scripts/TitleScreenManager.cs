@@ -20,7 +20,7 @@ public class TitleScreenManager : MonoBehaviour
     {
         startButton.onClick.AddListener(() =>
         {
-            SceneManager.LoadScene("Level 1");
+            SceneManager.LoadScene("Beginning Screen");
         });
         tutorialButton.onClick.AddListener(() =>
         {

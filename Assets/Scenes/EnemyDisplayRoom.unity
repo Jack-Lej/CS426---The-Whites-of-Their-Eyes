@@ -1180,7 +1180,7 @@ GameObject:
   - component: {fileID: 830539712}
   - component: {fileID: 830539715}
   m_Layer: 0
-  m_Name: Cube (9)
+  m_Name: Exit Door Trigger
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1196,7 +1196,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -0.875, y: 1.674, z: -22.745}
-  m_LocalScale: {x: 1.6, y: 3, z: 0.1}
+  m_LocalScale: {x: 1.6, y: 3, z: 0.5}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1976346292}
@@ -1216,7 +1216,7 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
@@ -1298,6 +1298,7 @@ MonoBehaviour:
   levelExitBarrier: {fileID: 0}
   nextLevelTrigger: {fileID: 830539710}
   player: {fileID: 2074494685}
+  playerController: {fileID: 2074494686}
 --- !u!1001 &834981878
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3117,6 +3118,17 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 7045553121462290456, guid: 17629c1a7ca8785478cea7eaca823219, type: 3}
   m_PrefabInstance: {fileID: 1212299713}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &2074494686 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3488509461043127496, guid: 17629c1a7ca8785478cea7eaca823219, type: 3}
+  m_PrefabInstance: {fileID: 1212299713}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2074494685}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b6cacfde843c24e459b6efea23b7be77, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::BasicFPCC
 --- !u!1001 &4758613178093761804
 PrefabInstance:
   m_ObjectHideFlags: 0
