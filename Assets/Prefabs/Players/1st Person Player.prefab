@@ -11400,7 +11400,7 @@ MonoBehaviour:
   runSpeed: 30
   slideSpeed: 35
   slideDuration: 2.2
-  gravity: -1.5
+  gravity: -8.58
   jumpHeight: 5
   groundCheckY: 0.33
   ceilingCheckY: 1.83
