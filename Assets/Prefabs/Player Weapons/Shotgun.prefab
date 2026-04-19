@@ -302,18 +302,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f17e309a0a8879e42826cda6e5533af4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Shotgun
-  magazineSize: 5
   reserveAmmo: 50
+  magazineSize: 5
   reloadTime: 1000
   fireDelay: 1200
-  crosshair: {fileID: 0}
-  projectileVelocity: 1100
-  manager: {fileID: 0}
-  projectile: {fileID: 617719506206176291, guid: f071bf02b8c261d4b8258146a1ae43d6, type: 3}
-  firePoint: {fileID: 3272699130666900268}
   weaponName: Shotgun
   weaponWeight: 15
   ammoWeight: 0.1
+  projectileVelocity: 1100
+  crosshair: {fileID: 0}
+  manager: {fileID: 0}
+  projectile: {fileID: 617719506206176291, guid: f071bf02b8c261d4b8258146a1ae43d6, type: 3}
+  firePoint: {fileID: 3272699130666900268}
   audioSource: {fileID: 0}
   dryFireSound: {fileID: 0}
   reloadSound: {fileID: 0}
@@ -363,13 +363,25 @@ PrefabInstance:
       propertyPath: m_LocalPosition.z
       value: -1
       objectReference: {fileID: 0}
+    - target: {fileID: 1450005242675553145, guid: 11dc08ff803abc14fb671a68f3830015, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2067426028091070308, guid: 11dc08ff803abc14fb671a68f3830015, type: 3}
       propertyPath: m_LocalPosition.z
       value: 0.2
       objectReference: {fileID: 0}
+    - target: {fileID: 2764183244164013424, guid: 11dc08ff803abc14fb671a68f3830015, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3432609305294467319, guid: 11dc08ff803abc14fb671a68f3830015, type: 3}
       propertyPath: m_LocalPosition.z
       value: -0.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 3920278317686405813, guid: 11dc08ff803abc14fb671a68f3830015, type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4715483443957777082, guid: 11dc08ff803abc14fb671a68f3830015, type: 3}
       propertyPath: m_Name
@@ -413,6 +425,14 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5247367652487804481, guid: 11dc08ff803abc14fb671a68f3830015, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6724866783006581963, guid: 11dc08ff803abc14fb671a68f3830015, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6960966551361355824, guid: 11dc08ff803abc14fb671a68f3830015, type: 3}
+      propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
