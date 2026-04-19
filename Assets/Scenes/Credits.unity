@@ -984,19 +984,21 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "The Whites of Their Eyes\n\n\nDevelopers:\nJack LeJeune\nDaniel Martinez\nRayan
-    Bounab\n\nPlayer Weapons and UI\nJack LeJeune\n\nEnemy Creation and Behavior\nDaniel
-    Martinez\n\nPlayer Movement and Controls\nRayan Bounab\n\nLevel Design\nJack
-    LeJeune \nRayan Bounab\n\nOutside Assets Used:\n\nSci-fi Guns Sfx Pack\nBy: Mikael
-    Vanninen\nhttps://assetstore.unity.com/packages/audio/sound-fx/sci-fi-guns-sfx-pack-181144\n\nMonster
+  m_text: "CS426 Video Game Design at UIC\n\nThe Whites of Their Eyes\n\nDevelopers:\nJack
+    LeJeune\nDaniel Martinez\nRayan Bounab\n\nPlayer Weapons and UI\nJack LeJeune\n\nEnemy
+    Creation and Behavior\nDaniel Martinez\n\nPlayer Movement and Controls\nRayan
+    Bounab\n\nLevel Design\nJack LeJeune \nRayan Bounab\n\nOutside Assets Used:\n\nSci-fi
+    Guns Sfx Pack\nBy: Mikael Vanninen\nhttps://assetstore.unity.com/packages/audio/sound-fx/sci-fi-guns-sfx-pack-181144\n\nMonster
     Sound Effects Vol.1\r\nAuthor: Atelier Magicae\r\nCreator of Assests: Riria/Ririsaurus\nhttps://ateliermagicae.itch.io/monster-sound-effects-vol1\n\nAbyssal
     Horror SFX Vol.1\r\nAuthor: Atelier Magicae\r\nCreator of Assets: Riria/Ririsaurus\nhttps://ateliermagicae.itch.io/abyssal-horrors-sfx-vol1\n\nWar
     FX\r\nAuthor Jean Moreno\nhttps://assetstore.unity.com/packages/vfx/particles/war-fx-5669\n\nGrenade
     Sound FX\r\nAuthor: MGWSoundDesin\nhttps://assetstore.unity.com/packages/audio/sound-fx/grenade-sound-fx-147490\n\nFree
     Cinematic Sound Effects\r\nAuthor: Gregor Quendel\nhttps://assetstore.unity.com/packages/p/free-cinematic-sound-effects-224972\n\nMoster
-    Roar Sound Pack\nAuthor: Leonardo Calvo\nhttps://assetstore.unity.com/packages/3d/props/weapons/rusty-sword-315378\n\nModels
+    Roar Sound Pack\nAuthor: Leonardo Calvo\nhttps://assetstore.unity.com/packages/3d/props/weapons/rusty-sword-315378\n\nRusty
+    Sword\nAuthor: Danvil\nhttps://assetstore.unity.com/packages/3d/props/weapons/rusty-sword-315378\n\nModels
     and Animations:\r\nAuthor: Adobe Mixamo\nhttps://www.mixamo.com/#/?page=1&type=Character\n\nVFX
-    URP - Fire Package\r\nAuthor: Cartoon VFX By Wallcoeur\nhttps://assetstore.unity.com/packages/vfx/particles/fire-explosions/vfx-urp-fire-package-305098\n\n\nThank
+    URP - Fire Package\r\nAuthor: Cartoon VFX By Wallcoeur\nhttps://assetstore.unity.com/packages/vfx/particles/fire-explosions/vfx-urp-fire-package-305098\n\nDemo
+    Ancient Magic Pack FREE\r\nAuthor: SF Audio Guild\nhttps://assetstore.unity.com/packages/audio/sound-fx/weapons/demo-ancient-magic-pack-free-175093\n\nThank
     You For Playing!"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}

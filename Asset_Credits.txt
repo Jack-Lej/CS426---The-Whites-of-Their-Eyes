@@ -39,3 +39,7 @@ Link: https://assetstore.unity.com/packages/vfx/particles/fire-explosions/vfx-ur
 Models and Animations:
 Author: Adobe Mixamo
 Link: https://www.mixamo.com/#/?page=1&type=Character
+
+Demo Ancient Magic Pack FREE
+Author: SF Audio Guild
+Link: https://assetstore.unity.com/packages/audio/sound-fx/weapons/demo-ancient-magic-pack-free-175093

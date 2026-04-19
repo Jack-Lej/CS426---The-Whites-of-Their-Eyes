@@ -490,7 +490,6 @@ public class CasterEnemy : meleeEnemy
     }
 
 
-
     private IEnumerator FireFlamethrower()
     {
         if (flamethrower == null) yield break;
