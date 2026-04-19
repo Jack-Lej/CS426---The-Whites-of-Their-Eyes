@@ -990,7 +990,7 @@ MonoBehaviour:
   AttackSoundClips:
   - {fileID: 8300000, guid: 38bc79ba3351e40d28224046aaa67990, type: 3}
   attackDamage: 10
-  wanderRadius: 10
+  wanderRadius: 5
   idleTime: 8
   interval: 5
   stopDistance: 2
