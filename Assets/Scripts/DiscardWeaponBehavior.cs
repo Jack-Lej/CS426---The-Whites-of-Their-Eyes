@@ -276,17 +276,7 @@ public class DiscardWeaponBehavior : MonoBehaviour
         ToggleUI();
     }
     
-    void Awake()
-    {
-        if (Instance != null && Instance != this)
-        {
-            Destroy(gameObject);
-            return;
-        }
 
-        Instance = this;
-        DontDestroyOnLoad(gameObject);
-    }
 
 
     //ConfirmActive used to ensure Update only has to only perform a bool check each frame
