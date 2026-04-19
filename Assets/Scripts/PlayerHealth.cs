@@ -6,6 +6,7 @@ using TMPro;
 public class PlayerHealth : Character
 {   
     [SerializeField] TMP_Text healthText;
+    [SerializeField] BasicFPCC playerController;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -14,25 +15,27 @@ public class PlayerHealth : Character
     }
     public override void TakeDamage(int damage)
     {
-
         if (currentHealth <= 0) return; // Already dead, ignore further damage
 
         currentHealth -= damage;
         onDamageTaken.Invoke(damage);
         Debug.Log(gameObject.name + " took " + damage + ". HP: " + currentHealth);
-        healthText.text = string.Concat("Health: ", currentHealth, "/", maxHealth);
+        healthText.text = string.Concat(currentHealth, "/", maxHealth);
+        healthBar.updateHealthBar(currentHealth, maxHealth);
         if (currentHealth <= 0)
         {
             currentHealth = 0;
             Debug.Log(gameObject.name + " died");
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+            playerController.ToggleLockCursor();
+            SceneManager.LoadScene("Death Screen");
         }
     }
 
     public override void Heal(int amount)
     {
         currentHealth = Mathf.Min(currentHealth + amount, maxHealth);
-        healthText.text = string.Concat("Health: ", currentHealth, "/", maxHealth);
+        healthText.text = string.Concat(currentHealth, "/", maxHealth);
+        healthBar.updateHealthBar(currentHealth, maxHealth);
     }
     // Update is called once per frame
     void Update()
