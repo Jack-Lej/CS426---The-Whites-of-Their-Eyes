@@ -39,6 +39,10 @@ public class WeaponManager : MonoBehaviour
 
     [SerializeField] protected DiscardWeaponBehavior weightUI;
 
+    [SerializeField] protected CanvasGroup reloadNowText;
+
+    [Header("Managers")]
+
     [SerializeField] protected BasicFPCC playerMovement;
 
     [SerializeField] protected MenuManager menuManager;
@@ -89,6 +93,8 @@ public class WeaponManager : MonoBehaviour
 
         UpdateWeight();
         startWeight = totalWeight;
+        reloadNowText.alpha = 0;
+        reloadNowText.blocksRaycasts = false;
     }
 
     void Awake()
@@ -265,11 +271,15 @@ public class WeaponManager : MonoBehaviour
             {
                 shootTimer = DateTime.Now.AddMilliseconds(activeWeapon.GetWeaponFireDelay());
                 weaponText.text = activeWeapon.FireWeapon();
+                if(activeWeapon.GetCurrentAmmo() == 0)
+                    {reloadNowText.alpha = 1;}
             }
             else if(Input.GetButtonDown("Reload"))
             {
                 reloadTimer = DateTime.Now.AddMilliseconds(activeWeapon.GetReloadDelay());
                 weaponText.text = activeWeapon.ReloadWeapon();
+                if(activeWeapon.GetCurrentAmmo() > 0)
+                    {reloadNowText.alpha = 0;}
             }
             else if(Input.GetButtonDown("Switch Weapon 1"))
                 SwitchWeapon(1);
