@@ -1,0 +1,17 @@
+ALPHA RELEASE FEEDBACK IMPROVEMENTS
+Jack
+I added the tutorial; each player did not know the controls intuitively and was unable to guess the controls unless told. This was in part due to us not prefacing the game for them during the alpha testing, the tutorial now explains the key concepts for each aspect of the controls.
+The testers almost uniformly said that the player’s information was not communicated well, so I added a health bar to more easily visualize health, as well as changing the info colors to be more stark, and added a pop-up for when the player is out of ammo.
+Rayan
+I made Level 1 smaller, there is now less space between the back wall and the ramps, this should result in the first level feeling less empty due to it being more condensed.
+I added a chute that the player falls down to enter each level, this should give the player a smooth transition between each level, and give them time to process the situation before they start getting attacked
+I built the foundation for level 3.
+Daniel
+I gave the enemies health bars and sound effects as indications that the enemies are being hit.
+Improved enemy rotation so that it more consistently faces the player when attacking.
+
+
+Other Improvements for Beta Release
+Added pause menu, featuring buttons to display weapon info, controls, return to the main menu, or to quit the application.
+Added “Enemies” option to title screen, allows player to view and familiarize themselves with the enemies they will face in the game
+Added credits sequence and intro story block
