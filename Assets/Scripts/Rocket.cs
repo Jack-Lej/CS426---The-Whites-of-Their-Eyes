@@ -18,6 +18,7 @@ public class Rocket : Projectile
     void Start()
     {
         trueExplosionRadius = explosionRadius * Mathf.PI;
+        audioSource.clip = explodeSound;
     }
 
     Collider[] colliders = new Collider[100];
@@ -48,12 +49,13 @@ public class Rocket : Projectile
     {
         if(collision.gameObject.tag != "Weapon" && collision.gameObject.tag != "Projectile")
         {
+            Invoke("audioSource.Play", 0.5f);
             ExplodeNonAlloc();
             Instantiate(explosionGraphic, transform.position, Quaternion.identity);
-            audioSource.PlayOneShot(explodeSound);
-            DealDamage(collision.collider);
-            
+            if(collision.gameObject.tag == "Enemy")
+                DealDamage(collision.collider);
             Destroy(gameObject);
+            //audioSource.PlayOneShot(explodeSound);
         }
     }
 
