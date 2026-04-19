@@ -93,14 +93,7 @@ public class WeaponManager : MonoBehaviour
 
     void Awake()
     {
-        if (Instance != null && Instance != this)
-        {
-            Destroy(gameObject);
-            return;
-        }
 
-        Instance = this;
-        DontDestroyOnLoad(gameObject);
     }
 
     //newWeapon refers to the position in the weapons array

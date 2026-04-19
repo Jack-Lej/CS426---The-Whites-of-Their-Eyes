@@ -31,7 +31,6 @@ public class Rocket : Projectile
             for (int i = 0; i < numColliders; i++)
             {
                 Collider col = colliders[i];
-                Debug.Log("Collider " + i + ": " + col);
                 if(colliders[i].gameObject.tag == "Enemy")
                 {
                     Character c = colliders[i].gameObject.GetComponent<Character>();
@@ -51,9 +50,9 @@ public class Rocket : Projectile
         {
             ExplodeNonAlloc();
             Instantiate(explosionGraphic, transform.position, Quaternion.identity);
-            audioSource.PlayOneShot(explodeSound, 1);
+            audioSource.PlayOneShot(explodeSound);
             DealDamage(collision.collider);
-            //Spawn explosion graphic
+            
             Destroy(gameObject);
         }
     }

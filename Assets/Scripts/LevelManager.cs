@@ -18,6 +18,8 @@ public class LevelManager : MonoBehaviour
 
     [SerializeField] GameObject nextLevelTrigger;
 
+    [SerializeField] GameObject player;
+
 
     
 
@@ -40,7 +42,7 @@ public class LevelManager : MonoBehaviour
            
             if(nextLevel == 2)
             {
-                
+                DontDestroyOnLoad(player);
                 SceneManager.LoadScene("Level 2");
                 collider.GetComponent<CharacterController>().enabled = false;
                 collider.transform.position = new Vector3(-120, 2, 1);
@@ -48,10 +50,15 @@ public class LevelManager : MonoBehaviour
             }
             else if(nextLevel == 3)
             {
+                DontDestroyOnLoad(player);
                 SceneManager.LoadScene("Level 3");
                 collider.GetComponent<CharacterController>().enabled = false;
                 collider.transform.position = new Vector3(-90, 2, 0);
                 collider.GetComponent<CharacterController>().enabled = true;
+            }
+            else if(nextLevel == 4)
+            {
+                SceneManager.LoadScene("Win Screen");
             }
             
         }

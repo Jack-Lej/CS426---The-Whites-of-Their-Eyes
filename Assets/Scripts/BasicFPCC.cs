@@ -156,17 +156,6 @@ public class BasicFPCC : MonoBehaviour
         Initialize();
     }
 
-    void Awake()
-    {if (Instance != null && Instance != this)
-        {
-            Destroy(gameObject);
-            return;
-        }
-
-        Instance = this;
-        DontDestroyOnLoad(gameObject);
-    }
-
     void Update()
     {
         ProcessInputs();
