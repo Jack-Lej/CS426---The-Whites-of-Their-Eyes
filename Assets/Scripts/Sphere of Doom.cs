@@ -15,7 +15,7 @@ public class SphereofDoom : Projectile
     }
     public override void OnCollisionEnter(Collision collision)
     {
-        if(collision.gameObject.tag != "Weapon" && collision.gameObject.tag != "Projectile")
+        if(collision.gameObject.tag != "Weapon" && collision.gameObject.tag != "Projectile" && collision.gameObject.tag != "Player")
         {
             // Deals damage to the collided hurbox before destroying the projectile
             DealDamage(collision.collider);
