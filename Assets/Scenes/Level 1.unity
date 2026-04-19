@@ -4329,6 +4329,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3488509461043127496, guid: 17629c1a7ca8785478cea7eaca823219, type: 3}
+      propertyPath: gravity
+      value: -8.58
+      objectReference: {fileID: 0}
     - target: {fileID: 7045553121462290456, guid: 17629c1a7ca8785478cea7eaca823219, type: 3}
       propertyPath: m_Name
       value: 1st Person Player
