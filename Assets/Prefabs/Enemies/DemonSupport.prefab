@@ -613,7 +613,10 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   audioSource: {fileID: 5020867819066608804}
-  damageClips: []
+  damageClips:
+  - {fileID: 8300000, guid: c51498a94ef157e4db6e77a1ef0e3ce4, type: 3}
+  - {fileID: 8300000, guid: c7ab58b72ee726a4a88530722ef53f2c, type: 3}
+  - {fileID: 8300000, guid: 607151a7fe528514cb25e3515e173c2a, type: 3}
   healthBar: {fileID: 319686305059062578}
 --- !u!114 &397229712466901415
 MonoBehaviour:
@@ -649,7 +652,7 @@ MonoBehaviour:
   healingSpell: {fileID: 2413333106277601229, guid: 108ca465382c11742bd2c91fe4fdb13f, type: 3}
   healingSounds:
   - {fileID: 8300000, guid: a27ae245f760b4bf191c0234d3b43918, type: 3}
-  SummoningSounds: []
+  summoningSounds: []
   summoningSpell: {fileID: 0}
   summonRadius: 10
 --- !u!195 &2437627584881387488
@@ -750,7 +753,7 @@ AudioSource:
   Priority: 128
   DopplerLevel: 1
   MinDistance: 5
-  MaxDistance: 500
+  MaxDistance: 10
   Pan2D: 0
   rolloffMode: 0
   BypassEffects: 0
