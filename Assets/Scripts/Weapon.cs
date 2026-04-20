@@ -134,6 +134,8 @@ public class Weapon : MonoBehaviour
         {return fireDelay;}
     public virtual int GetReloadDelay()
         {return reloadTime;}   
+    public int GetCurrentAmmo()
+        {return currAmmo;}    
 
     public void DropAmmo(int amount)
     {

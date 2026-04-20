@@ -8,6 +8,8 @@ public class PlayerHealth : Character
     [SerializeField] TMP_Text healthText;
     [SerializeField] BasicFPCC playerController;
 
+    [SerializeField] PlayerHealthBar pHealthBar;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -21,7 +23,7 @@ public class PlayerHealth : Character
         onDamageTaken.Invoke(damage);
         Debug.Log(gameObject.name + " took " + damage + ". HP: " + currentHealth);
         healthText.text = string.Concat(currentHealth, "/", maxHealth);
-        healthBar.updateHealthBar(currentHealth, maxHealth);
+        pHealthBar.updateHealthBar(currentHealth, maxHealth);
         if (currentHealth <= 0)
         {
             currentHealth = 0;
@@ -35,7 +37,7 @@ public class PlayerHealth : Character
     {
         currentHealth = Mathf.Min(currentHealth + amount, maxHealth);
         healthText.text = string.Concat(currentHealth, "/", maxHealth);
-        healthBar.updateHealthBar(currentHealth, maxHealth);
+        pHealthBar.updateHealthBar(currentHealth, maxHealth);
     }
     // Update is called once per frame
     void Update()

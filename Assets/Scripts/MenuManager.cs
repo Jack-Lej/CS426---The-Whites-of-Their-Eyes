@@ -70,6 +70,7 @@ public class MenuManager : MonoBehaviour
         });
         menuButton.onClick.AddListener(() =>
         {
+            Time.timeScale = 1;
             SceneManager.LoadScene("Title Screen");
         });
         quitButton.onClick.AddListener(() =>
