@@ -45,7 +45,7 @@ public class LevelManager : MonoBehaviour
                 DontDestroyOnLoad(player);
                 SceneManager.LoadScene("Level 2");
                 collider.GetComponent<CharacterController>().enabled = false;
-                collider.transform.position = new Vector3(-120, 2, 1);
+                collider.transform.position = new Vector3(-110.49f, 17f, 0f);
                 collider.GetComponent<CharacterController>().enabled = true;
             }
             else if(nextLevel == 3)

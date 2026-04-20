@@ -868,7 +868,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: efb4c319c59b8d042b6e4c95f4a507c4, type: 3}
   - {fileID: 8300000, guid: cebf4d0ed7e9f6a42b081a84730c628f, type: 3}
   - {fileID: 8300000, guid: d3dd47036648c7f4b8d3c1aa6b779dc0, type: 3}
-  attackDamage: 0
+  attackDamage: 100
   wanderRadius: 8
   idleTime: 5
   interval: 5
@@ -933,7 +933,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4d1ee577cc8d26a48930d7624153fb6d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Character
-  maxHealth: 9001
+  maxHealth: 1500
   currentHealth: 0
   onDeath:
     m_PersistentCalls:
