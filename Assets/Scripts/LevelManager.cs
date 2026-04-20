@@ -12,15 +12,15 @@ public class LevelManager : MonoBehaviour
     [SerializeField] int nextLevel;
 
     [SerializeField] int maxWeight;
-    [SerializeField] WeaponManager weaponManager;
-    [SerializeField] DiscardWeaponBehavior discardManager;
+    private WeaponManager weaponManager;
+    private DiscardWeaponBehavior discardManager;
     [SerializeField] GameObject levelExitBarrier;
 
     [SerializeField] GameObject nextLevelTrigger;
 
-    [SerializeField] GameObject player;
+    private GameObject player;
 
-    [SerializeField] BasicFPCC playerController;
+    private BasicFPCC playerController;
 
 
     
@@ -33,7 +33,10 @@ public class LevelManager : MonoBehaviour
     {
         infoUpdated = false;
         levelUnlocked = false;
-        
+        playerController = FindObjectOfType<BasicFPCC>();
+        player = playerController.GetPlayer();
+        weaponManager = playerController.GetWeaponManager();
+        discardManager = playerController.GetDiscardWeaponBehavior();
     }
 
     void OnTriggerEnter(Collider collider)
@@ -44,16 +47,18 @@ public class LevelManager : MonoBehaviour
             {
                 DontDestroyOnLoad(player);
                 SceneManager.LoadScene("Level 2");
+                discardManager.HideLevelWeightText();
                 collider.GetComponent<CharacterController>().enabled = false;
-                collider.transform.position = new Vector3(-120, 2, 1);
+                collider.transform.position = new Vector3(-110.49f, 17f, 0f);
                 collider.GetComponent<CharacterController>().enabled = true;
             }
             else if(nextLevel == 3)
             {
                 DontDestroyOnLoad(player);
                 SceneManager.LoadScene("Level 3");
+                discardManager.HideLevelWeightText();
                 collider.GetComponent<CharacterController>().enabled = false;
-                collider.transform.position = new Vector3(-90, 2, 0);
+                collider.transform.position = new Vector3(-80.5f, 8.55f, -11.7f);
                 collider.GetComponent<CharacterController>().enabled = true;
             }
             else if(nextLevel == 4)
@@ -74,9 +79,12 @@ public class LevelManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //Debug.Log(GameObject.FindGameObjectsWithTag("Enemy").Length);
+        Debug.Log(GameObject.FindGameObjectsWithTag("Enemy").Length);
         if(GameObject.FindGameObjectsWithTag("Enemy").Length == 0)
         {
+            Debug.Log(infoUpdated);
+            Debug.Log(levelUnlocked);
+            Debug.Log(weaponManager.GetTotalWeight());
             if(!infoUpdated)
             {
                 Debug.Log("In info");

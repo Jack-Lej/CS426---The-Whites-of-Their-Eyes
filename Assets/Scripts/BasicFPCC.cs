@@ -148,9 +148,21 @@ public class BasicFPCC : MonoBehaviour
     [Space(5)]
     public bool cursorActive = false;                // cursor state
     
-    public static BasicFPCC Instance;               
+    public static BasicFPCC Instance;       
+
+    [Header("Hack stuff for level transitions")]
+    [SerializeField] WeaponManager wm;
+    [SerializeField] DiscardWeaponBehavior dm;    
+    [SerializeField] GameObject player;
 
    
+    public WeaponManager GetWeaponManager()
+    {return wm;}
+    public DiscardWeaponBehavior GetDiscardWeaponBehavior()
+    {return dm;}
+    public GameObject GetPlayer()
+    {return player;}
+
     void Start()
     {
         Initialize();

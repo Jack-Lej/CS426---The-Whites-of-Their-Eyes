@@ -11837,7 +11837,7 @@ MonoBehaviour:
   runSpeed: 30
   slideSpeed: 35
   slideDuration: 2.2
-  gravity: -8.58
+  gravity: -1.5
   jumpHeight: 5
   groundCheckY: 0.33
   ceilingCheckY: 1.83
@@ -11857,6 +11857,9 @@ MonoBehaviour:
   slideForward: {x: 0, y: 0, z: 0}
   isCeiling: 0
   cursorActive: 0
+  wm: {fileID: 5954937642367655078}
+  dm: {fileID: 8055146648444636503}
+  player: {fileID: 7045553121462290456}
 --- !u!1 &7059802622556086835
 GameObject:
   m_ObjectHideFlags: 0
