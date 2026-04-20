@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 6451726932636927967}
   m_Layer: 0
   m_Name: Barrel
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -128,7 +128,7 @@ GameObject:
   - component: {fileID: 8081658070987473233}
   m_Layer: 0
   m_Name: Mantlet_Base
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -181,7 +181,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 21fdb87e848d2e04b9c67bed324de322, type: 2}
+  - {fileID: 2100000, guid: 752197fd5ca105a4990d9a6c8d410873, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -240,7 +240,7 @@ GameObject:
   - component: {fileID: 5258981921887794382}
   m_Layer: 0
   m_Name: Barrel_Holder
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -293,7 +293,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 91e7e32e7dd655e47a23cb1868046edb, type: 2}
+  - {fileID: 2100000, guid: 752197fd5ca105a4990d9a6c8d410873, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -354,7 +354,7 @@ GameObject:
   - component: {fileID: 7730533158247628653}
   m_Layer: 0
   m_Name: Lens
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -468,7 +468,7 @@ GameObject:
   - component: {fileID: 3446907602838184741}
   m_Layer: 0
   m_Name: Misc
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -582,7 +582,7 @@ GameObject:
   - component: {fileID: 7170315336557516821}
   m_Layer: 0
   m_Name: Angled_Plate3
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -635,7 +635,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 21fdb87e848d2e04b9c67bed324de322, type: 2}
+  - {fileID: 2100000, guid: 752197fd5ca105a4990d9a6c8d410873, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -694,6 +694,7 @@ GameObject:
   - component: {fileID: 5538204210328148102}
   - component: {fileID: 1708592866542858112}
   - component: {fileID: 754328907399625841}
+  - component: {fileID: 3094677644430905437}
   m_Layer: 0
   m_Name: MachineGunTurret_1_CP
   m_TagString: Enemy
@@ -811,6 +812,8 @@ MonoBehaviour:
   onDamageTaken:
     m_PersistentCalls:
       m_Calls: []
+  audioSource: {fileID: 0}
+  damageClips: []
   healthBar: {fileID: 5966834154774077384}
 --- !u!82 &754328907399625841
 AudioSource:
@@ -909,6 +912,21 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &3094677644430905437
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2800673863142957170}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3050266ce33f88e4c90ca84a9326ad5f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Dissolve
+  duration: 2
+  strength: 0
+  character: {fileID: 1708592866542858112}
 --- !u!1 &3059116227884501181
 GameObject:
   m_ObjectHideFlags: 0
@@ -1031,7 +1049,7 @@ GameObject:
   - component: {fileID: 5265377885149254413}
   m_Layer: 0
   m_Name: Barrel_Exit
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1170,7 +1188,7 @@ GameObject:
   - component: {fileID: 6065480119605081573}
   m_Layer: 0
   m_Name: Barrel_Hole
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1386,7 +1404,7 @@ GameObject:
   - component: {fileID: 5131517945448021971}
   m_Layer: 0
   m_Name: Sight
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1439,7 +1457,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
+  - {fileID: 2100000, guid: 752197fd5ca105a4990d9a6c8d410873, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1500,7 +1518,7 @@ GameObject:
   - component: {fileID: 3034845797377091474}
   m_Layer: 0
   m_Name: Angled_Plate2
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1553,7 +1571,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 21fdb87e848d2e04b9c67bed324de322, type: 2}
+  - {fileID: 2100000, guid: 752197fd5ca105a4990d9a6c8d410873, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1609,7 +1627,7 @@ GameObject:
   - component: {fileID: 3114935952900561518}
   m_Layer: 0
   m_Name: Gun_Mantlet
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1710,7 +1728,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 91e7e32e7dd655e47a23cb1868046edb, type: 2}
+  - {fileID: 2100000, guid: 4548ee08dbf311943b9423815f111302, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1781,7 +1799,7 @@ GameObject:
   - component: {fileID: 8881794506057076628}
   m_Layer: 0
   m_Name: Base_Platform
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1834,7 +1852,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 91e7e32e7dd655e47a23cb1868046edb, type: 2}
+  - {fileID: 2100000, guid: 752197fd5ca105a4990d9a6c8d410873, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1893,7 +1911,7 @@ GameObject:
   - component: {fileID: 7997691962749063044}
   m_Layer: 0
   m_Name: Capsule
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1946,7 +1964,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 91e7e32e7dd655e47a23cb1868046edb, type: 2}
+  - {fileID: 2100000, guid: 4548ee08dbf311943b9423815f111302, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -2082,7 +2100,7 @@ GameObject:
   - component: {fileID: 8687469940590486931}
   m_Layer: 0
   m_Name: Angled_Plate1
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2135,7 +2153,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 21fdb87e848d2e04b9c67bed324de322, type: 2}
+  - {fileID: 2100000, guid: 752197fd5ca105a4990d9a6c8d410873, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -2194,7 +2212,7 @@ GameObject:
   - component: {fileID: 6875313971226506865}
   m_Layer: 0
   m_Name: Neck
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2247,7 +2265,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 21fdb87e848d2e04b9c67bed324de322, type: 2}
+  - {fileID: 2100000, guid: 4548ee08dbf311943b9423815f111302, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

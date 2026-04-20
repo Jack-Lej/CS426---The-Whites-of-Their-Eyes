@@ -185,8 +185,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cba6f72ca264d8841ac9ced2344b2825, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SphereofDoom
-  damage: 1000
-  name: Sphere of Doom
+  damage: 600
   numBounces: 20
   rb: {fileID: 3695728042994762779}
   speed: 35

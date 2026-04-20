@@ -1420,6 +1420,7 @@ MonoBehaviour:
   levelExitBarrier: {fileID: 425872883}
   nextLevelTrigger: {fileID: 0}
   player: {fileID: 708202028}
+  playerController: {fileID: 0}
 --- !u!4 &713278779
 Transform:
   m_ObjectHideFlags: 0
@@ -1660,6 +1661,17 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 945450810}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &998453913 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8936394307788941564, guid: 17629c1a7ca8785478cea7eaca823219, type: 3}
+  m_PrefabInstance: {fileID: 1380831113}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 199d2a64cfb4b72468a65c3203534723, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerHealthBar
 --- !u!1 &1009770161
 GameObject:
   m_ObjectHideFlags: 0
@@ -2131,9 +2143,21 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3080216203075414152, guid: 17629c1a7ca8785478cea7eaca823219, type: 3}
+      propertyPath: pHealthBar
+      value: 
+      objectReference: {fileID: 998453913}
     - target: {fileID: 7045553121462290456, guid: 17629c1a7ca8785478cea7eaca823219, type: 3}
       propertyPath: m_Name
       value: 1st Person Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 7918141909819530468, guid: 17629c1a7ca8785478cea7eaca823219, type: 3}
+      propertyPath: m_Direction
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8685054129747966550, guid: 17629c1a7ca8785478cea7eaca823219, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0.070007324
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

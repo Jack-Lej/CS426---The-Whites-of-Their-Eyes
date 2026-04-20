@@ -19,7 +19,7 @@ public class Character : MonoBehaviour
     {
         if (healthBar == null)
         {
-            healthBar = FindObjectOfType<HealthBar>();
+            healthBar = GetComponent<HealthBar>();
         }
     }
 

@@ -10,6 +10,7 @@ public class PlayerHealthBar : MonoBehaviour
     public void updateHealthBar(float currentVal, float maxVal)
     {
         slider.value = currentVal / maxVal;
+        Debug.Log(slider.value + " " + currentVal + " " + maxVal);
     }
 
     void Start()
