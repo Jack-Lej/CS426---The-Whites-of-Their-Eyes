@@ -215,6 +215,12 @@ public class DiscardWeaponBehavior : MonoBehaviour
         levelWeightText.text = string.Concat("Level Cleared! Max weight for next level is: ", maxWeight, ". Press U and ` to activate weapon drop UI");
     }
 
+    public void HideLevelWeightText()
+    {
+        levelWeightTextGroup.alpha = 0;
+        levelWeightTextGroup.interactable = false;
+    }
+
     void Start()
     {
         healthKitButton.onClick.AddListener(() =>
@@ -272,7 +278,7 @@ public class DiscardWeaponBehavior : MonoBehaviour
         
         levelWeightTextGroup.alpha = 0;
         levelWeightTextGroup.interactable = false;
-
+        levelWeightTextGroup.blocksRaycasts = false;
         ToggleUI();
     }
     
