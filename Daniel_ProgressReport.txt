@@ -81,7 +81,10 @@ Changes:
 				- Prioritizes healing over attacking
 				- When an enemy is healed, a green partcile effect will show on the enemy healed
 					- Plays a sound to indicate the heal
-			
+
+			- Turrets and Capsule Gunner
+				- These enemies now have a dissolving effect when they die
+					
 
 	- New Scenes
 		- Enemy Display Room
