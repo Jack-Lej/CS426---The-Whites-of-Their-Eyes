@@ -43,3 +43,11 @@ Link: https://www.mixamo.com/#/?page=1&type=Character
 Demo Ancient Magic Pack FREE
 Author: SF Audio Guild
 Link: https://assetstore.unity.com/packages/audio/sound-fx/weapons/demo-ancient-magic-pack-free-175093
+
+Texture Pack: Metal 01
+Author: JulioVII
+Link: https://juliovii.itch.io/metalpk01
+
+Dissolve Shaders Pack
+Author: codeDog0
+Link: https://assetstore.unity.com/packages/vfx/shaders/dissolve-shaders-pack-298776

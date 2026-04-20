@@ -104,7 +104,7 @@ public class CP_Gun : Gun
     protected void OnTriggerStay(Collider other)
     {   
         // Debug.Log("Is faceing target: " + rotateScript.IsFacingTarget);
-        if (other.CompareTag("Player"))
+        if (other.CompareTag("Player") && currentState != CharacterStates.Dead)
         {
             targetObj = other.gameObject;
             playerTransform = other.transform;
@@ -152,7 +152,7 @@ public class CP_Gun : Gun
 
             case CharacterStates.Dead:
                 Debug.Log("Switching to Dead");
-                Destroy(gameObject, 0.5f);
+                Destroy(gameObject, 2f);
                 break;
         }
     }

@@ -637,6 +637,10 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 10
       objectReference: {fileID: 0}
+    - target: {fileID: 2563496969622287784, guid: 6e96905501c6b154d9601852628396a3, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2586065998465600510, guid: 6e96905501c6b154d9601852628396a3, type: 3}
       propertyPath: m_Layer
       value: 10
@@ -1149,7 +1153,7 @@ AudioSource:
   SpatializePostEffects: 0
   Priority: 128
   DopplerLevel: 1
-  MinDistance: 5
+  MinDistance: 1
   MaxDistance: 10
   Pan2D: 0
   rolloffMode: 0

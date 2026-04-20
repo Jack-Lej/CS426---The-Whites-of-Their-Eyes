@@ -28,7 +28,7 @@ public class CP_Gun_Moving : CP_Gun
     protected new void OnTriggerStay(Collider other)
     {   
         // Debug.Log("Is faceing target: " + rotateScript.IsFacingTarget);
-        if (other.CompareTag("Player"))
+        if (other.CompareTag("Player") && currentState != CharacterStates.Dead)
         {
             targetObj = other.gameObject;
             rotateScript.targetObj = targetObj;
@@ -93,7 +93,7 @@ public class CP_Gun_Moving : CP_Gun
                 agent.ResetPath();
                 agent.velocity = Vector3.zero;
                 agent.enabled = false; // Disable NavMeshAgent on death
-                Destroy(gameObject, 0.5f);
+                Destroy(gameObject, 2f);
                 // activeCoroutine = StartCoroutine(DeathCleanup());
                 break;
         }

@@ -325,6 +325,37 @@ Light:
   m_LightUnit: 1
   m_LuxAtDistance: 1
   m_EnableSpotReflector: 1
+--- !u!1 &90696221 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2508907632500027610, guid: 3886da786beb87146bd83b5ce9e046f2, type: 3}
+  m_PrefabInstance: {fileID: 1133962671}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &90696224 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8578173097673838546, guid: 3886da786beb87146bd83b5ce9e046f2, type: 3}
+  m_PrefabInstance: {fileID: 1133962671}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 90696221}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4d1ee577cc8d26a48930d7624153fb6d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Character
+--- !u!114 &90696229
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 90696221}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3050266ce33f88e4c90ca84a9326ad5f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Dissolve
+  duration: 4
+  strength: 0
+  character: {fileID: 90696224}
 --- !u!82 &186172631 stripped
 AudioSource:
   m_CorrespondingSourceObject: {fileID: 7583785832575517692, guid: 163410d6e17c33448b454112de2c309b, type: 3}
@@ -2149,6 +2180,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 846571878113478453, guid: 3886da786beb87146bd83b5ce9e046f2, type: 3}
+      propertyPath: reverbZoneMixCustomCurve.m_Curve.Array.data[0].value
+      value: 0.256
+      objectReference: {fileID: 0}
     - target: {fileID: 2508907632500027610, guid: 3886da786beb87146bd83b5ce9e046f2, type: 3}
       propertyPath: m_Name
       value: MovingEnemy_1
@@ -2204,7 +2239,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 2508907632500027610, guid: 3886da786beb87146bd83b5ce9e046f2, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 90696229}
   m_SourcePrefab: {fileID: 100100000, guid: 3886da786beb87146bd83b5ce9e046f2, type: 3}
 --- !u!1 &1241502788
 GameObject:
@@ -2733,6 +2771,10 @@ PrefabInstance:
       propertyPath: MaxDistance
       value: 375.83203
       objectReference: {fileID: 0}
+    - target: {fileID: 1749280139948275670, guid: 0eede120640fd0a4ca0717a6893447bd, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: -876546973899608171, guid: 7c6e41aedb98a1942b9fbbb7b8a036a3, type: 3}
     - target: {fileID: 2800673863142957170, guid: 0eede120640fd0a4ca0717a6893447bd, type: 3}
       propertyPath: m_Name
       value: MachineGunTurret_1_CP

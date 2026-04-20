@@ -430,7 +430,7 @@ public class CasterEnemy : meleeEnemy
         }
     }
 
-    public void OnAttackAnimationEvent()
+    public new void OnAttackAnimationEvent()
     {
         if (casterState == CasterState.CastingAttack && !animator.GetBool("isDead"))
         {
