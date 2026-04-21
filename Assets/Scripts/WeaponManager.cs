@@ -155,6 +155,10 @@ public class WeaponManager : MonoBehaviour
             weaponText.text = "Switching to " + activeWeapon.GetWeaponName();
             switchAlarm = true;
         }
+        if(activeWeapon.GetCurrentAmmo() != 0)
+            reloadNowText.alpha = 0;
+        else
+            reloadNowText.alpha = 1; 
     }
 
     //Each time a player wants to perform an action with their weapon (shoot, reload, switch), check that no other action is being performed/cooling down
