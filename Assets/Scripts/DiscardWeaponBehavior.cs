@@ -210,9 +210,18 @@ public class DiscardWeaponBehavior : MonoBehaviour
 
     public void DisplayLevelWeightText(int maxWeight)
     {
-        levelWeightTextGroup.alpha = 1;
-        levelWeightTextGroup.interactable = true;
-        levelWeightText.text = string.Concat("Level Cleared! Max weight for next level is: ", maxWeight, ". Press U and ` to activate weapon drop UI");
+        if(maxWeight == 12345)
+        {
+            levelWeightTextGroup.alpha = 1;
+            levelWeightTextGroup.interactable = true;
+            levelWeightText.text = string.Concat("Congratulations! You have won!");
+        }
+        else
+        {
+            levelWeightTextGroup.alpha = 1;
+            levelWeightTextGroup.interactable = true;
+            levelWeightText.text = string.Concat("Level Cleared! Max weight for next level is: ", maxWeight, ". Press U and ` to activate weapon drop UI");
+        }
     }
 
     public void HideLevelWeightText()
