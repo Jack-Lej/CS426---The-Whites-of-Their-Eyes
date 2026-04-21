@@ -1,17 +1,73 @@
-ALPHA RELEASE FEEDBACK IMPROVEMENTS
+Alpha Release Feedback-----------------------------------------------------------
+
+Tester 1, Group 13. 2 Minutes, died on level 1 and moved on
+No Controls menu/display
+Make Health more obvious: use healthbar
+Level design looks cool
+Sounds are really nice
+Health bar for the enemies to show they take damage
+Lower gravity
+Pause menu
+Make levels not start immediately, have a waiting area
+When level ends, player’s health/inventory not reset
+Have death screen so player can decompress and restart when ready
+Level 1 needs to be smaller
+
+Tester 2, Rayan. 5 Minutes, made it to level 2
+Moving enemies take too much damage to kill, deal too much damage: might be collision bug with sphere of doom/rockets
+Melee enemy damage is inconsistent while ranged enemies hit 100% consistently
+Turn down ranged enemy firing speed
+Add explosion graphics to the rocket
+
+
+
+
+Tester 3. 4 minutes, died on level 1.
+Need to arrange enemies in level to not just all face one way
+Enemies sometimes fail to rotate
+Coordinate weapons & ammo to levels 
+Add tutorial and/or controls to title screen
+Bullets need to be more visible
+UI needs to be more readable
+Explain enemies, show health, add counter of enemies in level
+Rifle/shotgun too underpowered to compete with level 1, their damage needs to be upped
+
+Tester 4: Sanjana. 3 minutes, died almost right away
+Title screen needs to be fixed
+Prompt to reload when out of ammo: make out of ammo more obvious
+Projectile collision when enemies are right up close
+Increase player health & healthkit healing
+
+Tester 5: Niharika Patil. 10 Minutes. Died quickly but kept playing (due to not-dying bug)
+Add alternate weapon switching method (q/e prev/next)
+Out of ammo again not very obvious
+Goal of defeat all enemies is unclear
+Make goal more obvious
+Add cheats like infinite health for testing (both self and peer testing)
+Rocket launcher lags on colliding with objects
+Enemy health/damage done is unclear
+Increase enemy activation range and/or make levels smaller to force near-constant combat
+
+Beta Release-------------------------------------------------------------------
+Alpha Release Feedback Improvements
+
 Jack
 I added the tutorial; each player did not know the controls intuitively and was unable to guess the controls unless told. This was in part due to us not prefacing the game for them during the alpha testing, the tutorial now explains the key concepts for each aspect of the controls.
 The testers almost uniformly said that the player’s information was not communicated well, so I added a health bar to more easily visualize health, as well as changing the info colors to be more stark, and added a pop-up for when the player is out of ammo.
 Rayan
 I made Level 1 smaller, there is now less space between the back wall and the ramps, this should result in the first level feeling less empty due to it being more condensed.
 I added a chute that the player falls down to enter each level, this should give the player a smooth transition between each level, and give them time to process the situation before they start getting attacked
-I built the foundation for level 3.
+I built the foundation for level 3
+I added metallic shaders to the weapons. (MatCap Shader Pack, Bumped Plain)
 Daniel
 I gave the enemies health bars and sound effects as indications that the enemies are being hit.
 Improved enemy rotation so that it more consistently faces the player when attacking.
 
 
-Other Improvements for Beta Release
+Other Improvements for Beta Release-------------------------------------------------------------------------------
 Added pause menu, featuring buttons to display weapon info, controls, return to the main menu, or to quit the application.
 Added “Enemies” option to title screen, allows player to view and familiarize themselves with the enemies they will face in the game
 Added credits sequence and intro story block
+Added a dissolving shader so that the enemies without a 3D rigged model now have a death effect when they die instead of just disappearing. 
+Added reflective shaders to weapons and environment elements to give them more pop, make them stand out more.
+Refined players moving between levels, players now keep all stats and items in between loads
