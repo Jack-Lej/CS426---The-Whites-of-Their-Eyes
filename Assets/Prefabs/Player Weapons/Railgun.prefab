@@ -990,7 +990,7 @@ MonoBehaviour:
   weaponName: Railgun
   weaponWeight: 30
   ammoWeight: 0.5
-  projectileVelocity: 1500
+  projectileVelocity: 3000
   crosshair: {fileID: 0}
   manager: {fileID: 0}
   projectile: {fileID: 8718020317698012777, guid: 5fec4bc982fef3248a1df27d32e18736, type: 3}

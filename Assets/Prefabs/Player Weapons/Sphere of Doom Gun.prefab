@@ -667,7 +667,7 @@ MonoBehaviour:
   weaponName: Shpere of Doom Launcher
   weaponWeight: 40
   ammoWeight: 2
-  projectileVelocity: 900
+  projectileVelocity: 1200
   crosshair: {fileID: 0}
   manager: {fileID: 0}
   projectile: {fileID: 7879577518188677107, guid: 18eadfe0bf8516b4a8405feef477d99a, type: 3}

@@ -155,7 +155,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a912e021f819d32469e3952a48dbd52d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Projectile
-  velocity: 0
-  deceleration: 0
-  damage: 400
-  name: Railgun Round
+  damage: 200
