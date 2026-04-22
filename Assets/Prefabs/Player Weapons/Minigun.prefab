@@ -1328,7 +1328,7 @@ MonoBehaviour:
   weaponName: Minigun
   weaponWeight: 60
   ammoWeight: 0.01
-  projectileVelocity: 1000
+  projectileVelocity: 2000
   crosshair: {fileID: 0}
   manager: {fileID: 0}
   projectile: {fileID: 8718020317698012777, guid: ab3c8bed0ec412141b0b6a4ff7f6e4ef, type: 3}

@@ -1014,7 +1014,7 @@ MonoBehaviour:
   onDamageTaken:
     m_PersistentCalls:
       m_Calls: []
-  audioSource: {fileID: 0}
+  audioSource: {fileID: 846571878113478453}
   damageClips: []
   healthBar: {fileID: 4062485093391334567}
 --- !u!54 &4998757660715655064

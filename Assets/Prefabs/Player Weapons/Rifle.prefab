@@ -171,7 +171,7 @@ MonoBehaviour:
   weaponName: Rifle
   weaponWeight: 20
   ammoWeight: 0.01
-  projectileVelocity: 900
+  projectileVelocity: 1800
   crosshair: {fileID: 0}
   manager: {fileID: 0}
   projectile: {fileID: 8718020317698012777, guid: 5604a54be71a3574aa38f617f30162ba, type: 3}

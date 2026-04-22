@@ -505,7 +505,7 @@ MonoBehaviour:
   weaponName: Rocket Launcher
   weaponWeight: 30
   ammoWeight: 0.75
-  projectileVelocity: 800
+  projectileVelocity: 1000
   crosshair: {fileID: 0}
   manager: {fileID: 0}
   projectile: {fileID: 4519073192657682481, guid: cb314d8bd1a1e2845a6171ea0b9e8019, type: 3}

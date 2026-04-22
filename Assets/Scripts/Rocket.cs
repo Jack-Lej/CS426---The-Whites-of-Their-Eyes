@@ -32,9 +32,9 @@ public class Rocket : Projectile
             for (int i = 0; i < numColliders; i++)
             {
                 Collider col = colliders[i];
-                if(colliders[i].gameObject.tag == "Enemy")
+                if(col.gameObject.tag == "Enemy")
                 {
-                    Character c = colliders[i].gameObject.GetComponent<Character>();
+                    Character c = col.gameObject.GetComponent<Character>();
                     float vec = Vector3.Distance(this.transform.position, col.transform.position);
                     //Explosion damage is determined by distance from the explosion
                     if(vec <= trueExplosionRadius)
@@ -47,13 +47,18 @@ public class Rocket : Projectile
 
     public override void OnCollisionEnter(Collision collision)
     {
+        Debug.Log("Collided");
         if(collision.gameObject.tag != "Weapon" && collision.gameObject.tag != "Projectile")
         {
-            Invoke("audioSource.Play", 0.5f);
+            Debug.Log("Collided 2");
+            Invoke("audioSource.Play()", 0.5f);
             ExplodeNonAlloc();
             Instantiate(explosionGraphic, transform.position, Quaternion.identity);
             if(collision.gameObject.tag == "Enemy")
+            {
+                Debug.Log("collided 3");
                 DealDamage(collision.collider);
+            }
             Destroy(gameObject);
             //audioSource.PlayOneShot(explodeSound);
         }
