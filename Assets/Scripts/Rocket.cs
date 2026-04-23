@@ -61,7 +61,7 @@ public class Rocket : Projectile
     {
         if(collision.gameObject.tag != "Weapon" && collision.gameObject.tag != "Projectile")
         {
-            Invoke("audioSource.Play()", 0.5f);
+            AudioSource.PlayClipAtPoint(explodeSound, transform.position);
             ExplodeNonAlloc();
             Instantiate(explosionGraphic, transform.position, Quaternion.identity);
             if(collision.gameObject.tag == "Enemy")
