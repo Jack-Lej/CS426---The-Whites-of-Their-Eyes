@@ -59,6 +59,7 @@ public class LevelManager : MonoBehaviour
                 discardManager.HideLevelWeightText();
                 collider.GetComponent<CharacterController>().enabled = false;
                 collider.transform.position = new Vector3(-80.5f, 8.55f, -11.7f);
+                collider.transform.Rotate(0.0f, 180.0f, 0.0f, Space.Self);
                 collider.GetComponent<CharacterController>().enabled = true;
             }
             else if(nextLevel == 4)
