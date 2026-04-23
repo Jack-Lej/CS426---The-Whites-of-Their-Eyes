@@ -57,7 +57,6 @@ public class Character : MonoBehaviour
     {
         if(damageClips != null && damageClips.Length > 0)
             PlayRandomDamageSound();
-        // Debug.Log("In TakeDamage");
         if (currentHealth <= 0) return; // Already dead, ignore further damage
         currentHealth -= damage;
         onDamageTaken.Invoke(damage);
@@ -80,24 +79,4 @@ public class Character : MonoBehaviour
             healthBar.updateHealthBar(currentHealth, maxHealth);
         }
     }
-
-    // private void OnCollisionEnter(Collision collision)
-    // {
-    //     if (collision.gameObject.CompareTag("Projectile"))
-    //     {
-    //         Debug.Log(gameObject.name + " collided.");
-    //         Projectile p = collision.gameObject.GetComponent<Projectile>();
-    //         this.TakeDamage(p.GetDamage());
-    //     }
-    // }
-
-    // private void OnTriggerEnter(Collider collision)
-    // {
-    //     if(collision.gameObject.CompareTag("Projectile"))
-    //     {
-    //         Debug.Log(gameObject.name + " triggered.");
-    //         Projectile p = collision.gameObject.GetComponent<Projectile>();
-    //         this.TakeDamage(p.GetDamage());
-    //     }
-    // }
 }
