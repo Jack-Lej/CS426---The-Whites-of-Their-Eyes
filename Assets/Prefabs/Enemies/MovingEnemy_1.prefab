@@ -887,9 +887,9 @@ GameObject:
   m_Component:
   - component: {fileID: 4223706589958335423}
   - component: {fileID: 5274798509566877304}
+  - component: {fileID: 8578173097673838546}
   - component: {fileID: 6539147753556803075}
   - component: {fileID: 147988645765131762}
-  - component: {fileID: 8578173097673838546}
   - component: {fileID: 4998757660715655064}
   - component: {fileID: 846571878113478453}
   - component: {fileID: 3699157863041904017}
@@ -942,6 +942,29 @@ NavMeshAgent:
   m_BaseOffset: 1
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
+--- !u!114 &8578173097673838546
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2508907632500027610}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4d1ee577cc8d26a48930d7624153fb6d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Character
+  maxHealth: 200
+  currentHealth: 0
+  onDeath:
+    m_PersistentCalls:
+      m_Calls: []
+  onDamageTaken:
+    m_PersistentCalls:
+      m_Calls: []
+  audioSource: {fileID: 846571878113478453}
+  damageClips: []
+  healthBar: {fileID: 4062485093391334567}
 --- !u!114 &6539147753556803075
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -994,29 +1017,6 @@ MonoBehaviour:
   sourceObj: {fileID: 5638529627030970297}
   gunElevationAngle: 60
   gunDepressionAngle: -60
---- !u!114 &8578173097673838546
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2508907632500027610}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4d1ee577cc8d26a48930d7624153fb6d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Character
-  maxHealth: 200
-  currentHealth: 0
-  onDeath:
-    m_PersistentCalls:
-      m_Calls: []
-  onDamageTaken:
-    m_PersistentCalls:
-      m_Calls: []
-  audioSource: {fileID: 846571878113478453}
-  damageClips: []
-  healthBar: {fileID: 4062485093391334567}
 --- !u!54 &4998757660715655064
 Rigidbody:
   m_ObjectHideFlags: 0

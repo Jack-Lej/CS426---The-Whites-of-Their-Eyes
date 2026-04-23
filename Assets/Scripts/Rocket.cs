@@ -33,19 +33,39 @@ public class Rocket : Projectile
             
             for (int i = 0; i < numColliders; i++)
             {
+                HurtBox hurtBox = colliders[i].GetComponent<HurtBox>();
+                float vec = Vector3.Distance(this.transform.position, colliders[i].transform.position);
+                float explosionDamageCalc = explosionDamage*((trueExplosionRadius-vec)/trueExplosionRadius); 
+                if(vec <= trueExplosionRadius)
+                {
+                    if (hurtBox != null)
+                    {
+                        hurtBox.ReceiveDamage((int)explosionDamageCalc);
+                    } 
+                    else
+                    {
+                        Character character = colliders[i].GetComponentInParent<Character>();
+                        if (character != null)
+                        {
+                            character.TakeDamage((int)explosionDamageCalc);
+                        }
+                    }
+                }
+                /*
                 Collider col = colliders[i];
                 Debug.Log("Collider A:" + col);
-                if(col.gameObject.tag == "Enemy")
+                if(colliders[i].gameObject.tag == "Enemy")
                 {
-                    Character c = col.gameObject.GetComponent<Character>();
+                    Character c = colliders[i].gameObject.GetComponent<Character>();
                     Debug.Log("Collider B: " + c);
                     float vec = Vector3.Distance(this.transform.position, col.transform.position);
+                    Debug.Log("Vector: " + vec);
                     //Explosion damage is determined by distance from the explosion
                     if(vec <= trueExplosionRadius)
                     {
                         c.TakeDamage((int) Mathf.Round(explosionDamage * ((trueExplosionRadius-vec)/trueExplosionRadius)));
                     }
-                }
+                } */
             }
         }
 
