@@ -84,6 +84,11 @@ public class WeaponManager : MonoBehaviour
         weaponArr[7] = weapon7;
         weaponArr[8] = weapon8;
         weaponArr[9] = weapon9;
+        for(int i = 0; i < 10; i++)
+        {
+            if(weaponArr[i] != null)
+                weaponArr[i].SleepWeapon();
+        }
         activeWeapon = weapon1;
         activeWeapon.WakeWeapon();
         activeWeaponNum = 1;

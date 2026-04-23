@@ -185,7 +185,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 0
   bounciness: 0
-  useGravity: 0
+  useGravity: 1
   explosionDamage: 0
   directHitDamage: 10
   isExplosive: 0

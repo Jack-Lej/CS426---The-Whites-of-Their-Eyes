@@ -12,9 +12,9 @@ GameObject:
   - component: {fileID: 6550268097741664221}
   - component: {fileID: 4342662872286670882}
   - component: {fileID: 6537435606816159297}
-  - component: {fileID: 7107504446615532331}
   - component: {fileID: 703570149309006296}
-  m_Layer: 0
+  - component: {fileID: -1981591087305491811}
+  m_Layer: 10
   m_Name: Target
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -117,20 +117,6 @@ CapsuleCollider:
   m_Height: 2
   m_Direction: 1
   m_Center: {x: 0.000000059604645, y: 0, z: -0.00000008940697}
---- !u!114 &7107504446615532331
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 40766989455479097}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a1ee1d9b58b830449919ea31381999c8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: '::'
-  healthText: {fileID: 0}
-  health: 1000
 --- !u!65 &703570149309006296
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -152,6 +138,29 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1.0000004, y: 2.0000005, z: 1.0000002}
   m_Center: {x: 0.00000005960466, y: 0, z: -0.00000008940697}
+--- !u!114 &-1981591087305491811
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 40766989455479097}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4d1ee577cc8d26a48930d7624153fb6d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Character
+  maxHealth: 500
+  currentHealth: 0
+  onDeath:
+    m_PersistentCalls:
+      m_Calls: []
+  onDamageTaken:
+    m_PersistentCalls:
+      m_Calls: []
+  audioSource: {fileID: 0}
+  damageClips: []
+  healthBar: {fileID: 0}
 --- !u!1 &1969841192851592823
 GameObject:
   m_ObjectHideFlags: 0
@@ -164,7 +173,7 @@ GameObject:
   - component: {fileID: 2993130784979598783}
   - component: {fileID: 5401421609391275593}
   - component: {fileID: 1291347159441575329}
-  m_Layer: 5
+  m_Layer: 10
   m_Name: Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -265,7 +274,7 @@ GameObject:
   - component: {fileID: 1735697649918455287}
   - component: {fileID: 9064047542329360411}
   - component: {fileID: 5226642136225050279}
-  m_Layer: 5
+  m_Layer: 10
   m_Name: Text (TMP)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
