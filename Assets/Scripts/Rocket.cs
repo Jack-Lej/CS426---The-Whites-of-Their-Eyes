@@ -27,18 +27,24 @@ public class Rocket : Projectile
     void ExplodeNonAlloc()
     {
         int numColliders = Physics.OverlapSphereNonAlloc(transform.position, explosionRadius, colliders, layerMask);
+        Debug.Log("Num colliders:" + numColliders);
         if (numColliders > 0)
         {
+            
             for (int i = 0; i < numColliders; i++)
             {
                 Collider col = colliders[i];
+                Debug.Log("Collider A:" + col);
                 if(col.gameObject.tag == "Enemy")
                 {
                     Character c = col.gameObject.GetComponent<Character>();
+                    Debug.Log("Collider B: " + c);
                     float vec = Vector3.Distance(this.transform.position, col.transform.position);
                     //Explosion damage is determined by distance from the explosion
                     if(vec <= trueExplosionRadius)
+                    {
                         c.TakeDamage((int) Mathf.Round(explosionDamage * ((trueExplosionRadius-vec)/trueExplosionRadius)));
+                    }
                 }
             }
         }
@@ -47,16 +53,13 @@ public class Rocket : Projectile
 
     public override void OnCollisionEnter(Collision collision)
     {
-        Debug.Log("Collided");
         if(collision.gameObject.tag != "Weapon" && collision.gameObject.tag != "Projectile")
         {
-            Debug.Log("Collided 2");
             Invoke("audioSource.Play()", 0.5f);
             ExplodeNonAlloc();
             Instantiate(explosionGraphic, transform.position, Quaternion.identity);
             if(collision.gameObject.tag == "Enemy")
             {
-                Debug.Log("collided 3");
                 DealDamage(collision.collider);
             }
             Destroy(gameObject);
