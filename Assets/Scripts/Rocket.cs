@@ -51,21 +51,7 @@ public class Rocket : Projectile
                         }
                     }
                 }
-                /*
-                Collider col = colliders[i];
-                Debug.Log("Collider A:" + col);
-                if(colliders[i].gameObject.tag == "Enemy")
-                {
-                    Character c = colliders[i].gameObject.GetComponent<Character>();
-                    Debug.Log("Collider B: " + c);
-                    float vec = Vector3.Distance(this.transform.position, col.transform.position);
-                    Debug.Log("Vector: " + vec);
-                    //Explosion damage is determined by distance from the explosion
-                    if(vec <= trueExplosionRadius)
-                    {
-                        c.TakeDamage((int) Mathf.Round(explosionDamage * ((trueExplosionRadius-vec)/trueExplosionRadius)));
-                    }
-                } */
+                
             }
         }
 

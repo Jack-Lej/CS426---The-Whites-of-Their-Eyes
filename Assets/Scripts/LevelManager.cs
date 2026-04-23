@@ -79,15 +79,10 @@ public class LevelManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Debug.Log(GameObject.FindGameObjectsWithTag("Enemy").Length);
         if(GameObject.FindGameObjectsWithTag("Enemy").Length == 0)
         {
-            Debug.Log(infoUpdated);
-            Debug.Log(levelUnlocked);
-            Debug.Log(weaponManager.GetTotalWeight());
             if(!infoUpdated)
             {
-                Debug.Log("In info");
                 discardManager.DisplayLevelWeightText(maxWeight);
                 infoUpdated = true;
             }
