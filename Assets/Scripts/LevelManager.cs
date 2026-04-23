@@ -64,6 +64,7 @@ public class LevelManager : MonoBehaviour
             else if(nextLevel == 4)
             {
                 playerController.ToggleLockCursor();
+                Destroy(player);
                 SceneManager.LoadScene("Credits");
             }
             else if(nextLevel == 0)
