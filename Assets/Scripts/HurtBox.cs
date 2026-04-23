@@ -9,7 +9,7 @@ public class HurtBox : MonoBehaviour
         character = GetComponentInParent<Character>();
     }
 
-
+    /*
     // For physics-based projectiles (Rigidbody + non-trigger collider)
     private void OnCollisionEnter(Collision collision)
     {
@@ -30,7 +30,7 @@ public class HurtBox : MonoBehaviour
             return;
         }
         Debug.Log("Collided with " + collision.gameObject.name);
-    }
+    } */
 
     // For trigger-based projectiles and hitboxes
     private void OnTriggerEnter(Collider other)

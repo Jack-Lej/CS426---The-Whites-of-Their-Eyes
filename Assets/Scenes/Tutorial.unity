@@ -1368,22 +1368,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 648261548}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!114 &664424077 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 5954937642367655078, guid: 17629c1a7ca8785478cea7eaca823219, type: 3}
-  m_PrefabInstance: {fileID: 1380831113}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1402f19480a1b7f42a2e3d39ab543476, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::WeaponManager
---- !u!1 &708202028 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 7045553121462290456, guid: 17629c1a7ca8785478cea7eaca823219, type: 3}
-  m_PrefabInstance: {fileID: 1380831113}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &713278777
 GameObject:
   m_ObjectHideFlags: 0
@@ -1415,12 +1399,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::LevelManager
   nextLevel: 0
   maxWeight: 250
-  weaponManager: {fileID: 664424077}
-  discardManager: {fileID: 1811422793}
   levelExitBarrier: {fileID: 425872883}
   nextLevelTrigger: {fileID: 0}
-  player: {fileID: 708202028}
-  playerController: {fileID: 0}
 --- !u!4 &713278779
 Transform:
   m_ObjectHideFlags: 0
@@ -3289,17 +3269,6 @@ MeshRenderer:
   m_SortingOrder: 0
   m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!114 &1811422793 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 8055146648444636503, guid: 17629c1a7ca8785478cea7eaca823219, type: 3}
-  m_PrefabInstance: {fileID: 1380831113}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7fa19eaec81f8f0458e3f8a0a891543c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::DiscardWeaponBehavior
 --- !u!1 &1958334691
 GameObject:
   m_ObjectHideFlags: 0
