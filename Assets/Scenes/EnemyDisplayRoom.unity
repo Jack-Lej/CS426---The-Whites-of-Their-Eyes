@@ -1929,6 +1929,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: 1st Person Player
       objectReference: {fileID: 0}
+    - target: {fileID: 7045553121462290456, guid: 17629c1a7ca8785478cea7eaca823219, type: 3}
+      propertyPath: m_TagString
+      value: Untagged
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

@@ -26,6 +26,7 @@ public class Rocket : Projectile
 
     void ExplodeNonAlloc()
     {
+        Debug.Log("Explosion at " + transform.position);
         int numColliders = Physics.OverlapSphereNonAlloc(transform.position, explosionRadius, colliders, layerMask);
         Debug.Log("Num colliders:" + numColliders);
         if (numColliders > 0)

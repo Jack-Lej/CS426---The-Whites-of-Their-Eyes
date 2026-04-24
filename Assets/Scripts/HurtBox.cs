@@ -3,6 +3,7 @@ using UnityEngine;
 public class HurtBox : MonoBehaviour
 {
     internal Character character;
+    private bool firstHit = false;
 
     void Start()
     {
@@ -57,5 +58,21 @@ public class HurtBox : MonoBehaviour
     {
         if (character != null && character.currentHealth > 0)
             character.TakeDamage(damage);
+        
+        if (!firstHit && character.gameObject.CompareTag("Enemy"))
+        {
+            firstHit = true;
+
+            // Search the character's GameObject and all children for the SphereCollider
+            SphereCollider[] colliders = character.GetComponentsInChildren<SphereCollider>();
+            foreach (SphereCollider col in colliders)
+            {
+                if (col.isTrigger)
+                {
+                    col.radius *= 3f;
+                    break; // Only resize the first trigger sphere found
+                }
+            }
+        }
     }
 }
