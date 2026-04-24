@@ -26,33 +26,20 @@ public class Rocket : Projectile
 
     void ExplodeNonAlloc()
     {
-        Debug.Log("Explosion at " + transform.position);
         int numColliders = Physics.OverlapSphereNonAlloc(transform.position, explosionRadius, colliders, layerMask);
-        Debug.Log("Num colliders:" + numColliders);
         if (numColliders > 0)
         {
-            
             for (int i = 0; i < numColliders; i++)
             {
-                HurtBox hurtBox = colliders[i].GetComponent<HurtBox>();
-                float vec = Vector3.Distance(this.transform.position, colliders[i].transform.position);
-                float explosionDamageCalc = explosionDamage*((trueExplosionRadius-vec)/trueExplosionRadius); 
-                if(vec <= trueExplosionRadius)
+                Collider col = colliders[i];
+                if(colliders[i].gameObject.tag == "Enemy")
                 {
-                    if (hurtBox != null)
-                    {
-                        hurtBox.ReceiveDamage((int)explosionDamageCalc);
-                    } 
-                    else
-                    {
-                        Character character = colliders[i].GetComponentInParent<Character>();
-                        if (character != null)
-                        {
-                            character.TakeDamage((int)explosionDamageCalc);
-                        }
-                    }
+                    Character c = colliders[i].gameObject.GetComponent<Character>();
+                    float vec = Vector3.Distance(this.transform.position, col.transform.position);
+                    //Explosion damage is determined by distance from the explosion
+                    if(vec <= trueExplosionRadius)
+                        c.TakeDamage((int) Mathf.Round(explosionDamage * ((trueExplosionRadius-vec)/trueExplosionRadius)));
                 }
-                
             }
         }
 
@@ -62,13 +49,11 @@ public class Rocket : Projectile
     {
         if(collision.gameObject.tag != "Weapon" && collision.gameObject.tag != "Projectile")
         {
-            AudioSource.PlayClipAtPoint(explodeSound, transform.position);
+            Invoke("audioSource.Play", 0.5f);
             ExplodeNonAlloc();
             Instantiate(explosionGraphic, transform.position, Quaternion.identity);
             if(collision.gameObject.tag == "Enemy")
-            {
                 DealDamage(collision.collider);
-            }
             Destroy(gameObject);
             //audioSource.PlayOneShot(explodeSound);
         }

@@ -910,7 +910,9 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   audioSource: {fileID: 846571878113478453}
-  damageClips: []
+  damageClips:
+  - {fileID: 8300000, guid: 1a044edc7032788439ca268c9cee3e64, type: 3}
+  - {fileID: 8300000, guid: fba0772eac8543f4d98382d7021fa718, type: 3}
   healthBar: {fileID: 4062485093391334567}
 --- !u!114 &6539147753556803075
 MonoBehaviour:
@@ -929,9 +931,9 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 5207b2a445fcb144281ab5395fe95c1d, type: 3}
   - {fileID: 8300000, guid: 1e940d15337ad1e43b0cc1b2430d7c06, type: 3}
   - {fileID: 8300000, guid: 70c97e425596b8142b7b9163256c0868, type: 3}
-  bullet: {fileID: 3096739852597059259, guid: c18c487ca142ce44cb81fe13457176c6, type: 3}
-  shootForce: 5
-  upwardForce: 0
+  bullet: {fileID: 3096739852597059259, guid: 296ca8546fe611d4585aee835158dc52, type: 3}
+  shootForce: 40
+  upwardForce: -1
   spread: 0.5
   timeBetweenShooting: 0.1
   timeBetweenShots: 0

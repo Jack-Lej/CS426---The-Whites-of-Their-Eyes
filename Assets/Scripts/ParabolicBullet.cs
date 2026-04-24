@@ -39,6 +39,7 @@ public class ParabolicBullet : MonoBehaviour
     private int collisions;
     private PhysicsMaterial physics_mat;
     private Collider[] ownColliders;
+    private bool isTrigger = false;
 
     public void InitializeParabola(Vector3 origin, Vector3 direction)
     {
@@ -100,6 +101,17 @@ public class ParabolicBullet : MonoBehaviour
         return false;
     }
 
+    private void onTriggerEnter(Collider other)
+    {
+        isTrigger = true;
+    }
+
+    private void onCollisionEnter(Collision collision)
+    {
+        isTrigger = false;
+    }
+
+
     private void FixedUpdate()
     {
         if (!useParabolicMovement || startTime < 0) return;
@@ -115,7 +127,7 @@ public class ParabolicBullet : MonoBehaviour
         if (prevTime > 0)
         {
             Vector3 prevPoint = FindPointOnParabola(prevTime);
-            if (CastRayBetweenPoints(prevPoint, currentPoint, out RaycastHit hit))
+            if (CastRayBetweenPoints(prevPoint, currentPoint, out RaycastHit hit) )
             {
                 HandleParabolicHit(hit);
                 return;
@@ -136,10 +148,11 @@ public class ParabolicBullet : MonoBehaviour
 
         if (!isExplosive)
         {
+            if(isTrigger) return;
+
             Debug.Log("ParabolicBullet: Direct hit on " + hit.collider.name);
             DealDirectHitDamage(hit.collider);
-            // Invoke("Delay", 0.05f);
-            Explode();
+            Invoke("Delay", 0.05f);
             Destroy(gameObject);
                 
             return;

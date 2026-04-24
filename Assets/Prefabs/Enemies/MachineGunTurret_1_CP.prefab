@@ -555,7 +555,7 @@ GameObject:
   - component: {fileID: 1708592866542858112}
   - component: {fileID: 754328907399625841}
   - component: {fileID: 3094677644430905437}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: MachineGunTurret_1_CP
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -596,9 +596,9 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 5207b2a445fcb144281ab5395fe95c1d, type: 3}
   - {fileID: 8300000, guid: 1e940d15337ad1e43b0cc1b2430d7c06, type: 3}
   - {fileID: 8300000, guid: 70c97e425596b8142b7b9163256c0868, type: 3}
-  bullet: {fileID: 3096739852597059259, guid: c18c487ca142ce44cb81fe13457176c6, type: 3}
+  bullet: {fileID: 3096739852597059259, guid: 296ca8546fe611d4585aee835158dc52, type: 3}
   shootForce: 40
-  upwardForce: 0
+  upwardForce: -1
   spread: 0.2
   timeBetweenShooting: 0.1
   timeBetweenShots: 0

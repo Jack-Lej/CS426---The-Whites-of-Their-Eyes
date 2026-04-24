@@ -300,14 +300,14 @@ MonoBehaviour:
   explosion: {fileID: 100006, guid: 28ccd38a41e256a4e8fea96f5a8d039d, type: 3}
   Explodable:
     serializedVersion: 2
-    m_Bits: 4294967295
+    m_Bits: 1088
   bounciness: 0
   useGravity: 0
-  explosionDamage: 8
+  explosionDamage: 12
   directHitDamage: 0
   isExplosive: 1
   explosionRange: 3
-  explosionForce: 200
+  explosionForce: 5
   maxCollisions: 1
   maxLifetime: 5
   explodeOnTouch: 1

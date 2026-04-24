@@ -950,7 +950,7 @@ GameObject:
   - component: {fileID: 5711096263140614922}
   - component: {fileID: 1528942065395625118}
   - component: {fileID: 704421918454965997}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: RocketTurret_1_CP 1
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -989,9 +989,9 @@ MonoBehaviour:
   shootClips:
   - {fileID: 8300000, guid: 8b3f676fe7b41044495a2964396b8ba3, type: 3}
   - {fileID: 8300000, guid: 8b3f676fe7b41044495a2964396b8ba3, type: 3}
-  bullet: {fileID: 3096739852597059259, guid: ee4d72ade48cc62449543096ec418aa8, type: 3}
-  shootForce: 50
-  upwardForce: 0
+  bullet: {fileID: 3096739852597059259, guid: 865d146486a241a43810410b48fc77df, type: 3}
+  shootForce: 60
+  upwardForce: -1.5
   spread: 0
   timeBetweenShooting: 5
   timeBetweenShots: 0

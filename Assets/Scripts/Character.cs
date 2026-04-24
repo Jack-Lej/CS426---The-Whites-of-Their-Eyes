@@ -14,6 +14,7 @@ public class Character : MonoBehaviour
     [SerializeField] private AudioClip[] damageClips;
 
     [SerializeField] protected HealthBar healthBar;
+    private bool firstHit = false;
 
     void Awake()
     {
@@ -62,6 +63,24 @@ public class Character : MonoBehaviour
         onDamageTaken.Invoke(damage);
         healthBar.updateHealthBar(currentHealth, maxHealth);
         Debug.Log(gameObject.name + " took " + damage + ". HP: " + currentHealth);
+
+        // Increases enemy aggro range on first hit
+        if (!firstHit && this.gameObject.CompareTag("Enemy"))
+        {
+            firstHit = true;
+
+            // Search the character's GameObject and all children for the SphereCollider
+            SphereCollider[] colliders = this.GetComponentsInChildren<SphereCollider>();
+            foreach (SphereCollider col in colliders)
+            {
+                if (col.isTrigger)
+                {
+                    // Triples the aggro radius
+                    col.radius *= 3f;
+                    break; // Only resize the first trigger sphere found
+                }
+            }
+        }
 
         if (currentHealth <= 0)
         {
