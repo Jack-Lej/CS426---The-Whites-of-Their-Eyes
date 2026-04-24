@@ -964,34 +964,6 @@ MonoBehaviour:
   sourceObj: {fileID: 5638529627030970297}
   gunElevationAngle: 60
   gunDepressionAngle: -60
-<<<<<<< Updated upstream
-=======
---- !u!114 &8578173097673838546
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2508907632500027610}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4d1ee577cc8d26a48930d7624153fb6d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Character
-  maxHealth: 800
-  currentHealth: 0
-  onDeath:
-    m_PersistentCalls:
-      m_Calls: []
-  onDamageTaken:
-    m_PersistentCalls:
-      m_Calls: []
-  audioSource: {fileID: 0}
-  damageClips:
-  - {fileID: 8300000, guid: 1a044edc7032788439ca268c9cee3e64, type: 3}
-  - {fileID: 8300000, guid: fba0772eac8543f4d98382d7021fa718, type: 3}
-  healthBar: {fileID: 4062485093391334567}
->>>>>>> Stashed changes
 --- !u!54 &4998757660715655064
 Rigidbody:
   m_ObjectHideFlags: 0
