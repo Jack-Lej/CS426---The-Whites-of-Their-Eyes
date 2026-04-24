@@ -503,8 +503,8 @@ MonoBehaviour:
   reloadTime: 3000
   fireDelay: 1500
   weaponName: Rocket Launcher
-  weaponWeight: 30
-  ammoWeight: 0.75
+  weaponWeight: 40
+  ammoWeight: 1
   projectileVelocity: 1000
   crosshair: {fileID: 0}
   manager: {fileID: 0}

@@ -302,7 +302,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f17e309a0a8879e42826cda6e5533af4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Shotgun
-  reserveAmmo: 50
+  reserveAmmo: 75
   magazineSize: 5
   reloadTime: 1000
   fireDelay: 1200

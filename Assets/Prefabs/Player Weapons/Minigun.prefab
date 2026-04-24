@@ -1327,7 +1327,7 @@ MonoBehaviour:
   fireDelay: 40
   weaponName: Minigun
   weaponWeight: 60
-  ammoWeight: 0.01
+  ammoWeight: 0.03
   projectileVelocity: 2000
   crosshair: {fileID: 0}
   manager: {fileID: 0}
