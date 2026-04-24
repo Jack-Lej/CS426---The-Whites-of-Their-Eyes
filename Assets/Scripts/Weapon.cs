@@ -127,6 +127,11 @@ public class Weapon : MonoBehaviour
         return string.Concat(weaponName, " ammo: ", currAmmo.ToString(), "/", magazineSize.ToString(), "\nReserve Ammo: ", reserveAmmo.ToString());
     }
 
+    public bool NoAmmoRemaining()
+    {
+        return (currAmmo == 0 && reserveAmmo == 0);
+    }
+
     public string GetWeaponName()
         {return weaponName;}
 

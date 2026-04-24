@@ -660,13 +660,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e385437650a72d24cbed382dcb3c3dde, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Weapon
-  reserveAmmo: 21
+  reserveAmmo: 24
   magazineSize: 3
   reloadTime: 5000
   fireDelay: 3000
   weaponName: Shpere of Doom Launcher
-  weaponWeight: 40
-  ammoWeight: 2
+  weaponWeight: 50
+  ammoWeight: 2.5
   projectileVelocity: 1200
   crosshair: {fileID: 0}
   manager: {fileID: 0}

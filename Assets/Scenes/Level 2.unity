@@ -9602,7 +9602,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::LevelManager
   nextLevel: 3
-  maxWeight: 150
+  maxWeight: 75
   levelExitBarrier: {fileID: 1291421168}
   nextLevelTrigger: {fileID: 1848344661}
 --- !u!1 &1860876778
