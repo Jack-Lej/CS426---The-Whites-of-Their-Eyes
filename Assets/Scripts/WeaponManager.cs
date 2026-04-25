@@ -84,6 +84,11 @@ public class WeaponManager : MonoBehaviour
         weaponArr[7] = weapon7;
         weaponArr[8] = weapon8;
         weaponArr[9] = weapon9;
+        for(int i = 0; i < 10; i++)
+        {
+            if(weaponArr[i] != null)
+                weaponArr[i].SleepWeapon();
+        }
         activeWeapon = weapon1;
         activeWeapon.WakeWeapon();
         activeWeaponNum = 1;
@@ -239,7 +244,7 @@ public class WeaponManager : MonoBehaviour
             totalWeight += w.GetWeaponWeight();    
         }
 
-        totalWeight += 1*numHealthKits; //include health kit weight here
+        totalWeight += 2*numHealthKits; //include health kit weight here
 
         weightText.text = string.Concat("Weight: ", totalWeight);
     }
@@ -275,6 +280,10 @@ public class WeaponManager : MonoBehaviour
             {
                 shootTimer = DateTime.Now.AddMilliseconds(activeWeapon.GetWeaponFireDelay());
                 weaponText.text = activeWeapon.FireWeapon();
+                if(activeWeapon.NoAmmoRemaining())
+                {
+                    DropWeapon(activeWeaponNum);
+                }
                 if(activeWeapon.GetCurrentAmmo() == 0)
                     {reloadNowText.alpha = 1;}
             }
@@ -304,10 +313,7 @@ public class WeaponManager : MonoBehaviour
             else if(Input.GetButtonDown("Switch Weapon 9"))
                 SwitchWeapon(9);
             else if(Input.GetButtonDown("Switch Weapon Q"))  
-            {  
-                Debug.Log("here");
                 SwitchWeapon(-1);
-            }
             else if (Input.GetButtonDown("Switch Weapon E"))
                 SwitchWeapon(0);  
             else if(Input.GetButtonDown("Use Health Kit"))

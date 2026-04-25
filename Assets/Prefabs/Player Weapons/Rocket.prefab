@@ -471,7 +471,7 @@ MonoBehaviour:
   explosionGraphic: {fileID: 100006, guid: 64e1ddf73de67f748aadc65e760e32f9, type: 3}
   layerMask:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 1024
 --- !u!82 &-203791501416412496
 AudioSource:
   m_ObjectHideFlags: 0

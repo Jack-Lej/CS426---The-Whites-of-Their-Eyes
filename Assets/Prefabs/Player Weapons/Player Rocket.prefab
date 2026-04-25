@@ -129,7 +129,7 @@ GameObject:
   - component: {fileID: 1931227507022522192}
   - component: {fileID: 7748725263288296514}
   m_Layer: 7
-  m_Name: Rocket
+  m_Name: Player Rocket
   m_TagString: Bullet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -143,8 +143,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3096739852597059259}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -2.607, y: 1.328, z: 4.539}
+  m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.13, y: 0.2, z: 0.13}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -155,7 +155,7 @@ Transform:
   - {fileID: 3667228758587193566}
   - {fileID: 4022877001264662932}
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
 --- !u!33 &5512305623833287152
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -300,14 +300,14 @@ MonoBehaviour:
   explosion: {fileID: 100006, guid: 28ccd38a41e256a4e8fea96f5a8d039d, type: 3}
   Explodable:
     serializedVersion: 2
-    m_Bits: 1088
+    m_Bits: 64
   bounciness: 0
-  useGravity: 0
-  explosionDamage: 12
-  directHitDamage: 0
+  useGravity: 1
+  explosionDamage: 8
+  directHitDamage: 4
   isExplosive: 1
   explosionRange: 3
-  explosionForce: 5
+  explosionForce: 200
   maxCollisions: 1
   maxLifetime: 5
   explodeOnTouch: 1

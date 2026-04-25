@@ -126,10 +126,10 @@ GameObject:
   - component: {fileID: 6664990658411161814}
   - component: {fileID: 1080925676737287368}
   - component: {fileID: 7418822520891244227}
-  - component: {fileID: 1931227507022522192}
+  - component: {fileID: 5415001985111447853}
   - component: {fileID: 7748725263288296514}
   m_Layer: 7
-  m_Name: Rocket
+  m_Name: Parabolic_Rocket
   m_TagString: Bullet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -284,7 +284,7 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1.0000001, y: 3.973592, z: 1.0000008}
   m_Center: {x: 0.000000062088176, y: 0.98679626, z: -0.000000093132265}
---- !u!114 &1931227507022522192
+--- !u!114 &5415001985111447853
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -293,24 +293,27 @@ MonoBehaviour:
   m_GameObject: {fileID: 3096739852597059259}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: af2e68d1d6764e646b50f1a4d1be9be9, type: 3}
+  m_Script: {fileID: 11500000, guid: 27f75c8733b23134cba77305eb1b69fc, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: '::'
+  m_EditorClassIdentifier: Assembly-CSharp::ParabolicBullet
   rb: {fileID: 1080925676737287368}
-  explosion: {fileID: 100006, guid: 28ccd38a41e256a4e8fea96f5a8d039d, type: 3}
+  explosion: {fileID: 674140336206702316, guid: 953ae5461bf74f743bc7abba4d78da20, type: 3}
   Explodable:
     serializedVersion: 2
-    m_Bits: 1088
+    m_Bits: 64
   bounciness: 0
   useGravity: 0
-  explosionDamage: 12
+  explosionDamage: 200
   directHitDamage: 0
   isExplosive: 1
-  explosionRange: 3
-  explosionForce: 5
-  maxCollisions: 1
-  maxLifetime: 5
-  explodeOnTouch: 1
+  explosionRange: 6
+  explosionForce: 200
+  maxCollisions: 4
+  maxLifetime: 6
+  explodeOnTouch: 0
+  useParabolicMovement: 1
+  bulletSpeed: 120
+  bulletGravity: 10
 --- !u!96 &7748725263288296514
 TrailRenderer:
   serializedVersion: 4

@@ -74,15 +74,26 @@ public class CP_Gun : Gun
         float x = Random.Range(-spread, spread);
         float y = Random.Range(-spread, spread);
 
-        Vector3 directionWithSpread = directionWithoutSpread + new Vector3(x, y, 0);
+        Vector3 directionWithSpread = (directionWithoutSpread + new Vector3(x, y, 0)).normalized;
         // Rotates bullet so that it is facing the direction it is shooting
-        Quaternion directionRotation = Quaternion.LookRotation(directionWithSpread.normalized);
+        Quaternion directionRotation = Quaternion.LookRotation(directionWithSpread);
         Quaternion offsetRotation = Quaternion.Euler(90, 0, 0);
         GameObject currentBullet = Instantiate(bullet, attackPoint.position, directionRotation * offsetRotation);
         playRandomSound(shootClips);
 
-        currentBullet.GetComponent<Rigidbody>().AddForce(directionWithSpread.normalized * shootForce, ForceMode.Impulse);
-        currentBullet.GetComponent<Rigidbody>().AddForce(attackPoint.up * upwardForce, ForceMode.Impulse);
+        // currentBullet.GetComponent<Rigidbody>().AddForce(directionWithSpread.normalized * shootForce, ForceMode.Impulse);
+        // currentBullet.GetComponent<Rigidbody>().AddForce(attackPoint.up * upwardForce, ForceMode.Impulse);
+
+        ParabolicBullet parabolicBullet = currentBullet.GetComponent<ParabolicBullet>();
+        if (parabolicBullet != null && parabolicBullet.useParabolicMovement)
+        {
+            parabolicBullet.InitializeParabola(attackPoint.position, directionWithSpread);
+        } else
+        {
+            Rigidbody bulletRb = currentBullet.GetComponent<Rigidbody>();
+            bulletRb.AddForce(directionWithSpread.normalized * shootForce, ForceMode.Impulse);
+            bulletRb.AddForce(attackPoint.up * upwardForce, ForceMode.Impulse);
+        }
 
         // If there is a muzzle flash animation, instantiate it at the attack point
         if (muzzleFlash != null)

@@ -14,6 +14,7 @@ public class Character : MonoBehaviour
     [SerializeField] private AudioClip[] damageClips;
 
     [SerializeField] protected HealthBar healthBar;
+    private bool firstHit = false;
 
     void Awake()
     {
@@ -57,12 +58,29 @@ public class Character : MonoBehaviour
     {
         if(damageClips != null && damageClips.Length > 0)
             PlayRandomDamageSound();
-        // Debug.Log("In TakeDamage");
         if (currentHealth <= 0) return; // Already dead, ignore further damage
         currentHealth -= damage;
         onDamageTaken.Invoke(damage);
         healthBar.updateHealthBar(currentHealth, maxHealth);
         Debug.Log(gameObject.name + " took " + damage + ". HP: " + currentHealth);
+
+        // Increases enemy aggro range on first hit
+        if (!firstHit && this.gameObject.CompareTag("Enemy"))
+        {
+            firstHit = true;
+
+            // Search the character's GameObject and all children for the SphereCollider
+            SphereCollider[] colliders = this.GetComponentsInChildren<SphereCollider>();
+            foreach (SphereCollider col in colliders)
+            {
+                if (col.isTrigger)
+                {
+                    // Triples the aggro radius
+                    col.radius *= 3f;
+                    break; // Only resize the first trigger sphere found
+                }
+            }
+        }
 
         if (currentHealth <= 0)
         {
@@ -80,24 +98,4 @@ public class Character : MonoBehaviour
             healthBar.updateHealthBar(currentHealth, maxHealth);
         }
     }
-
-    // private void OnCollisionEnter(Collision collision)
-    // {
-    //     if (collision.gameObject.CompareTag("Projectile"))
-    //     {
-    //         Debug.Log(gameObject.name + " collided.");
-    //         Projectile p = collision.gameObject.GetComponent<Projectile>();
-    //         this.TakeDamage(p.GetDamage());
-    //     }
-    // }
-
-    // private void OnTriggerEnter(Collider collision)
-    // {
-    //     if(collision.gameObject.CompareTag("Projectile"))
-    //     {
-    //         Debug.Log(gameObject.name + " triggered.");
-    //         Projectile p = collision.gameObject.GetComponent<Projectile>();
-    //         this.TakeDamage(p.GetDamage());
-    //     }
-    // }
 }

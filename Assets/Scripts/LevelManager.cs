@@ -59,11 +59,13 @@ public class LevelManager : MonoBehaviour
                 discardManager.HideLevelWeightText();
                 collider.GetComponent<CharacterController>().enabled = false;
                 collider.transform.position = new Vector3(-80.5f, 8.55f, -11.7f);
+                collider.transform.Rotate(0.0f, 180.0f, 0.0f, Space.Self);
                 collider.GetComponent<CharacterController>().enabled = true;
             }
             else if(nextLevel == 4)
             {
                 playerController.ToggleLockCursor();
+                Destroy(player);
                 SceneManager.LoadScene("Credits");
             }
             else if(nextLevel == 0)
@@ -79,15 +81,10 @@ public class LevelManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Debug.Log(GameObject.FindGameObjectsWithTag("Enemy").Length);
         if(GameObject.FindGameObjectsWithTag("Enemy").Length == 0)
         {
-            Debug.Log(infoUpdated);
-            Debug.Log(levelUnlocked);
-            Debug.Log(weaponManager.GetTotalWeight());
             if(!infoUpdated)
             {
-                Debug.Log("In info");
                 discardManager.DisplayLevelWeightText(maxWeight);
                 infoUpdated = true;
             }

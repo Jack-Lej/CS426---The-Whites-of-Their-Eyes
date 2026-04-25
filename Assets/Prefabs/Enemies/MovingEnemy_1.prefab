@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 928908203966805004}
   m_Layer: 10
   m_Name: Cylinder (2)
-  m_TagString: Enemy
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -128,7 +128,7 @@ GameObject:
   - component: {fileID: 3669793194267620095}
   m_Layer: 10
   m_Name: Cube
-  m_TagString: Enemy
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -331,59 +331,6 @@ MonoBehaviour:
   slider: {fileID: 649240957995166886}
   target: {fileID: 4223706589958335423}
   offset: {x: 0, y: 1, z: 0}
---- !u!1 &1071816273714628316
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 2132341878066347120}
-  - component: {fileID: 1446275192364539668}
-  m_Layer: 10
-  m_Name: ProximityCollider
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &2132341878066347120
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1071816273714628316}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 4223706589958335423}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!135 &1446275192364539668
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1071816273714628316}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 1
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Radius: 20
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &1269599432654229085
 GameObject:
   m_ObjectHideFlags: 0
@@ -395,7 +342,7 @@ GameObject:
   - component: {fileID: 7338275338958251657}
   m_Layer: 10
   m_Name: face
-  m_TagString: Enemy
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -436,7 +383,7 @@ GameObject:
   - component: {fileID: 4043948936246172095}
   m_Layer: 10
   m_Name: Cube
-  m_TagString: Enemy
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -549,7 +496,7 @@ GameObject:
   - component: {fileID: 6036711661698144408}
   m_Layer: 10
   m_Name: Capsule
-  m_TagString: Enemy
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -777,7 +724,7 @@ GameObject:
   - component: {fileID: 8656505275607555766}
   m_Layer: 10
   m_Name: Cylinder (3)
-  m_TagString: Enemy
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -887,12 +834,13 @@ GameObject:
   m_Component:
   - component: {fileID: 4223706589958335423}
   - component: {fileID: 5274798509566877304}
+  - component: {fileID: 8578173097673838546}
   - component: {fileID: 6539147753556803075}
   - component: {fileID: 147988645765131762}
-  - component: {fileID: 8578173097673838546}
   - component: {fileID: 4998757660715655064}
   - component: {fileID: 846571878113478453}
   - component: {fileID: 3699157863041904017}
+  - component: {fileID: 6142754162537941}
   m_Layer: 10
   m_Name: MovingEnemy_1
   m_TagString: Enemy
@@ -914,7 +862,6 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1136895281870631970}
-  - {fileID: 2132341878066347120}
   - {fileID: 4954171046205841269}
   - {fileID: 6500882330490859410}
   - {fileID: 7338275338958251657}
@@ -942,6 +889,31 @@ NavMeshAgent:
   m_BaseOffset: 1
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
+--- !u!114 &8578173097673838546
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2508907632500027610}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4d1ee577cc8d26a48930d7624153fb6d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Character
+  maxHealth: 200
+  currentHealth: 0
+  onDeath:
+    m_PersistentCalls:
+      m_Calls: []
+  onDamageTaken:
+    m_PersistentCalls:
+      m_Calls: []
+  audioSource: {fileID: 846571878113478453}
+  damageClips:
+  - {fileID: 8300000, guid: 1a044edc7032788439ca268c9cee3e64, type: 3}
+  - {fileID: 8300000, guid: fba0772eac8543f4d98382d7021fa718, type: 3}
+  healthBar: {fileID: 4062485093391334567}
 --- !u!114 &6539147753556803075
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -959,9 +931,9 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 5207b2a445fcb144281ab5395fe95c1d, type: 3}
   - {fileID: 8300000, guid: 1e940d15337ad1e43b0cc1b2430d7c06, type: 3}
   - {fileID: 8300000, guid: 70c97e425596b8142b7b9163256c0868, type: 3}
-  bullet: {fileID: 3096739852597059259, guid: ff34e7a255efec4429f98b21686d4bd5, type: 3}
+  bullet: {fileID: 3096739852597059259, guid: 296ca8546fe611d4585aee835158dc52, type: 3}
   shootForce: 40
-  upwardForce: 0
+  upwardForce: -1
   spread: 0.5
   timeBetweenShooting: 0.1
   timeBetweenShots: 0
@@ -994,29 +966,6 @@ MonoBehaviour:
   sourceObj: {fileID: 5638529627030970297}
   gunElevationAngle: 60
   gunDepressionAngle: -60
---- !u!114 &8578173097673838546
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2508907632500027610}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4d1ee577cc8d26a48930d7624153fb6d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Character
-  maxHealth: 200
-  currentHealth: 0
-  onDeath:
-    m_PersistentCalls:
-      m_Calls: []
-  onDamageTaken:
-    m_PersistentCalls:
-      m_Calls: []
-  audioSource: {fileID: 846571878113478453}
-  damageClips: []
-  healthBar: {fileID: 4062485093391334567}
 --- !u!54 &4998757660715655064
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -1156,6 +1105,27 @@ MonoBehaviour:
   duration: 2
   strength: 0
   character: {fileID: 8578173097673838546}
+--- !u!135 &6142754162537941
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2508907632500027610}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Radius: 25
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &3146991429218860427
 GameObject:
   m_ObjectHideFlags: 0
@@ -1170,7 +1140,7 @@ GameObject:
   - component: {fileID: 5995066966265527914}
   m_Layer: 10
   m_Name: Cylinder
-  m_TagString: Enemy
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1284,7 +1254,7 @@ GameObject:
   - component: {fileID: 1526049601669066351}
   m_Layer: 10
   m_Name: Cube (2)
-  m_TagString: Enemy
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1471,7 +1441,7 @@ GameObject:
   - component: {fileID: 5035331906746321930}
   m_Layer: 10
   m_Name: Cube (3)
-  m_TagString: Enemy
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1658,7 +1628,7 @@ GameObject:
   - component: {fileID: 1015947998123253932}
   m_Layer: 10
   m_Name: Cylinder (4)
-  m_TagString: Enemy
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1772,7 +1742,7 @@ GameObject:
   - component: {fileID: 84898980196579930}
   m_Layer: 10
   m_Name: Cylinder (1)
-  m_TagString: Enemy
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1886,7 +1856,7 @@ GameObject:
   - component: {fileID: 6445988802045491443}
   m_Layer: 10
   m_Name: Cylinder
-  m_TagString: Enemy
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1997,7 +1967,7 @@ GameObject:
   - component: {fileID: 1739585838191329480}
   m_Layer: 10
   m_Name: Barrel_exit
-  m_TagString: Enemy
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2031,7 +2001,7 @@ GameObject:
   - component: {fileID: 9173306769587547488}
   m_Layer: 10
   m_Name: Cylinder (2)
-  m_TagString: Enemy
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2145,7 +2115,7 @@ GameObject:
   - component: {fileID: 3174590182012943241}
   m_Layer: 10
   m_Name: Cylinder (3)
-  m_TagString: Enemy
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2256,7 +2226,7 @@ GameObject:
   - component: {fileID: 6500882330490859410}
   m_Layer: 10
   m_Name: Right_Gun
-  m_TagString: Enemy
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2297,7 +2267,7 @@ GameObject:
   - component: {fileID: 4900189342744171569}
   m_Layer: 10
   m_Name: Cube (2)
-  m_TagString: Enemy
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

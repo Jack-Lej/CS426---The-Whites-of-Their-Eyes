@@ -14,10 +14,10 @@ GameObject:
   - component: {fileID: 6664990658411161814}
   - component: {fileID: 1080925676737287368}
   - component: {fileID: 7418822520891244227}
-  - component: {fileID: 1931227507022522192}
+  - component: {fileID: 8892027375945483794}
   - component: {fileID: 7748725263288296514}
   m_Layer: 7
-  m_Name: Bullet
+  m_Name: Parabolic_Bullet
   m_TagString: Projectile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -113,7 +113,7 @@ CapsuleCollider:
   m_LayerOverridePriority: 0
   m_IsTrigger: 0
   m_ProvidesContacts: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_Radius: 0.5000001
   m_Height: 2
@@ -161,13 +161,13 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
   m_Size: {x: 1.0000001, y: 3.973592, z: 1.0000008}
   m_Center: {x: 0.000000062088176, y: 0.98679626, z: -0.000000093132265}
---- !u!114 &1931227507022522192
+--- !u!114 &8892027375945483794
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -176,11 +176,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 3096739852597059259}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: af2e68d1d6764e646b50f1a4d1be9be9, type: 3}
+  m_Script: {fileID: 11500000, guid: 27f75c8733b23134cba77305eb1b69fc, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: '::'
+  m_EditorClassIdentifier: Assembly-CSharp::ParabolicBullet
   rb: {fileID: 1080925676737287368}
-  explosion: {fileID: 674140336206702316, guid: d2a2c89fe56d9a549aaeac1c8bfb79db, type: 3}
+  explosion: {fileID: 674140336206702316, guid: 71b1de9d66b604b4592c0dd09d998737, type: 3}
   Explodable:
     serializedVersion: 2
     m_Bits: 0
@@ -189,11 +189,14 @@ MonoBehaviour:
   explosionDamage: 0
   directHitDamage: 10
   isExplosive: 0
-  explosionRange: 0.5
-  explosionForce: 1
-  maxCollisions: 1
+  explosionRange: 0
+  explosionForce: 0
+  maxCollisions: 0
   maxLifetime: 5
-  explodeOnTouch: 0
+  explodeOnTouch: 1
+  useParabolicMovement: 1
+  bulletSpeed: 40
+  bulletGravity: 1
 --- !u!96 &7748725263288296514
 TrailRenderer:
   serializedVersion: 4
@@ -342,7 +345,6 @@ GameObject:
   - component: {fileID: 2747390308681797287}
   - component: {fileID: 7266464184461763667}
   - component: {fileID: 321268056309762247}
-  - component: {fileID: 1107114098402802796}
   m_Layer: 0
   m_Name: Tip
   m_TagString: Untagged
@@ -422,26 +424,3 @@ MeshRenderer:
   m_SortingOrder: 0
   m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!136 &1107114098402802796
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5780517377042677635}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.5
-  m_Height: 2
-  m_Direction: 1
-  m_Center: {x: 0, y: 0, z: 0}

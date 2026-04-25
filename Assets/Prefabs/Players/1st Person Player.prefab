@@ -3071,7 +3071,7 @@ MonoBehaviour:
       m_Calls: []
   m_text: 'Minigun (5):
 
-    Damage: 20
+    Damage: 15
 
     Fire Rate: 25 shots/sec
 
@@ -3080,7 +3080,7 @@ MonoBehaviour:
 
     Reload Time: n/a
 
-    Weight: 60, 0.01/round'
+    Weight: 60, 0.03/round'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -4842,7 +4842,7 @@ MonoBehaviour:
       m_Calls: []
   m_text: 'Sphere of Doom Launcher (6):
 
-    Damage: 1000
+    Damage: 600
 
     Fire Rate: 0.33 shots/sec
 
@@ -4851,7 +4851,7 @@ MonoBehaviour:
 
     Reload Time: 5 seconds
 
-    Weight: 40, 2/round'
+    Weight: 40, 2.5/round'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -7760,7 +7760,7 @@ MonoBehaviour:
       m_Calls: []
   m_text: 'Rocket Launcher (4):
 
-    Damage: 200 contact + 200 explosion
+    Damage: 100 contact + up to 200 explosion
 
     Fire
     Rate: 0.66 shots/sec
@@ -7770,7 +7770,7 @@ MonoBehaviour:
     Reload Time: 3 seconds
 
     Weight:
-    30, 0.75/rocket'
+    40, 1/rocket'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -8084,7 +8084,7 @@ MonoBehaviour:
       m_Calls: []
   m_text: 'Railgun (3):
 
-    Damage: 400
+    Damage: 300
 
     Fire Rate: n/a
 
@@ -12143,7 +12143,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -860, y: 0}
+  m_AnchoredPosition: {x: -700, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &7438611996081056384
@@ -14233,7 +14233,7 @@ MonoBehaviour:
       m_Calls: []
   m_text: 'Rifle (2):
 
-    Damage: 10
+    Damage: 15
 
     Fire Rate: 11.1 shots/sec
 
@@ -14242,7 +14242,7 @@ MonoBehaviour:
 
     Reload Time: 1.2 seconds
 
-    Weight: 20, 0.01/round'
+    Weight: 15, 0.03/round'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -14749,12 +14749,16 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 8300000, guid: 1408c724633acb74cbcf8d2b870a6aae, type: 3}
     - target: {fileID: 3575016084419291941, guid: 517b1f86209d9454b8bae3cc2006edb2, type: 3}
+      propertyPath: reserveAmmo
+      value: 70
+      objectReference: {fileID: 0}
+    - target: {fileID: 3575016084419291941, guid: 517b1f86209d9454b8bae3cc2006edb2, type: 3}
       propertyPath: dryFireSound
       value: 
       objectReference: {fileID: 8300000, guid: 77ac2bd50e2a4c44a94feebdbc7f18fd, type: 3}
     - target: {fileID: 3575016084419291941, guid: 517b1f86209d9454b8bae3cc2006edb2, type: 3}
       propertyPath: projectileVelocity
-      value: 800
+      value: 900
       objectReference: {fileID: 0}
     - target: {fileID: 5437604628233501832, guid: 517b1f86209d9454b8bae3cc2006edb2, type: 3}
       propertyPath: m_Name
@@ -15436,7 +15440,7 @@ PrefabInstance:
       objectReference: {fileID: 8300000, guid: 931daaa40af4f0a43b21a5fba424cdc7, type: 3}
     - target: {fileID: 1141665082976243365, guid: b868ebcce17b14a439b7292a1440bdd4, type: 3}
       propertyPath: ammoWeight
-      value: 0.02
+      value: 0.03
       objectReference: {fileID: 0}
     - target: {fileID: 1141665082976243365, guid: b868ebcce17b14a439b7292a1440bdd4, type: 3}
       propertyPath: weaponName
@@ -15450,6 +15454,10 @@ PrefabInstance:
       propertyPath: reloadSound
       value: 
       objectReference: {fileID: 8300000, guid: ec069cc858c14be428a84dfddcc85fc5, type: 3}
+    - target: {fileID: 1141665082976243365, guid: b868ebcce17b14a439b7292a1440bdd4, type: 3}
+      propertyPath: reserveAmmo
+      value: 600
+      objectReference: {fileID: 0}
     - target: {fileID: 1141665082976243365, guid: b868ebcce17b14a439b7292a1440bdd4, type: 3}
       propertyPath: dryFireSound
       value: 

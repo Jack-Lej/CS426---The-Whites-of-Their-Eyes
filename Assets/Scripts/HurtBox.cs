@@ -3,13 +3,14 @@ using UnityEngine;
 public class HurtBox : MonoBehaviour
 {
     internal Character character;
+    private bool firstHit = false;
 
     void Start()
     {
         character = GetComponentInParent<Character>();
     }
 
-
+    /*
     // For physics-based projectiles (Rigidbody + non-trigger collider)
     private void OnCollisionEnter(Collision collision)
     {
@@ -30,7 +31,7 @@ public class HurtBox : MonoBehaviour
             return;
         }
         Debug.Log("Collided with " + collision.gameObject.name);
-    }
+    } */
 
     // For trigger-based projectiles and hitboxes
     private void OnTriggerEnter(Collider other)
@@ -57,5 +58,21 @@ public class HurtBox : MonoBehaviour
     {
         if (character != null && character.currentHealth > 0)
             character.TakeDamage(damage);
+        
+        if (!firstHit && character.gameObject.CompareTag("Enemy"))
+        {
+            firstHit = true;
+
+            // Search the character's GameObject and all children for the SphereCollider
+            SphereCollider[] colliders = character.GetComponentsInChildren<SphereCollider>();
+            foreach (SphereCollider col in colliders)
+            {
+                if (col.isTrigger)
+                {
+                    col.radius *= 3f;
+                    break; // Only resize the first trigger sphere found
+                }
+            }
+        }
     }
 }

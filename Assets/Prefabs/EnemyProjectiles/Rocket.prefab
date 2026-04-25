@@ -302,9 +302,9 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 64
   bounciness: 0
-  useGravity: 0
+  useGravity: 1
   explosionDamage: 8
-  directHitDamage: 0
+  directHitDamage: 4
   isExplosive: 1
   explosionRange: 3
   explosionForce: 200
