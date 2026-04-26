@@ -463,8 +463,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aa7f450b41e3aca4c9c2efd3f1c7ea89, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Rocket
-  damage: 100
-  explosionDamage: 200
+  damage: 150
+  explosionDamage: 100
   explosionRadius: 2
   explodeSound: {fileID: 8300000, guid: eeef477b490b10e4e860e6ee887b6c36, type: 3}
   audioSource: {fileID: -203791501416412496}

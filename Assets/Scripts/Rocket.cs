@@ -27,6 +27,7 @@ public class Rocket : Projectile
     void ExplodeNonAlloc()
     {
         int numColliders = Physics.OverlapSphereNonAlloc(transform.position, explosionRadius, colliders, layerMask);
+        
         if (numColliders > 0)
         {
             for (int i = 0; i < numColliders; i++)
@@ -36,7 +37,7 @@ public class Rocket : Projectile
                 {
                     Character c = colliders[i].gameObject.GetComponent<Character>();
                     float vec = Vector3.Distance(this.transform.position, col.transform.position);
-                    //Explosion damage is determined by distance from the explosion
+                    //Explosion damage is determined by distance from the explosion, and the number of enemies in the explosion
                     if(vec <= trueExplosionRadius)
                         c.TakeDamage((int) Mathf.Round(explosionDamage * ((trueExplosionRadius-vec)/trueExplosionRadius)));
                 }
